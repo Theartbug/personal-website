@@ -1,27 +1,38 @@
-import React, { PureComponent } from 'react';
-import { getLanguages } from '../../services/githubAPI';
+import React, { PureComponent, Fragment } from 'react';
+import { getLanguagesAndLibraries } from '../../services/githubAPI';
 
 export default class Github extends PureComponent {
 
   state = {
-    languages: null
+    languages: null,
+    libraries: null
   };
 
   componentDidMount() {
-    getLanguages()
-      .then(result => this.setState({ languages: result }));
+    // getLanguages()
+    //   .then(result => this.setState({ languages: result }));
+    getLanguagesAndLibraries()
+      .then(result => this.setState({ languages: result.languages, libraries: result.libraries }));
+      
   }
 
   render() {
       
-    const { languages } = this.state;
+    const { languages, libraries } = this.state;
 
-    if(!languages) return null;
+    if(!languages && !libraries) return null;
 
     return (
-      <div>
-        {Object.keys(languages).map((l, i) => <pre key={i}>{l}: {languages[l]}</pre>)}
-      </div>
+      <Fragment>
+        <h3>Languages</h3>
+        <ul>
+          {Object.keys(languages).map((l, i) => <li key={i}>{l}: {languages[l]}</li>)}
+        </ul>
+        <h3>Libraries</h3>        
+        <ul>
+          {Object.keys(libraries).map((l, i) => <li key={i}>{l}: {libraries[l]}</li>)}
+        </ul>
+      </Fragment>
     );
   }
 }
