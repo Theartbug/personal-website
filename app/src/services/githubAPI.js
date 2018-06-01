@@ -16,12 +16,14 @@ export const getLanguagesAndLibraries = () => {
     });
 };
 
-const getRepos = (options) => {
+export const getRepos = (options) => {
   const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-  return getCORS(url, options);
+  return getCORS(url, options)
+    .catch(err => console.log(err));
 };
 
-const findLibraries = async(repos) => {
+export const findLibraries = async(repos) => {
+
   const seen = {
     react: 0,
     webpack: 0,
@@ -30,9 +32,10 @@ const findLibraries = async(repos) => {
     firebase: 0,
     node: 0
   };
+
   const promises = repos.map(repo => 
     //fetch content list for each repo
-    getCORS(`${BASE_URL}/repos/theartbug/${repo.name}/git/trees/master?recursive=1`, options)
+    getRepoContent(repo.name)
       .then(list => {
         //find the index of the package.json in the tree
         const packageJSONIndex = list.tree.findIndex(item => item.path.includes('package.json'));
@@ -42,7 +45,7 @@ const findLibraries = async(repos) => {
         seen.node++;
 
         //get the contents of the package.json
-        return getCORS(list.tree[packageJSONIndex].url, options)
+        return getPackageJson(list.tree[packageJSONIndex].url)
           .then(encoded => {
 
             //convert from base64 then stringify
@@ -61,10 +64,14 @@ const findLibraries = async(repos) => {
 
   await Promise.all(promises);
   return seen;
-
+  
 };
 
-const findLanguages = async(repos) => {
+export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
+
+export const getPackageJson = (url) => getCORS(url, options);
+
+export const findLanguages = async(repos) => {
   const seen = {};
   const promises = repos.map(repo => 
     getCORS(repo.languages_url, options)
