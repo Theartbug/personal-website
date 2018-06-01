@@ -14,6 +14,98 @@ describe('languages and libraries async spec', () => {
     { name: 'three' }
   ];
 
+  const repo = [{
+    'id': 116049040,
+    'name': 'pokepersonality',
+    'full_name': 'Theartbug/pokepersonality',
+    'owner': {
+      'login': 'Theartbug',
+      'id': 26826831,
+      'avatar_url': 'https://avatars0.githubusercontent.com/u/26826831?v=4',
+      'gravatar_id': '',
+      'url': 'https://api.github.com/users/Theartbug',
+      'html_url': 'https://github.com/Theartbug',
+      'followers_url': 'https://api.github.com/users/Theartbug/followers',
+      'following_url': 'https://api.github.com/users/Theartbug/following{/other_user}',
+      'gists_url': 'https://api.github.com/users/Theartbug/gists{/gist_id}',
+      'starred_url': 'https://api.github.com/users/Theartbug/starred{/owner}{/repo}',
+      'subscriptions_url': 'https://api.github.com/users/Theartbug/subscriptions',
+      'organizations_url': 'https://api.github.com/users/Theartbug/orgs',
+      'repos_url': 'https://api.github.com/users/Theartbug/repos',
+      'events_url': 'https://api.github.com/users/Theartbug/events{/privacy}',
+      'received_events_url': 'https://api.github.com/users/Theartbug/received_events',
+      'type': 'User',
+      'site_admin': false
+    },
+    'private': false,
+    'html_url': 'https://github.com/Theartbug/pokepersonality',
+    'description': null,
+    'fork': false,
+    'url': 'https://api.github.com/repos/Theartbug/pokepersonality',
+    'forks_url': 'https://api.github.com/repos/Theartbug/pokepersonality/forks',
+    'keys_url': 'https://api.github.com/repos/Theartbug/pokepersonality/keys{/key_id}',
+    'collaborators_url': 'https://api.github.com/repos/Theartbug/pokepersonality/collaborators{/collaborator}',
+    'teams_url': 'https://api.github.com/repos/Theartbug/pokepersonality/teams',
+    'hooks_url': 'https://api.github.com/repos/Theartbug/pokepersonality/hooks',
+    'issue_events_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues/events{/number}',
+    'events_url': 'https://api.github.com/repos/Theartbug/pokepersonality/events',
+    'assignees_url': 'https://api.github.com/repos/Theartbug/pokepersonality/assignees{/user}',
+    'branches_url': 'https://api.github.com/repos/Theartbug/pokepersonality/branches{/branch}',
+    'tags_url': 'https://api.github.com/repos/Theartbug/pokepersonality/tags',
+    'blobs_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/blobs{/sha}',
+    'git_tags_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/tags{/sha}',
+    'git_refs_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/trees{/sha}',
+    'statuses_url': 'https://api.github.com/repos/Theartbug/pokepersonality/statuses/{sha}',
+    'languages_url': 'https://api.github.com/repos/Theartbug/pokepersonality/languages',
+    'stargazers_url': 'https://api.github.com/repos/Theartbug/pokepersonality/stargazers',
+    'contributors_url': 'https://api.github.com/repos/Theartbug/pokepersonality/contributors',
+    'subscribers_url': 'https://api.github.com/repos/Theartbug/pokepersonality/subscribers',
+    'subscription_url': 'https://api.github.com/repos/Theartbug/pokepersonality/subscription',
+    'commits_url': 'https://api.github.com/repos/Theartbug/pokepersonality/commits{/sha}',
+    'git_commits_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/commits{/sha}',
+    'comments_url': 'https://api.github.com/repos/Theartbug/pokepersonality/comments{/number}',
+    'issue_comment_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues/comments{/number}',
+    'contents_url': 'https://api.github.com/repos/Theartbug/pokepersonality/contents/{+path}',
+    'compare_url': 'https://api.github.com/repos/Theartbug/pokepersonality/compare/{base}...{head}',
+    'merges_url': 'https://api.github.com/repos/Theartbug/pokepersonality/merges',
+    'archive_url': 'https://api.github.com/repos/Theartbug/pokepersonality/{archive_format}{/ref}',
+    'downloads_url': 'https://api.github.com/repos/Theartbug/pokepersonality/downloads',
+    'issues_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues{/number}',
+    'pulls_url': 'https://api.github.com/repos/Theartbug/pokepersonality/pulls{/number}',
+    'milestones_url': 'https://api.github.com/repos/Theartbug/pokepersonality/milestones{/number}',
+    'notifications_url': 'https://api.github.com/repos/Theartbug/pokepersonality/notifications{?since,all,participating}',
+    'labels_url': 'https://api.github.com/repos/Theartbug/pokepersonality/labels{/name}',
+    'releases_url': 'https://api.github.com/repos/Theartbug/pokepersonality/releases{/id}',
+    'deployments_url': 'https://api.github.com/repos/Theartbug/pokepersonality/deployments',
+    'created_at': '2018-01-02T19:23:19Z',
+    'updated_at': '2018-01-02T19:33:45Z',
+    'pushed_at': '2018-01-08T03:22:58Z',
+    'git_url': 'git://github.com/Theartbug/pokepersonality.git',
+    'ssh_url': 'git@github.com:Theartbug/pokepersonality.git',
+    'clone_url': 'https://github.com/Theartbug/pokepersonality.git',
+    'svn_url': 'https://github.com/Theartbug/pokepersonality',
+    'homepage': null,
+    'size': 192,
+    'stargazers_count': 0,
+    'watchers_count': 0,
+    'language': 'JavaScript',
+    'has_issues': true,
+    'has_projects': true,
+    'has_downloads': true,
+    'has_wiki': true,
+    'has_pages': true,
+    'forks_count': 0,
+    'mirror_url': null,
+    'archived': false,
+    'open_issues_count': 0,
+    'license': null,
+    'forks': 0,
+    'open_issues': 0,
+    'watchers': 0,
+    'default_branch': 'master'
+  }];
+
   const mockResponse = (status, statusText, response) => {
     return new Response(response, {
       status: status,
@@ -31,12 +123,11 @@ describe('languages and libraries async spec', () => {
 
     const result = await getRepos();
     
-    expect.assertions(1);
-
     expect(result.body).toBe(repos);
+    expect(getCORS).toHaveBeenCalledTimes(1);
   });
   
-  it('catches an error', async() => {
+  it('catches errors', async() => {
     const fakePromise = Promise.resolve(mockResponse(400, 'failed', 'this was an error'));
 
     //for getRepos
@@ -195,6 +286,7 @@ describe('languages and libraries async spec', () => {
       { react: 0, webpack: 1, express: 0, redux: 0, firebase: 1, node: 1 });
     expect(getCORS).toHaveBeenCalledTimes(6);
   });
+
   it('does not find libraries', async() => {
     const listWithoutPackage = { 
       tree: [{
@@ -214,97 +306,6 @@ describe('languages and libraries async spec', () => {
         'url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/blobs/c50f7a443d7634034292ce5dfeafc6001f5a7737'
       }] 
     };
-    const repo = [{
-      'id': 116049040,
-      'name': 'pokepersonality',
-      'full_name': 'Theartbug/pokepersonality',
-      'owner': {
-        'login': 'Theartbug',
-        'id': 26826831,
-        'avatar_url': 'https://avatars0.githubusercontent.com/u/26826831?v=4',
-        'gravatar_id': '',
-        'url': 'https://api.github.com/users/Theartbug',
-        'html_url': 'https://github.com/Theartbug',
-        'followers_url': 'https://api.github.com/users/Theartbug/followers',
-        'following_url': 'https://api.github.com/users/Theartbug/following{/other_user}',
-        'gists_url': 'https://api.github.com/users/Theartbug/gists{/gist_id}',
-        'starred_url': 'https://api.github.com/users/Theartbug/starred{/owner}{/repo}',
-        'subscriptions_url': 'https://api.github.com/users/Theartbug/subscriptions',
-        'organizations_url': 'https://api.github.com/users/Theartbug/orgs',
-        'repos_url': 'https://api.github.com/users/Theartbug/repos',
-        'events_url': 'https://api.github.com/users/Theartbug/events{/privacy}',
-        'received_events_url': 'https://api.github.com/users/Theartbug/received_events',
-        'type': 'User',
-        'site_admin': false
-      },
-      'private': false,
-      'html_url': 'https://github.com/Theartbug/pokepersonality',
-      'description': null,
-      'fork': false,
-      'url': 'https://api.github.com/repos/Theartbug/pokepersonality',
-      'forks_url': 'https://api.github.com/repos/Theartbug/pokepersonality/forks',
-      'keys_url': 'https://api.github.com/repos/Theartbug/pokepersonality/keys{/key_id}',
-      'collaborators_url': 'https://api.github.com/repos/Theartbug/pokepersonality/collaborators{/collaborator}',
-      'teams_url': 'https://api.github.com/repos/Theartbug/pokepersonality/teams',
-      'hooks_url': 'https://api.github.com/repos/Theartbug/pokepersonality/hooks',
-      'issue_events_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues/events{/number}',
-      'events_url': 'https://api.github.com/repos/Theartbug/pokepersonality/events',
-      'assignees_url': 'https://api.github.com/repos/Theartbug/pokepersonality/assignees{/user}',
-      'branches_url': 'https://api.github.com/repos/Theartbug/pokepersonality/branches{/branch}',
-      'tags_url': 'https://api.github.com/repos/Theartbug/pokepersonality/tags',
-      'blobs_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/blobs{/sha}',
-      'git_tags_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/tags{/sha}',
-      'git_refs_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/refs{/sha}',
-      'trees_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/trees{/sha}',
-      'statuses_url': 'https://api.github.com/repos/Theartbug/pokepersonality/statuses/{sha}',
-      'languages_url': 'https://api.github.com/repos/Theartbug/pokepersonality/languages',
-      'stargazers_url': 'https://api.github.com/repos/Theartbug/pokepersonality/stargazers',
-      'contributors_url': 'https://api.github.com/repos/Theartbug/pokepersonality/contributors',
-      'subscribers_url': 'https://api.github.com/repos/Theartbug/pokepersonality/subscribers',
-      'subscription_url': 'https://api.github.com/repos/Theartbug/pokepersonality/subscription',
-      'commits_url': 'https://api.github.com/repos/Theartbug/pokepersonality/commits{/sha}',
-      'git_commits_url': 'https://api.github.com/repos/Theartbug/pokepersonality/git/commits{/sha}',
-      'comments_url': 'https://api.github.com/repos/Theartbug/pokepersonality/comments{/number}',
-      'issue_comment_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues/comments{/number}',
-      'contents_url': 'https://api.github.com/repos/Theartbug/pokepersonality/contents/{+path}',
-      'compare_url': 'https://api.github.com/repos/Theartbug/pokepersonality/compare/{base}...{head}',
-      'merges_url': 'https://api.github.com/repos/Theartbug/pokepersonality/merges',
-      'archive_url': 'https://api.github.com/repos/Theartbug/pokepersonality/{archive_format}{/ref}',
-      'downloads_url': 'https://api.github.com/repos/Theartbug/pokepersonality/downloads',
-      'issues_url': 'https://api.github.com/repos/Theartbug/pokepersonality/issues{/number}',
-      'pulls_url': 'https://api.github.com/repos/Theartbug/pokepersonality/pulls{/number}',
-      'milestones_url': 'https://api.github.com/repos/Theartbug/pokepersonality/milestones{/number}',
-      'notifications_url': 'https://api.github.com/repos/Theartbug/pokepersonality/notifications{?since,all,participating}',
-      'labels_url': 'https://api.github.com/repos/Theartbug/pokepersonality/labels{/name}',
-      'releases_url': 'https://api.github.com/repos/Theartbug/pokepersonality/releases{/id}',
-      'deployments_url': 'https://api.github.com/repos/Theartbug/pokepersonality/deployments',
-      'created_at': '2018-01-02T19:23:19Z',
-      'updated_at': '2018-01-02T19:33:45Z',
-      'pushed_at': '2018-01-08T03:22:58Z',
-      'git_url': 'git://github.com/Theartbug/pokepersonality.git',
-      'ssh_url': 'git@github.com:Theartbug/pokepersonality.git',
-      'clone_url': 'https://github.com/Theartbug/pokepersonality.git',
-      'svn_url': 'https://github.com/Theartbug/pokepersonality',
-      'homepage': null,
-      'size': 192,
-      'stargazers_count': 0,
-      'watchers_count': 0,
-      'language': 'JavaScript',
-      'has_issues': true,
-      'has_projects': true,
-      'has_downloads': true,
-      'has_wiki': true,
-      'has_pages': true,
-      'forks_count': 0,
-      'mirror_url': null,
-      'archived': false,
-      'open_issues_count': 0,
-      'license': null,
-      'forks': 0,
-      'open_issues': 0,
-      'watchers': 0,
-      'default_branch': 'master'
-    }];
 
     getCORS.mockReturnValueOnce(Promise.resolve(listWithoutPackage));
 
@@ -313,6 +314,33 @@ describe('languages and libraries async spec', () => {
     expect(result).toEqual(
       { react: 0, webpack: 0, express: 0, redux: 0, firebase: 0, node: 0 });
     expect(getCORS).toHaveBeenCalledTimes(7);
+  });
+
+  it('finds languages', async() => {
+
+    const languages = {
+      'JavaScript': 10371,
+      'HTML': 7347,
+      'CSS': 4677
+    };
+    
+    getCORS.mockReturnValueOnce(Promise.resolve(languages));
+
+    const result = await findLanguages(repo);
+
+    expect(result).toEqual({ 'CSS': 1, 'HTML': 1, 'JavaScript': 1 });
+
+    expect(getCORS).toHaveBeenCalledTimes(8);
+    
+  });
+
+  it('does not find languages', async() => {
+
+    const result = await findLanguages(repo);
+
+    expect(result).toEqual({});
+    expect(getCORS).toHaveBeenCalledTimes(9);
+    
   });
 
 

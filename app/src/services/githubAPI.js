@@ -82,6 +82,7 @@ export const findLanguages = async(repos) => {
         languagesArr.forEach(language => 
           seen[language] ? seen[language]++ : seen[language] = 1);
       })
+      .catch(err => console.log(err))
   );
 
   await Promise.all(promises);
