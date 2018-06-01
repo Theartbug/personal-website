@@ -67,9 +67,9 @@ export const findLibraries = async(repos) => {
   
 };
 
-export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
+export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options).catch(err => console.log(err));
 
-export const getPackageJson = (url) => getCORS(url, options);
+export const getPackageJson = (url) => getCORS(url, options).catch(err => console.log(err));
 
 export const findLanguages = async(repos) => {
   const seen = {};
