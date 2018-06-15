@@ -1,15 +1,17 @@
 import React, { PureComponent } from 'react';
 import Github from '../github/Github';
+import Hero from '../hero/Hero';
 import './App.css';
 
-class App extends PureComponent {
+export default class App extends PureComponent {
 
   render() {
 
     return (
-      <Github/>
+      <main role="main">
+        <Hero/>
+        {/* <Github/> */}
+      </main>
     );
   }
 }
-
-export default App;
