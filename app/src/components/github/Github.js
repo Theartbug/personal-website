@@ -9,11 +9,8 @@ export default class Github extends PureComponent {
   };
 
   componentDidMount() {
-    // getLanguages()
-    //   .then(result => this.setState({ languages: result }));
     getLanguagesAndLibraries()
       .then(result => this.setState({ languages: result.languages, libraries: result.libraries }));
-      
   }
 
   render() {

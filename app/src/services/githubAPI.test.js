@@ -129,21 +129,29 @@ describe('languages and libraries async spec', () => {
   
   it('catches errors', async() => {
     const fakePromise = Promise.resolve(mockResponse(400, 'failed', 'this was an error'));
+    console.log = jest.fn();
 
     //for getRepos
     getCORS.mockReturnValueOnce(Promise.reject(fakePromise));
+    console.log('getRepos error');
 
     //for getRepoContent
     getCORS.mockReturnValueOnce(Promise.reject(fakePromise));
+    console.log('getRepoContent error');
 
     //forPackageJson
     getCORS.mockReturnValueOnce(Promise.reject(fakePromise));
-
+    console.log('forPackageJson error');
+    
     const result1 = await getRepos();
     const result2 = await getRepoContent();
     const result3 = await getPackageJson();
     
-    expect.assertions(3);
+    expect.assertions(6);
+    expect(console.log.mock.calls[0][0]).toBe('getRepos error');
+    expect(console.log.mock.calls[1][0]).toBe('getRepoContent error');
+    expect(console.log.mock.calls[2][0]).toBe('forPackageJson error');
+
     //undefined as it is console.log
     expect(result1).toBe(undefined);
     expect(result2).toBe(undefined);
