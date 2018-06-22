@@ -13,7 +13,6 @@ body {
   font-size: $fluidFontSize;
   line-height: 1.5;
   hyphens: auto;
-  overflow: hidden;
 }
 
 img {

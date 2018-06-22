@@ -1,9 +1,9 @@
-
+$white: #f9f9f9;
 
 /* RESPONSIVE TYPOGRAPHY VALUES, SPECIFY WITHOUT PX
    https://www.smashingmagazine.com/2016/05/fluid-typography/ */
 $minFontVal: 14;
-$maxFontVal: 24;
+$maxFontVal: 21;
 $minViewportVal: 480;
 $maxViewportVal: 1300;
 
