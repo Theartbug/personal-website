@@ -6,7 +6,7 @@ export default class Github extends PureComponent {
 
   state = {
     languages: { 
-      JS: 42,
+      JavaScript: 42,
       HTML: 40,
       CSS: 38 },
     libraries: {
@@ -32,7 +32,7 @@ export default class Github extends PureComponent {
 
     return (
       <section className="github">
-        <h3># of Apps</h3>
+        <h3>Number of Applications</h3>
         <ul className="languages">
           {Object.keys(languages).map((l, i) => <li key={i}><h4>{l}</h4><span>{languages[l]}</span></li>)}
         </ul>
