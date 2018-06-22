@@ -5,17 +5,21 @@
   
   .max-width {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     grid-gap: 1rem;
     margin: 0 auto;
     max-width: 950px
   }
 
   div > div {
-    margin: auto;
+    border: 3px solid $white;
+    padding: .3rem;
+    border-radius: 10px;
+    width: 100%;
   }
-
+  
   img {
+    margin: auto;
     height: 35px;    
     width: auto;
   }

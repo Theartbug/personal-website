@@ -16,25 +16,25 @@ export default class Hero extends PureComponent {
       <section className="skills">
         <div className="max-width">
           <div>
-            <img className="express" src={express} alt="express logo"/>
+            <img src={express} alt="express logo"/>
           </div>
           <div>
-            <img className="firebase" src={firebase} alt="firebase logo"/>
+            <img src={firebase} alt="firebase logo"/>
           </div>
           <div>
-            <img className="node" src={node} alt="node logo"/>
+            <img src={node} alt="node logo"/>
           </div>
           <div>
-            <img className="react" src={react} alt="react logo"/>
+            <img src={react} alt="react logo"/>
           </div>
           <div>
-            <img className="redux" src={redux} alt="redux logo"/>
+            <img src={redux} alt="redux logo"/>
           </div>
           <div>
-            <img className="sass" src={sass} alt="sass logo"/>
+            <img src={sass} alt="sass logo"/>
           </div>
           <div>
-            <img className="webpack" src={webpack} alt="webpack logo"/>
+            <img src={webpack} alt="webpack logo"/>
           </div>
         </div>
       </section>

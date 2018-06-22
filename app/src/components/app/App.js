@@ -14,7 +14,7 @@ export default class App extends PureComponent {
         <Hero/>
         <Bio/>
         <Skills/>
-        {/* <Github/> */}
+        <Github/>
       </main>
     );
   }
