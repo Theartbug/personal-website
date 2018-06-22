@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
+import Skills from '../skills/Skills';
 import './App.css';
 
 export default class App extends PureComponent {
@@ -12,6 +13,7 @@ export default class App extends PureComponent {
       <main role="main">
         <Hero/>
         <Bio/>
+        <Skills/>
         {/* <Github/> */}
       </main>
     );

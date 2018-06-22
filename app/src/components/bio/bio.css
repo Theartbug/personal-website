@@ -1,7 +1,6 @@
 @import '../../styles/variables.css';
 
 .bio {
-  /* min-height: 100vh; */
   text-align: justify;
   background-color: $light-grey;
   
