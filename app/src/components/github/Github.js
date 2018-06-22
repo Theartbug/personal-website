@@ -1,11 +1,12 @@
 import React, { PureComponent, Fragment } from 'react';
 import { getLanguagesAndLibraries } from '../../services/githubAPI';
+import './github.css';
 
 export default class Github extends PureComponent {
 
   state = {
     languages: { 
-      JavaScript: 42,
+      JS: 42,
       HTML: 40,
       CSS: 38 },
     libraries: {
@@ -30,16 +31,16 @@ export default class Github extends PureComponent {
     if(!languages && !libraries) return null;
 
     return (
-      <Fragment>
-        <h3>Languages</h3>
-        <ul>
-          {Object.keys(languages).map((l, i) => <li key={i}><span>{l}</span>: {languages[l]}</li>)}
+      <section className="github">
+        <h3># of Apps</h3>
+        <ul className="languages">
+          {Object.keys(languages).map((l, i) => <li key={i}><h4>{l}</h4><span>{languages[l]}</span></li>)}
         </ul>
-        <h3>Libraries</h3>        
-        <ul>
-          {Object.keys(libraries).map((l, i) => <li key={i}><span>{l}</span>: {libraries[l]}</li>)}
+        <hr/>       
+        <ul className="libraries">
+          {Object.keys(libraries).map((l, i) => <li key={i}><h4>{l}</h4><span>{libraries[l]}</span></li>)}
         </ul>
-      </Fragment>
+      </section>
     );
   }
 }
