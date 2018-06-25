@@ -1,0 +1,42 @@
+@import '../../styles/variables.css';
+
+.projects {
+  background-color: $white;
+  .app {
+    background-color: $white;
+    margin-bottom: 1rem;
+    max-width: 950px;
+    border-bottom: 2px solid $dark-grey;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    img {
+      margin: 0 auto;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .urate {
+      background-color: $dark-grey;
+      padding: 1rem;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+
+    .code {
+      font-weight: 600;
+      margin-bottom: .5rem;
+      display: block;
+    }
+  }
+}
