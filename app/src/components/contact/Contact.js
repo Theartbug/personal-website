@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import mailIcon from 'react-icons/lib/fa/envelope-o';
-import linkedInIcon from 'react-icons/lib/fa/linkedin-square';
-import githubIcon from 'react-icons/lib/fa/github-square';
+import MailIcon from 'react-icons/lib/fa/envelope-o';
+import LinkedInIcon from 'react-icons/lib/fa/linkedin-square';
+import GithubIcon from 'react-icons/lib/fa/github-square';
 import './contact.css';
 
 export default class Contact extends PureComponent {
@@ -10,7 +10,18 @@ export default class Contact extends PureComponent {
 
     return (
       <section className="contact">
-      
+        <h2 className="lines">Contact</h2>
+        <div className="icons">
+          <a className="icon" href="mailto:grace.g.provost@gmail.com" target="_blank" rel="noopener noreferrer">
+            <MailIcon/>
+          </a>
+          <a className="icon" href="https://github.com/Theartbug" target="_blank" rel="noopener noreferrer">
+            <GithubIcon/>
+          </a>
+          <a className="icon" href="https://www.linkedin.com/in/graceprovost/" target="_blank" rel="noopener noreferrer">
+            <LinkedInIcon/>
+          </a>
+        </div>
       </section>
     );
   }

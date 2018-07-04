@@ -4,6 +4,7 @@ import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
 import Skills from '../skills/Skills';
 import Projects from '../projects/Projects';
+import Contact from '../contact/Contact';
 import './App.css';
 
 export default class App extends PureComponent {
@@ -17,6 +18,7 @@ export default class App extends PureComponent {
         <Skills/>
         <Github/>
         <Projects/>
+        <Contact/>
       </main>
     );
   }

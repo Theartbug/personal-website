@@ -1,1 +1,22 @@
 @import '../../styles/variables.css';
+
+.contact {
+  background-color: $light-grey;
+
+  h2 {
+    text-align: center;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .icon {
+      font-size: 4rem;
+      color: $red;
+    }
+  }
+
+}
