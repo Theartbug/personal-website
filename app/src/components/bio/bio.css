@@ -12,6 +12,7 @@
     span {
       font-size: 1.3rem;
       font-weight: 700;
+      color: $red;
     }
     &:last-child {
       margin-bottom: 0;

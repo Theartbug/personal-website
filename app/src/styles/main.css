@@ -41,7 +41,7 @@ p {
 a { 
   text-decoration: none;
   cursor: pointer;
- }
+}
 
 li { list-style: none; }
 
@@ -49,4 +49,30 @@ li { list-style: none; }
   position: absolute;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
+}
+
+.lines {
+  &::after {
+    content: " ";
+    display: block;
+    height: 2px;
+    margin: .5rem auto 0;
+    vertical-align: middle;
+    width: 150px;
+    background: $black;
+  }
+}
+
+@media (min-width: 530px) {
+  .lines {
+    &::before, &::after {
+      content: " ";
+      display: inline-block;
+      height: 2px;
+      margin: 0 10px;
+      vertical-align: middle;
+      width: 50px;
+      background: $black;
+    }
+  }
 }

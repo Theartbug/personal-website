@@ -32,13 +32,13 @@ export default class Github extends PureComponent {
 
     return (
       <section className="github">
-        <h3>Number of Applications</h3>
+        <h2 className="lines">Number of Applications</h2>
         <ul className="languages">
-          {Object.keys(languages).map((l, i) => <li key={i}><h4>{l}</h4><span>{languages[l]}</span></li>)}
+          {Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
         </ul>
         <hr/>       
         <ul className="libraries">
-          {Object.keys(libraries).map((l, i) => <li key={i}><h4>{l}</h4><span>{libraries[l]}</span></li>)}
+          {Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
         </ul>
       </section>
     );

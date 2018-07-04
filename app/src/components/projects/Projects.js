@@ -11,12 +11,13 @@ export default class Hero extends PureComponent {
 
     return (
       <section className="projects">
+        <h2 className="lines">Projects</h2>
         <div className="app">
           <img className="urate" src={uRateLogo} alt='U-Rate logo'/>
           <div className="text">
-            <h3>U-Rate</h3>
+            <h3>U-Gyde</h3>
             <h4>React, Firebase, Webpack, Google APIs</h4>
-            <p>A video-based business review app. The rest is confidential.</p>
+            <p>A video-based business reviewing app. The rest is confidential.</p>
           </div>
         </div>
 
