@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import MailIcon from 'react-icons/lib/fa/envelope-o';
 import LinkedInIcon from 'react-icons/lib/fa/linkedin-square';
 import GithubIcon from 'react-icons/lib/fa/github-square';
+import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
 export default class Contact extends PureComponent {
@@ -22,6 +23,7 @@ export default class Contact extends PureComponent {
             <LinkedInIcon/>
           </a>
         </div>
+        <img src={buglogo} alt="bug logo"/>
       </section>
     );
   }
