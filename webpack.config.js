@@ -2,6 +2,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = `${__dirname}/build`;
 
@@ -15,12 +16,23 @@ module.exports = {
   devServer: {
     contentBase: './build',
     historyApiFallback: true
+    // {
+    //   index: './app/src/index.html',
+    //   rewrites: [
+    //       // shows favicon
+    //     { from: /favicon.ico/, to: './app/src/favicon.ico' }
+    //   ]
+    // }
   },
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './app/src/index.html' }),
-    new Dotenv() 
+    new Dotenv(),
+    new CopyWebpackPlugin([
+      // relative path is from src
+      { from: './app/src/favicon.ico' }, { to: '/favicon.ico' }
+    ]) 
   ],
   module: {
     rules: [
