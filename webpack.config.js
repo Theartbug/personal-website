@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path,
     filename: 'bundle.[hash].js',
-    publicPath: '/'
+    publicPath: ''
   },
   devServer: {
     contentBase: './build',
