@@ -1,0 +1,64 @@
+@import '../../styles/variables.css';
+
+.projects {
+  background-color: $white;
+
+  h2 {
+    text-align: center;
+  }
+
+  .app {
+    background-color: $white;
+    max-width: 300px;
+    margin: 0 auto 1rem;
+    border-bottom: 2px solid $dark-grey;
+    padding: .5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    img {
+      margin: 0 auto;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .urate {
+      background-color: $dark-grey;
+      padding: 1rem;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: $red;
+    }
+
+    h4 {
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+
+    .code {
+      font-weight: 600;
+      margin-bottom: .5rem;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .projects {
+    .app {
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      max-width: 950px;
+      grid-gap: 1.5rem;
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+}

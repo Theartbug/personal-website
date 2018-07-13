@@ -1,0 +1,26 @@
+@import '../../styles/variables.css';
+
+.skills {
+  background-color: $dark-grey;
+  
+  .max-width {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    grid-gap: 1rem;
+    margin: 0 auto;
+    max-width: 950px
+  }
+
+  div > div {
+    border: 3px solid $white;
+    padding: .3rem;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  img {
+    margin: auto;
+    height: 35px;    
+    width: auto;
+  }
+}

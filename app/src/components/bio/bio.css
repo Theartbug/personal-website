@@ -1,0 +1,22 @@
+@import '../../styles/variables.css';
+
+.bio {
+  text-align: justify;
+  background-color: $light-grey;
+  
+  p {
+    max-width: 950px;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+
+    span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $red;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+

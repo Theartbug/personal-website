@@ -5,15 +5,14 @@
 html, 
 body { 
   height: 100%; 
-  color: #222;
+  color: $black;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: $fluidFontSize;
   line-height: 1.5;
   hyphens: auto;
-  overflow: hidden;
 }
 
 img {
@@ -41,7 +40,8 @@ p {
 
 a { 
   text-decoration: none;
- }
+  cursor: pointer;
+}
 
 li { list-style: none; }
 
@@ -49,4 +49,30 @@ li { list-style: none; }
   position: absolute;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
+}
+
+.lines {
+  &::after {
+    content: " ";
+    display: block;
+    height: 2px;
+    margin: .5rem auto 0;
+    vertical-align: middle;
+    width: 150px;
+    background: $black;
+  }
+}
+
+@media (min-width: 530px) {
+  .lines {
+    &::before, &::after {
+      content: " ";
+      display: inline-block;
+      height: 2px;
+      margin: 0 10px;
+      vertical-align: middle;
+      width: 50px;
+      background: $black;
+    }
+  }
 }

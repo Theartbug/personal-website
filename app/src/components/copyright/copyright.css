@@ -1,0 +1,11 @@
+@import '../../styles/variables.css';
+
+.copyright {
+  background-color: $dark-grey;
+  color: $red;
+  
+  small {
+    text-align: center;
+    display: block;
+  }
+}
