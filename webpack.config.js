@@ -1,9 +1,10 @@
 /* eslint-env node */
+
+//remember to bring back in Extract-text-plugin for production to fix flash of unstyled code
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 const path = `${__dirname}/build`;
 
 module.exports = {
@@ -31,7 +32,7 @@ module.exports = {
     new Dotenv(),
     new CopyWebpackPlugin([
       // relative path is from src
-      { from: './app/src/favicon.ico' }, { to: '/favicon.ico' }
+      { from: './app/src/assets/favicon.ico' }
     ]) 
   ],
   module: {
