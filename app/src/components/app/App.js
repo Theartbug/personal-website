@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { animateScroll as scroll, scroller } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
@@ -18,7 +18,7 @@ export default class App extends PureComponent {
     current: 0
   };
 
-  //TODO: on componentdidmount check for location of scroll and set current accordingly.
+  //TODO: intersection observer API to check for current scroll location!
 
   changeScrollView = (direction) => {
     const { current } = this.state;

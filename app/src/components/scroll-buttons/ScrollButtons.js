@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import UpAngleIcon from 'react-icons/lib/fa/angle-up';
-import DownAngleIcon from 'react-icons/lib/fa/angle-down';
+import UpAngleIcon from 'react-icons/lib/fa/caret-up';
+import DownAngleIcon from 'react-icons/lib/fa/caret-down';
 import './scroll-buttons.css';
 
 export default class ScrollButtons extends PureComponent {
@@ -15,8 +15,8 @@ export default class ScrollButtons extends PureComponent {
 
     return (
       <div className="scroll-buttons">
-        <button onClick={handleUpClick}><UpAngleIcon/></button>
-        <button onClick={handleDownClick}><DownAngleIcon/></button>
+        <button className="reset-button" onClick={handleUpClick}><UpAngleIcon/></button>
+        <button className="reset-button" onClick={handleDownClick}><DownAngleIcon/></button>
       </div>
     );
   }
