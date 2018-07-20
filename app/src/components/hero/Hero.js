@@ -8,7 +8,7 @@ export default class Hero extends PureComponent {
   render() {
 
     return (
-      <figure className="hero-image">
+      <figure className="hero-image" id="hero">
         <h1><span>This is</span> Grace Provost</h1>
         <picture>
 

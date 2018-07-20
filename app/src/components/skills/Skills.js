@@ -13,7 +13,7 @@ export default class Hero extends PureComponent {
   render() {
 
     return (
-      <section className="skills">
+      <section className="skills" id="skills">
         <div className="max-width">
           <div>
             <img src={express} alt="express logo"/>

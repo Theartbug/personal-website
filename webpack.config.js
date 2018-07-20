@@ -17,13 +17,6 @@ module.exports = {
   devServer: {
     contentBase: './build',
     historyApiFallback: true
-    // {
-    //   index: './app/src/index.html',
-    //   rewrites: [
-    //       // shows favicon
-    //     { from: /favicon.ico/, to: './app/src/favicon.ico' }
-    //   ]
-    // }
   },
   devtool: 'inline-source-map',
   plugins: [

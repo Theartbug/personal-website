@@ -10,7 +10,7 @@ export default class Contact extends PureComponent {
   render() {
 
     return (
-      <section className="contact">
+      <section className="contact" id="contact">
         <h2 className="lines">Contact</h2>
         <div className="icons">
           <a className="icon" href="mailto:grace.g.provost@gmail.com" target="_blank" rel="noopener noreferrer">
