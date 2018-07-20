@@ -6,7 +6,7 @@ import Skills from '../skills/Skills';
 import Projects from '../projects/Projects';
 import Contact from '../contact/Contact';
 import Copyright from '../copyright/Copyright';
-import './App.css';
+import './app.css';
 
 export default class App extends PureComponent {
 
