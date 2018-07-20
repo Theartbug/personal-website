@@ -6,7 +6,7 @@ export default class Hero extends PureComponent {
   render() {
 
     return (
-      <section className="bio">
+      <section className="bio" id="bio">
         <p>She is <span>Active</span> and enjoys bike commuting, rock climbing, dancing, hiking, camping, and urban walks.</p>
         <p>She is <span>Curious</span> and is perpetually reading, discovering small tidbits of knowledge, and never failing to ask questions.</p>
         <p>She is <span>Determined</span> and comes from a background in medicine; now plunging into the magnificent world of tech.</p>

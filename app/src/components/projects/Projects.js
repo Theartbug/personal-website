@@ -10,7 +10,7 @@ export default class Hero extends PureComponent {
   render() {
 
     return (
-      <section className="projects">
+      <section className="projects" id="projects">
         <h2 className="lines">Projects</h2>
         <div className="app">
           <img className="urate" src={uRateLogo} alt='U-Rate logo'/>

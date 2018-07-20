@@ -6,7 +6,7 @@ export default class Copyright extends PureComponent {
   render() {
 
     return (
-      <section className="copyright">
+      <section className="copyright" id="copyright">
         <small>&copy; Grace Provost 2018</small>
       </section>
     );
