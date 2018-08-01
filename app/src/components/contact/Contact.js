@@ -7,10 +7,24 @@ import './contact.css';
 
 export default class Contact extends PureComponent {
 
+  componentDidMount() {
+    const { intersectionScrollChange, config } = this.props;
+
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          intersectionScrollChange(entry); 
+        }
+      });
+    }, config);
+    
+    observer.observe(this.contact);
+  }
+
   render() {
 
     return (
-      <section className="contact" id="contact">
+      <section className="contact" id="contact" ref={contact => this.contact = contact}>
         <h2 className="lines">Contact</h2>
         <div className="icons">
           <a className="icon" href="mailto:grace.g.provost@gmail.com" target="_blank" rel="noopener noreferrer">

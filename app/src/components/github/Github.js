@@ -19,6 +19,20 @@ export default class Github extends PureComponent {
     }
   };
 
+  componentDidMount() {
+    const { intersectionScrollChange, config } = this.props;
+
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          intersectionScrollChange(entry); 
+        }
+      });
+    }, config);
+    
+    observer.observe(this.github);
+  }
+
   // componentDidMount() {
   //   getLanguagesAndLibraries()
   //     .then(result => this.setState({ languages: result.languages, libraries: result.libraries }));
@@ -31,7 +45,7 @@ export default class Github extends PureComponent {
     if(!languages && !libraries) return null;
 
     return (
-      <section className="github" id="github">
+      <section className="github" id="github" ref={github => this.github = github}>
         <h2 className="lines">Number of Applications</h2>
         <ul className="languages">
           {Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}

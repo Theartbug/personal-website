@@ -12,13 +12,23 @@ import './app.css';
 
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
+const config = {
+  rootMargin: '0px 0px -55%'
+};
+
 export default class App extends PureComponent {
 
   state = {
     current: 0
   };
 
-  //TODO: intersection observer API to check for current scroll location!
+  intersectionScrollChange = entry => {
+    const { target: { className } } = entry;
+    const current = list.indexOf(className);
+    console.log(className);
+    this.setState({ current });
+  };
+
 
   changeScrollView = (direction) => {
     const { current } = this.state;
@@ -49,17 +59,19 @@ export default class App extends PureComponent {
 
   render() {
 
-    const { changeScrollView } = this;
+    const { changeScrollView, intersectionScrollChange } = this;
+
+    console.log(this.state.current);
 
     return (
       <main role="main">
-        <Hero/>
-        <Bio/>
-        <Skills/>
-        <Github/>
-        <Projects/>
-        <Contact/>
-        <Copyright/>
+        <Hero intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Bio intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Skills intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Github intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Projects intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Contact intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Copyright intersectionScrollChange={intersectionScrollChange} config={config} />
         <ScrollButtons changeScrollView={changeScrollView}/>
       </main>
     );

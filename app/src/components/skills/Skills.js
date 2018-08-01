@@ -10,10 +10,24 @@ import './skills.css';
 
 export default class Hero extends PureComponent {
 
+  componentDidMount() {
+    const { intersectionScrollChange, config } = this.props;
+
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          intersectionScrollChange(entry); 
+        }
+      });
+    }, config);
+    
+    observer.observe(this.skills);
+  }
+
   render() {
 
     return (
-      <section className="skills" id="skills">
+      <section className="skills" id="skills" ref={skills => this.skills = skills}>
         <div className="max-width">
           <div>
             <img src={express} alt="express logo"/>
