@@ -1,26 +1,19 @@
 import React, { PureComponent, Fragment } from 'react';
 import { getLanguagesAndLibraries } from '../../services/githubAPI';
+import { ClipLoader } from 'react-spinners';
 import './github.css';
 
 export default class Github extends PureComponent {
 
   state = {
-    languages: { 
-      JavaScript: 42,
-      HTML: 40,
-      CSS: 38 },
-    libraries: {
-      react: 10,
-      webpack: 22,
-      express: 8,
-      redux: 4,
-      firebase: 4,
-      node: 32
-    }
+    loading: true
   };
 
   componentDidMount() {
     const { intersectionScrollChange, config } = this.props;
+    
+    getLanguagesAndLibraries()
+      .then(result => this.setState({ languages: result.languages, libraries: result.libraries, loading: false }));
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -33,26 +26,25 @@ export default class Github extends PureComponent {
     observer.observe(this.github);
   }
 
-  // componentDidMount() {
-  //   getLanguagesAndLibraries()
-  //     .then(result => this.setState({ languages: result.languages, libraries: result.libraries }));
-  // }
-
   render() {
       
-    const { languages, libraries } = this.state;
-
-    if(!languages && !libraries) return null;
+    const { languages, libraries, loading } = this.state;
 
     return (
       <section className="github" id="github" ref={github => this.github = github}>
         <h2 className="lines">Number of Applications</h2>
+        {loading && 
+          <div className='loader'>
+            <ClipLoader loading={loading} color={'#d40b0b'} />
+            <span>Fetching data...</span> 
+          </div>
+        }
         <ul className="languages">
-          {Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
+          {!loading && Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
         </ul>
         <hr/>       
         <ul className="libraries">
-          {Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
+          {!loading && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
         </ul>
       </section>
     );
