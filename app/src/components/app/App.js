@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { scroller, Events, scrollSpy } from 'react-scroll';
+import { scroller, Events } from 'react-scroll';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
@@ -13,7 +13,7 @@ import './app.css';
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
 const config = {
-  //give a little wiggle room at the top before jumping to next section as 'current'
+  //give a little wiggle room at the top before jumping to next section as 'current' for intersectionObserver
   rootMargin: '10% 0px -55%',
 };
 
@@ -25,25 +25,21 @@ export default class App extends PureComponent {
   };
 
   componentDidMount() {
-    //so the intersection observer does not interfere with manual changing of scroll, must keep track in state
+    //so the intersection observer does not interfere with react-scroll, must keep track in state
     Events.scrollEvent.register('end', () => {
       this.setState({ buttonScroll: false });
     });
-
-    // scrollSpy.update();
   }
 
   intersectionScrollChange = entry => {
     const { buttonScroll } = this.state;
-    if(buttonScroll) return;
+    if(buttonScroll) return; //if we are scrolling via react-scroll, don't proceed
 
     const { target: { className }, isIntersecting, intersectionRatio } = entry;
     const current = list.indexOf(className);
 
-    if(isIntersecting === true || intersectionRatio > 0) {
-      console.log(className);
-      this.setState({ current });
-    }
+    if(isIntersecting === true || intersectionRatio > 0) this.setState({ current });
+
   };
 
 
@@ -82,8 +78,6 @@ export default class App extends PureComponent {
   render() {
 
     const { changeScrollView, intersectionScrollChange } = this;
-
-    console.log(this.state.current);
 
     return (
       <main role="main">
