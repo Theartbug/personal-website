@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { scroller } from 'react-scroll';
+import { scroller, Events, scrollSpy } from 'react-scroll';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
@@ -13,20 +13,37 @@ import './app.css';
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
 const config = {
-  rootMargin: '0px 0px -55%'
+  //give a little wiggle room at the top before jumping to next section as 'current'
+  rootMargin: '10% 0px -55%',
 };
 
 export default class App extends PureComponent {
 
   state = {
-    current: 0
+    current: 0,
+    buttonScroll: false
   };
 
+  componentDidMount() {
+    //so the intersection observer does not interfere with manual changing of scroll, must keep track in state
+    Events.scrollEvent.register('end', () => {
+      this.setState({ buttonScroll: false });
+    });
+
+    // scrollSpy.update();
+  }
+
   intersectionScrollChange = entry => {
-    const { target: { className } } = entry;
+    const { buttonScroll } = this.state;
+    if(buttonScroll) return;
+
+    const { target: { className }, isIntersecting, intersectionRatio } = entry;
     const current = list.indexOf(className);
-    console.log(className);
-    this.setState({ current });
+
+    if(isIntersecting === true || intersectionRatio > 0) {
+      console.log(className);
+      this.setState({ current });
+    }
   };
 
 
@@ -39,11 +56,11 @@ export default class App extends PureComponent {
     if(direction) {
       const next = current + 1;
       scrollTo(list[next]);
-      this.setState({ current: next });
+      this.setState({ current: next, buttonScroll: true });
     } else {
       const prev = current - 1;
       scrollTo(list[prev]);
-      this.setState({ current: prev });
+      this.setState({ current: prev, buttonScroll: true });
     }
 
   };
@@ -55,7 +72,12 @@ export default class App extends PureComponent {
       delay: 0,
       smooth: 'easeInOutQuart'
     });
+  
   };
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('end');
+  }
 
   render() {
 
