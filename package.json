@@ -45,10 +45,12 @@
   "dependencies": {
     "copy-webpack-plugin": "^4.5.2",
     "dotenv-webpack": "^1.5.5",
+    "emotion": "^9.2.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
     "react-scroll": "^1.7.10",
+    "react-spinners": "^0.3.3",
     "react-transition-group": "1.x"
   }
 }

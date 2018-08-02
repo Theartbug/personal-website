@@ -5,10 +5,24 @@ import './hero.css';
 
 export default class Hero extends PureComponent {
 
+  componentDidMount() {
+    const { intersectionScrollChange, config } = this.props;
+
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          intersectionScrollChange(entry); 
+        }
+      });
+    }, config);
+    
+    observer.observe(this.hero);
+  }
+
   render() {
 
     return (
-      <figure className="hero-image" id="hero">
+      <figure className="hero" id="hero" ref={hero => this.hero = hero}>
         <h1><span>This is</span> Grace Provost</h1>
         <picture>
 

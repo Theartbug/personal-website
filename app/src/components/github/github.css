@@ -3,6 +3,17 @@
 .github {
   background-color: $light-grey;
   text-align: center;  
+  position: relative;
+  
+  .loader {
+    margin: 0 auto;
+    display: inline-block;
+
+    span {
+      display: block;
+      color: $red;
+    }
+  }
 
   h2 {
     margin-bottom: 1rem;

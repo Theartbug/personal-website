@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { scroller } from 'react-scroll';
+import { scroller, Events } from 'react-scroll';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
@@ -12,13 +12,36 @@ import './app.css';
 
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
+const config = {
+  //give a little wiggle room at the top before jumping to next section as 'current' for intersectionObserver
+  rootMargin: '10% 0px -55%',
+};
+
 export default class App extends PureComponent {
 
   state = {
-    current: 0
+    current: 0,
+    buttonScroll: false
   };
 
-  //TODO: intersection observer API to check for current scroll location!
+  componentDidMount() {
+    //so the intersection observer does not interfere with react-scroll, must keep track in state
+    Events.scrollEvent.register('end', () => {
+      this.setState({ buttonScroll: false });
+    });
+  }
+
+  intersectionScrollChange = entry => {
+    const { buttonScroll } = this.state;
+    if(buttonScroll) return; //if we are scrolling via react-scroll, don't proceed
+
+    const { target: { className }, isIntersecting, intersectionRatio } = entry;
+    const current = list.indexOf(className);
+
+    if(isIntersecting === true || intersectionRatio > 0) this.setState({ current });
+
+  };
+
 
   changeScrollView = (direction) => {
     const { current } = this.state;
@@ -29,11 +52,11 @@ export default class App extends PureComponent {
     if(direction) {
       const next = current + 1;
       scrollTo(list[next]);
-      this.setState({ current: next });
+      this.setState({ current: next, buttonScroll: true });
     } else {
       const prev = current - 1;
       scrollTo(list[prev]);
-      this.setState({ current: prev });
+      this.setState({ current: prev, buttonScroll: true });
     }
 
   };
@@ -45,21 +68,26 @@ export default class App extends PureComponent {
       delay: 0,
       smooth: 'easeInOutQuart'
     });
+  
   };
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('end');
+  }
 
   render() {
 
-    const { changeScrollView } = this;
+    const { changeScrollView, intersectionScrollChange } = this;
 
     return (
       <main role="main">
-        <Hero/>
-        <Bio/>
-        <Skills/>
-        <Github/>
-        <Projects/>
-        <Contact/>
-        <Copyright/>
+        <Hero intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Bio intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Skills intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Github intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Projects intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Contact intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Copyright intersectionScrollChange={intersectionScrollChange} config={config} />
         <ScrollButtons changeScrollView={changeScrollView}/>
       </main>
     );

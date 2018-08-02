@@ -7,10 +7,24 @@ import './projects.css';
 
 export default class Hero extends PureComponent {
 
+  componentDidMount() {
+    const { intersectionScrollChange, config } = this.props;
+
+    let observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          intersectionScrollChange(entry); 
+        }
+      });
+    }, config);
+    
+    observer.observe(this.projects);
+  }
+
   render() {
 
     return (
-      <section className="projects" id="projects">
+      <section className="projects" id="projects" ref={projects => this.projects = projects}>
         <h2 className="lines">Projects</h2>
         <div className="app">
           <img className="urate" src={uRateLogo} alt='U-Rate logo'/>
