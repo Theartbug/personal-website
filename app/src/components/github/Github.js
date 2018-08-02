@@ -36,7 +36,7 @@ export default class Github extends PureComponent {
         {loading && 
           <div className='loader'>
             <ClipLoader loading={loading} color={'#d40b0b'} />
-            <span>Fetching data...</span> 
+            <small>Fetching data...</small> 
           </div>
         }
         <ul className="languages">

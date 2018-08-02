@@ -9,7 +9,7 @@
     margin: 0 auto;
     display: inline-block;
 
-    span {
+    small {
       display: block;
       color: $red;
     }
