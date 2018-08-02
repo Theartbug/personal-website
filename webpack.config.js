@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const webpack = require('webpack');
 const path = `${__dirname}/build`;
 
 module.exports = {
@@ -22,11 +23,21 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './app/src/index.html' }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true
+    }),
     new CopyWebpackPlugin([
       // relative path is from src
       { from: './app/src/assets/favicon.ico' }
-    ]) 
+    ]),
+    // new webpack.DefinePlugin({
+    //   // Dynamically access local environment variables based on the environment
+    //   ENV: JSON.stringify(require(path.join(__dirname, "src", "config", env))),
+    //   "process.env": {
+    //     // can specify development environment in here as well
+    //     "GITHUB_TOKEN": JSON.stringify(process.env.GITHUB_TOKEN)
+    //   }
+    // })
   ],
   module: {
     rules: [
