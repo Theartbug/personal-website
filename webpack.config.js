@@ -22,11 +22,13 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './app/src/index.html' }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true //allows netlify system variables to work in production
+    }),
     new CopyWebpackPlugin([
       // relative path is from src
       { from: './app/src/assets/favicon.ico' }
-    ]) 
+    ])
   ],
   module: {
     rules: [
