@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { getLanguagesAndLibraries } from '../../services/githubAPI';
 import { ClipLoader } from 'react-spinners';
 import './github.css';

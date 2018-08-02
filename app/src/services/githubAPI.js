@@ -7,13 +7,29 @@ const options = {
   }
 };
 
-export const getLanguagesAndLibraries = () => {
-  return getRepos(options)
-    .then(async(r) => {
-      const contents = await Promise.all([findLanguages(r), findLibraries(r)]);
+const checkCache = () => {
+  const storage = localStorage.getItem('languagesAndLibraries');
+  console.log(storage);
+  if(storage) return JSON.parse(storage);
+  else return false;
+};
 
-      return { languages: contents[0], libraries: contents[1] };
-    });
+export const getLanguagesAndLibraries = () => {
+
+  const storage = checkCache();
+
+  //must create as promise for .then() in Github.js
+  if(storage) return new Promise((resolve) => resolve(storage));
+  else {
+    return getRepos(options)
+      .then(async(r) => {
+        const contents = await Promise.all([findLanguages(r), findLibraries(r)]);
+        const storage = { languages: contents[0], libraries: contents[1] }; 
+        localStorage.setItem('languagesAndLibraries', JSON.stringify(storage));
+        return storage;
+      });
+
+  }
 };
 
 export const getRepos = (options) => {
