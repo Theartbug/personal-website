@@ -3,10 +3,6 @@
 .contact {
   background-color: $light-grey;
 
-  h2 {
-    text-align: center;
-  }
-
   img {
     max-width: 150px;
     margin: 0 auto;
@@ -17,12 +13,17 @@
     align-content: center;
     justify-content: space-between;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 
     .icon {
       display: inline-block;
       font-size: 4rem;
       color: $red;
+      height: 1em;
+
+      svg {
+        display: block;
+      }
     }
   }
 

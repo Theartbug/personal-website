@@ -9,19 +9,17 @@
     margin: 0 auto;
     display: inline-block;
 
-    span {
+    small {
       display: block;
       color: $red;
     }
   }
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 2em;
-  }
-
   .languages {
     max-width: 400px;
+  }
+  .libraries {
+    margin-bottom: 1.5rem;
   }
 
   hr {

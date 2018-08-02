@@ -52,6 +52,10 @@ li { list-style: none; }
 }
 
 .lines {
+
+  text-align: center;
+  margin-bottom: 2rem;
+  
   &::after {
     content: " ";
     display: block;

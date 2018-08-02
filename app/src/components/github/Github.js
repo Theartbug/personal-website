@@ -32,11 +32,11 @@ export default class Github extends PureComponent {
 
     return (
       <section className="github" id="github" ref={github => this.github = github}>
-        <h2 className="lines">Number of Applications</h2>
+        <h2 className="lines">App Stats</h2>
         {loading && 
           <div className='loader'>
             <ClipLoader loading={loading} color={'#d40b0b'} />
-            <span>Fetching data...</span> 
+            <small>Fetching data...</small> 
           </div>
         }
         <ul className="languages">
@@ -46,6 +46,7 @@ export default class Github extends PureComponent {
         <ul className="libraries">
           {!loading && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
         </ul>
+        <small>*Powered by Github API</small>
       </section>
     );
   }
