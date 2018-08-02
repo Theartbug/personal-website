@@ -3,10 +3,6 @@
 .projects {
   background-color: $white;
 
-  h2 {
-    text-align: center;
-  }
-
   .app {
     background-color: $white;
     max-width: 300px;
@@ -16,7 +12,12 @@
 
     &:last-child {
       margin-bottom: 0;
+      padding-bottom: 0;
       border-bottom: none;
+
+      p {
+        margin-bottom: 0;
+      }
     }
     img {
       margin: 0 auto;

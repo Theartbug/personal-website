@@ -28,6 +28,8 @@ export default class Hero extends PureComponent {
 
     return (
       <section className="skills" id="skills" ref={skills => this.skills = skills}>
+        <h2 className="lines">Skills</h2>
+
         <div className="max-width">
           <div>
             <img src={express} alt="express logo"/>

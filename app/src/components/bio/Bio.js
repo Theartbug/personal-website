@@ -21,6 +21,7 @@ export default class Hero extends PureComponent {
 
     return (
       <section className="bio" id="bio" ref={bio => this.bio = bio}>
+        <h2 className="lines">About</h2>
         <p>She is <span>Active</span> and enjoys bike commuting, rock climbing, dancing, hiking, camping, and urban walks.</p>
         <p>She is <span>Curious</span> and is perpetually reading, discovering small tidbits of knowledge, and never failing to ask questions.</p>
         <p>She is <span>Determined</span> and comes from a background in medicine; now plunging into the magnificent world of tech.</p>
