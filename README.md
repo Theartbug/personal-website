@@ -1,4 +1,4 @@
-Live here: https://graceprovost.com
+Live here: www.graceprovost.com
 
 Objective
 ===
