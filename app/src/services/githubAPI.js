@@ -9,9 +9,12 @@ const options = {
 
 const checkCache = () => {
   const storage = localStorage.getItem('languagesAndLibraries');
-  console.log(storage);
-  if(storage) return JSON.parse(storage);
-  else return false;
+  if(!storage) return false;
+  const convertedStorage = JSON.parse(storage);
+  const { date } = convertedStorage;
+  //if the storage was fetched in the past month (below in milliseconds), return it, else fetch it again
+  return new Date() - new Date(date) > 454305569297142.8125 ? false : convertedStorage;
+  
 };
 
 export const getLanguagesAndLibraries = () => {
@@ -24,8 +27,9 @@ export const getLanguagesAndLibraries = () => {
     return getRepos(options)
       .then(async(r) => {
         const contents = await Promise.all([findLanguages(r), findLibraries(r)]);
-        const storage = { languages: contents[0], libraries: contents[1] }; 
-        localStorage.setItem('languagesAndLibraries', JSON.stringify(storage));
+        const date = new Date();
+        const storage = { languages: contents[0], libraries: contents[1], date }; 
+        localStorage.setItem('languagesAndLibraries', JSON.stringify(storage)); //set the item into storage for next time
         return storage;
       });
 
