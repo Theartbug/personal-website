@@ -3,18 +3,30 @@
 .bio {
   text-align: justify;
   background-color: $light-grey;
+
+  svg {
+    font-size: 3.5rem;
+    margin: 0 auto;
+    display: block;
+
+  }
   
   p {
     max-width: 950px;
-    margin: 0 auto 1.5rem;
+    margin: 1rem auto 1.5rem;
     font-size: 1rem;
+    border-top: 2px solid $dark-grey;
+  
 
     span {
       font-size: 1.3rem;
       font-weight: 700;
       color: $red;
     }
-    &:last-child {
+  }
+
+  div:last-child {
+    p {
       margin-bottom: 0;
     }
   }
