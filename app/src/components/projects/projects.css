@@ -6,19 +6,19 @@
   .app {
     background-color: $white;
     max-width: 300px;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
     border-bottom: 2px solid $dark-grey;
-    padding: .5rem;
+    padding: 2rem 1rem;
+    p {
+      margin-bottom: 0;
+    }
 
     &:last-child {
       margin-bottom: 0;
       padding-bottom: 0;
       border-bottom: none;
-
-      p {
-        margin-bottom: 0;
-      }
     }
+
     img {
       margin: 0 auto;
       max-width: 300px;
@@ -28,6 +28,12 @@
     .urate {
       background-color: $dark-grey;
       padding: 1rem;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $red;
+      cursor: pointer;
     }
 
     h3 {

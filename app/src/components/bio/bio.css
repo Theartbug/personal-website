@@ -3,19 +3,57 @@
 .bio {
   text-align: justify;
   background-color: $light-grey;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+
+    div {
+      max-width: 290px;
+      margin: 0 auto;
+      &:last-child {
+        p { margin-bottom: 0 }
+
+      }
+    }
+  }
+
+  svg {
+    font-size: 3.5rem;
+    margin: 0 auto;
+    display: block;
+
+  }
   
   p {
     max-width: 950px;
-    margin: 0 auto 1.5rem;
+    margin-top: 1rem;
     font-size: 1rem;
+    border-top: 2px solid $dark-grey;
+  
 
     span {
       font-size: 1.3rem;
       font-weight: 700;
       color: $red;
     }
-    &:last-child {
-      margin-bottom: 0;
+  }
+}
+
+@media (min-width: 530px) {
+  .bio {
+
+    .grid {
+      grid-template-columns: 1fr 1fr
+    }
+  }
+}
+@media (min-width: 900px) {
+  .bio {
+
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr
     }
   }
 }
