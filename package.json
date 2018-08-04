@@ -50,6 +50,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
+    "react-redux": "^5.0.7",
     "react-scroll": "^1.7.10",
     "react-spinners": "^0.3.3",
     "react-transition-group": "1.x",

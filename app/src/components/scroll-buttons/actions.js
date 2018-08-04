@@ -5,11 +5,11 @@ import { scroller } from 'react-scroll';
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
 export const setCurrentSectionByButtons = (direction) => {
-  const { current } = store.getState();
-  //if the current position is at the beginning or the end and the direction wants to go further, dont let it.
-  if(current === 0 && !direction || current === 5 && direction) return;
+  const { currentSection } = store.getState();
+  //if the currentSection position is at the beginning or the end and the direction wants to go further, dont let it.
+  if(currentSection === 0 && !direction || currentSection === 5 && direction) return;
   
-  const section = direction ? current + 1 : current - 1;
+  const section = direction ? currentSection + 1 : currentSection - 1;
   scrollTo(list[section]);
   return setCurrentSection(section);
 };
@@ -21,7 +21,12 @@ export const setCurrentSectionByScroll = entry => {
   const { target: { className }, isIntersecting, intersectionRatio } = entry;
   const current = list.indexOf(className);
 
-  if(isIntersecting === true || intersectionRatio > 0) setCurrentSection(current); 
+  if(isIntersecting === true || intersectionRatio > 0) {
+    return {
+      type: SECTION_CHANGE,
+      payload: current
+    };
+  }
 };
 
 export const setButtonScroll = (bool) => 
