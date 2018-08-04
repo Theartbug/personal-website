@@ -1,4 +1,5 @@
 import { SECTION_CHANGE, BUTTON_PRESS } from './reducers';
+import { batchActions } from 'redux-batched-actions';
 import store from '../../store/store';
 import { scroller } from 'react-scroll';
 
@@ -36,11 +37,13 @@ export const setButtonScroll = (bool) =>
   });
 
 const setCurrentSection = payload => dispatch => {
-  dispatch({
-    type: SECTION_CHANGE,
-    payload
-  });
-  dispatch(setButtonScroll(true));
+  return dispatch(batchActions([
+    {
+      type: SECTION_CHANGE,
+      payload
+    },
+    setButtonScroll(true)
+  ]));
 };
 
 const scrollTo = (id) => {
