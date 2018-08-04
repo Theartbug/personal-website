@@ -10,11 +10,11 @@ import './projects.css';
 class Projects extends PureComponent {
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config } = this.props;
+    const { setCurrentSectionByScroll, config, buttonScroll } = this.props;
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if(entry.isIntersecting && !buttonScroll) {
           setCurrentSectionByScroll(entry); 
         }
       });
@@ -70,6 +70,8 @@ class Projects extends PureComponent {
 }
 
 export default connect(
-  null,
+  ({ buttonScroll }) => ({
+    buttonScroll
+  }),
   ({ setCurrentSectionByScroll })
 )(Projects);

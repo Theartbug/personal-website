@@ -8,6 +8,7 @@ export const setCurrentSectionByButtons = (direction) => {
   const { currentSection } = store.getState();
   //if the currentSection position is at the beginning or the end and the direction wants to go further, dont let it.
   if(currentSection === 0 && !direction || currentSection === 5 && direction) return;
+  //may need to pass this check prior to the action creator, may create null
   
   const section = direction ? currentSection + 1 : currentSection - 1;
   scrollTo(list[section]);
@@ -15,13 +16,11 @@ export const setCurrentSectionByButtons = (direction) => {
 };
 
 export const setCurrentSectionByScroll = entry => {
-  const { buttonScroll } = store.getState();
-  if(buttonScroll) return; //if we are scrolling via react-scroll, don't proceed
-
   const { target: { className }, isIntersecting, intersectionRatio } = entry;
   const current = list.indexOf(className);
 
   if(isIntersecting === true || intersectionRatio > 0) {
+    //may need to pass this check prior to the action creator, may create null
     return {
       type: SECTION_CHANGE,
       payload: current

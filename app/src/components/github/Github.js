@@ -12,14 +12,14 @@ class Github extends PureComponent {
   };
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config } = this.props;
+    const { setCurrentSectionByScroll, config, buttonScroll } = this.props;
     
     getLanguagesAndLibraries()
       .then(result => this.setState({ languages: result.languages, libraries: result.libraries, loading: false }));
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if(entry.isIntersecting && !buttonScroll) {
           setCurrentSectionByScroll(entry); 
         }
       });
@@ -55,6 +55,8 @@ class Github extends PureComponent {
 }
 
 export default connect(
-  null,
+  ({ buttonScroll }) => ({
+    buttonScroll
+  }),
   ({ setCurrentSectionByScroll })
 )(Github);

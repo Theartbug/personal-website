@@ -10,11 +10,11 @@ import './contact.css';
 class Contact extends PureComponent {
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config } = this.props;
+    const { setCurrentSectionByScroll, config, buttonScroll } = this.props;
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if(entry.isIntersecting && !buttonScroll) {
           setCurrentSectionByScroll(entry); 
         }
       });
@@ -46,6 +46,8 @@ class Contact extends PureComponent {
 }
 
 export default connect(
-  null,
+  ({ buttonScroll }) => ({
+    buttonScroll
+  }),
   ({ setCurrentSectionByScroll })
 )(Contact);
