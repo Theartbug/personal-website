@@ -18,6 +18,10 @@ class ScrollButtons extends PureComponent {
 
   handleUpClick = () => this.props.setCurrentSectionByButtons(false);
 
+  componentWillUnmount() {
+    Events.scrollEvent.remove('end');
+  }
+
   render() {
 
     const { handleDownClick, handleUpClick } = this;

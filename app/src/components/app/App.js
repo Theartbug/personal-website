@@ -69,10 +69,6 @@ export default class App extends PureComponent {
   //   });
   // };
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove('end');
-  }
-
   render() {
 
     const { changeScrollView, intersectionScrollChange } = this;
