@@ -9,15 +9,9 @@ export const setCurrentSectionByButtons = (direction) => {
   //if the current position is at the beginning or the end and the direction wants to go further, dont let it.
   if(current === 0 && !direction || current === 5 && direction) return;
   
-  if(direction) {
-    const next = current + 1;
-    scrollTo(list[next]);
-    return setCurrentSection(next);
-  } else {
-    const prev = current - 1;
-    scrollTo(list[prev]);
-    return setCurrentSection(prev);
-  }
+  const section = direction ? current + 1 : current - 1;
+  scrollTo(list[section]);
+  return setCurrentSection(section);
 };
 
 export const setCurrentSectionByScroll = entry => {
@@ -36,10 +30,10 @@ export const setButtonScroll = (bool) =>
     payload: bool
   });
 
-const setCurrentSection = (next) => (dispatch) => {
+const setCurrentSection = payload => dispatch => {
   dispatch({
     type: SECTION_CHANGE,
-    payload: next
+    payload
   });
   dispatch(setButtonScroll(true));
 };

@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
 import node from '../../assets/node.png';
@@ -8,15 +10,15 @@ import redux from '../../assets/redux.png';
 import webpack from '../../assets/webpack.png';
 import './skills.css';
 
-export default class Hero extends PureComponent {
+class Skills extends PureComponent {
 
   componentDidMount() {
-    const { intersectionScrollChange, config } = this.props;
+    const { setCurrentSectionByScroll, config } = this.props;
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
-          intersectionScrollChange(entry); 
+          setCurrentSectionByScroll(entry); 
         }
       });
     }, config);
@@ -57,3 +59,8 @@ export default class Hero extends PureComponent {
     );
   }
 }
+
+export default connect(
+  null,
+  ({ setCurrentSectionByScroll })
+)(Skills);

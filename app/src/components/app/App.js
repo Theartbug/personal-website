@@ -85,7 +85,7 @@ export default class App extends PureComponent {
         <Github intersectionScrollChange={intersectionScrollChange} config={config} />
         <Projects intersectionScrollChange={intersectionScrollChange} config={config} />
         <Contact intersectionScrollChange={intersectionScrollChange} config={config} />
-        <Copyright intersectionScrollChange={intersectionScrollChange} config={config} />
+        <Copyright/>
         <ScrollButtons changeScrollView={changeScrollView}/>
       </main>
     );

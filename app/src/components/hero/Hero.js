@@ -1,17 +1,19 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
 import laptopImage from '../../assets/profile_laptop.jpg';
 import mobileImage from '../../assets/profile_mobile.jpg';
 import './hero.css';
 
-export default class Hero extends PureComponent {
+class Hero extends PureComponent {
 
   componentDidMount() {
-    const { intersectionScrollChange, config } = this.props;
+    const { setCurrentSectionByScroll, config } = this.props;
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
-          intersectionScrollChange(entry); 
+          setCurrentSectionByScroll(entry); 
         }
       });
     }, config);
@@ -35,3 +37,8 @@ export default class Hero extends PureComponent {
     );
   }
 }
+
+export default connect(
+  null,
+  ({ setCurrentSectionByScroll })
+)(Hero);

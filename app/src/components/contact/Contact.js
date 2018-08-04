@@ -1,19 +1,21 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
 import MailIcon from 'react-icons/lib/fa/envelope-o';
 import LinkedInIcon from 'react-icons/lib/fa/linkedin-square';
 import GithubIcon from 'react-icons/lib/fa/github-square';
 import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
-export default class Contact extends PureComponent {
+class Contact extends PureComponent {
 
   componentDidMount() {
-    const { intersectionScrollChange, config } = this.props;
+    const { setCurrentSectionByScroll, config } = this.props;
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
-          intersectionScrollChange(entry); 
+          setCurrentSectionByScroll(entry); 
         }
       });
     }, config);
@@ -42,3 +44,8 @@ export default class Contact extends PureComponent {
     );
   }
 }
+
+export default connect(
+  null,
+  ({ setCurrentSectionByScroll })
+)(Contact);
