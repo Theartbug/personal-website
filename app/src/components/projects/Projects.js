@@ -1,20 +1,23 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
 import uRateLogo from '../../assets/uRater-logo.svg';
 import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
-export default class Hero extends PureComponent {
+class Projects extends PureComponent {
 
   componentDidMount() {
-    const { intersectionScrollChange, config } = this.props;
-
+    const { config, setCurrentSectionByScroll } = this.props;
+    
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          intersectionScrollChange(entry); 
-        }
+        const { buttonScroll } = this.props; //needs to be pulled off every time
+        const { target: { className }, isIntersecting, intersectionRatio } = entry;
+
+        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
       });
     }, config);
     
@@ -66,3 +69,10 @@ export default class Hero extends PureComponent {
     );
   }
 }
+
+export default connect(
+  ({ buttonScroll }) => ({
+    buttonScroll
+  }),
+  ({ setCurrentSectionByScroll })
+)(Projects);
