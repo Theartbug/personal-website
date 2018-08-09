@@ -14,9 +14,21 @@ class ScrollButtons extends PureComponent {
     Events.scrollEvent.register('end', () => setButtonScroll(false));
   }
 
-  handleDownClick = () => this.props.setCurrentSectionByButtons(true);
+  handleDownClick = () => {
+    const { currentSection } = this.props;
+  //if the currentSection position is at the end and the direction wants to go further, dont let it.
+    if(currentSection === 5) return;
+    const next = currentSection + 1;
+    this.props.setCurrentSectionByButtons(next);
+  };
 
-  handleUpClick = () => this.props.setCurrentSectionByButtons(false);
+  handleUpClick = () => {
+    const { currentSection } = this.props;
+  //if the currentSection position is at the beginning the direction wants to go further, dont let it.
+    if(currentSection === 0) return;
+    const prev = currentSection - 1;
+    this.props.setCurrentSectionByButtons(prev);
+  };
 
   componentWillUnmount() {
     Events.scrollEvent.remove('end');
@@ -36,6 +48,8 @@ class ScrollButtons extends PureComponent {
 }
 
 export default connect(
-  null,
+  ({ currentSection }) => ({
+    currentSection
+  }),
   ({ setCurrentSectionByButtons, setButtonScroll })
 )(ScrollButtons);

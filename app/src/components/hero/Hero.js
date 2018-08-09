@@ -12,9 +12,9 @@ class Hero extends PureComponent {
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting && !buttonScroll) {
-          setCurrentSectionByScroll(entry); 
-        }
+        const { target: { className }, isIntersecting, intersectionRatio } = entry;
+
+        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
       });
     }, config);
     
