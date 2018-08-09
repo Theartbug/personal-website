@@ -12,13 +12,14 @@ class Github extends PureComponent {
   };
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config, buttonScroll } = this.props;
+    const { setCurrentSectionByScroll, config } = this.props;
     
     getLanguagesAndLibraries()
       .then(result => this.setState({ languages: result.languages, libraries: result.libraries, loading: false }));
 
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
+        const { buttonScroll } = this.props;
         const { target: { className }, isIntersecting, intersectionRatio } = entry;
 
         if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
