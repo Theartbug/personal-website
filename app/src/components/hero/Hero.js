@@ -8,10 +8,11 @@ import './hero.css';
 class Hero extends PureComponent {
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config, buttonScroll } = this.props;
-
+    const { config, setCurrentSectionByScroll } = this.props;
+    
     let observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
+        const { buttonScroll } = this.props; //needs to be pulled off every time
         const { target: { className }, isIntersecting, intersectionRatio } = entry;
 
         if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
