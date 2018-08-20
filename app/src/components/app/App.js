@@ -18,7 +18,7 @@ export default class App extends PureComponent {
 
   render() {
     return (
-      <main role="main">
+      <main id="app" role="main">
         <Hero config={config} />
         <Bio config={config} />
         <Skills config={config} />

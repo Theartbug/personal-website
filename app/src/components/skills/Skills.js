@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
+import withIntersectionObserver from '../../services/withIntersectionObserver';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
 import node from '../../assets/node.png';
@@ -11,21 +10,6 @@ import webpack from '../../assets/webpack.png';
 import './skills.css';
 
 class Skills extends PureComponent {
-
-  componentDidMount() {
-    const { config, setCurrentSectionByScroll } = this.props;
-    
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { buttonScroll } = this.props; //needs to be pulled off every time
-        const { target: { className }, isIntersecting, intersectionRatio } = entry;
-
-        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
-      });
-    }, config);
-    
-    observer.observe(this.skills);
-  }
 
   render() {
     return (
@@ -60,9 +44,4 @@ class Skills extends PureComponent {
   }
 }
 
-export default connect(
-  ({ buttonScroll }) => ({
-    buttonScroll
-  }),
-  ({ setCurrentSectionByScroll })
-)(Skills);
+export default withIntersectionObserver(Skills);
