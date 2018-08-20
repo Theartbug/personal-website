@@ -6,7 +6,7 @@ import UpAngleIcon from 'react-icons/lib/fa/caret-up';
 import DownAngleIcon from 'react-icons/lib/fa/caret-down';
 import './scroll-buttons.css';
 
-class ScrollButtons extends PureComponent {
+export class ScrollButtons extends PureComponent {
 
   componentDidMount() {
     //so the intersection observer does not interfere with react-scroll, must keep track in state
@@ -15,19 +15,19 @@ class ScrollButtons extends PureComponent {
   }
 
   handleDownClick = () => {
-    const { currentSection } = this.props;
+    const { currentSection, setCurrentSectionByButtons } = this.props;
   //if the currentSection position is at the end and the direction wants to go further, dont let it.
     if(currentSection === 5) return;
     const next = currentSection + 1;
-    this.props.setCurrentSectionByButtons(next);
+    setCurrentSectionByButtons(next);
   };
 
   handleUpClick = () => {
-    const { currentSection } = this.props;
+    const { currentSection, setCurrentSectionByButtons } = this.props;
   //if the currentSection position is at the beginning the direction wants to go further, dont let it.
     if(currentSection === 0) return;
     const prev = currentSection - 1;
-    this.props.setCurrentSectionByButtons(prev);
+    setCurrentSectionByButtons(prev);
   };
 
   componentWillUnmount() {
@@ -40,8 +40,8 @@ class ScrollButtons extends PureComponent {
 
     return (
       <div className="scroll-buttons">
-        <button className="reset-button" onClick={handleUpClick}><UpAngleIcon/></button>
-        <button className="reset-button" onClick={handleDownClick}><DownAngleIcon/></button>
+        <button className="up reset-button" onClick={handleUpClick}><UpAngleIcon/></button>
+        <button className="down reset-button" onClick={handleDownClick}><DownAngleIcon/></button>
       </div>
     );
   }
