@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
+import withIntersectionObserver from '../../services/withIntersectionObserver';
 import { getLanguagesAndLibraries } from '../../services/githubAPI';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
@@ -12,21 +11,9 @@ class Github extends PureComponent {
   };
 
   componentDidMount() {
-    const { setCurrentSectionByScroll, config } = this.props;
     
     getLanguagesAndLibraries()
       .then(result => this.setState({ languages: result.languages, libraries: result.libraries, loading: false }));
-
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { buttonScroll } = this.props;
-        const { target: { className }, isIntersecting, intersectionRatio } = entry;
-
-        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
-      });
-    }, config);
-    
-    observer.observe(this.github);
   }
 
   render() {
@@ -55,9 +42,4 @@ class Github extends PureComponent {
   }
 }
 
-export default connect(
-  ({ buttonScroll }) => ({
-    buttonScroll
-  }),
-  ({ setCurrentSectionByScroll })
-)(Github);
+export default withIntersectionObserver(Github);

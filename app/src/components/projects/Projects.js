@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
+import withIntersectionObserver from '../../services/withIntersectionObserver';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
 import uRateLogo from '../../assets/uRater-logo.svg';
@@ -8,21 +7,6 @@ import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
 class Projects extends PureComponent {
-
-  componentDidMount() {
-    const { config, setCurrentSectionByScroll } = this.props;
-    
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { buttonScroll } = this.props; //needs to be pulled off every time
-        const { target: { className }, isIntersecting, intersectionRatio } = entry;
-
-        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
-      });
-    }, config);
-    
-    observer.observe(this.projects);
-  }
 
   render() {
 
@@ -70,9 +54,4 @@ class Projects extends PureComponent {
   }
 }
 
-export default connect(
-  ({ buttonScroll }) => ({
-    buttonScroll
-  }),
-  ({ setCurrentSectionByScroll })
-)(Projects);
+export default withIntersectionObserver(Projects);

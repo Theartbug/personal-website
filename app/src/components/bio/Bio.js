@@ -1,29 +1,13 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
 import BikeIcon from 'react-icons/lib/fa/bicycle';
 import BookIcon from 'react-icons/lib/fa/book';
 import MedIcon from 'react-icons/lib/io/ios-medkit';
 import CodeIcon from 'react-icons/lib/fa/code';
 import PlantIcon from 'react-icons/lib/fa/pagelines';
 import './bio.css';
+import withIntersectionObserver from '../../services/withIntersectionObserver';
 
 class Bio extends PureComponent {
-
-  componentDidMount() {
-    const { config, setCurrentSectionByScroll } = this.props;
-    
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { buttonScroll } = this.props; //needs to be pulled off every time
-        const { target: { className }, isIntersecting, intersectionRatio } = entry;
-
-        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
-      });
-    }, config);
-    
-    observer.observe(this.bio);
-  }
 
   render() {
 
@@ -58,9 +42,4 @@ class Bio extends PureComponent {
   }
 }
 
-export default connect(
-  ({ buttonScroll }) => ({
-    buttonScroll
-  }),
-  ({ setCurrentSectionByScroll })
-)(Bio);
+export default withIntersectionObserver(Bio);

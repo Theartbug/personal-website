@@ -1,26 +1,10 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { setCurrentSectionByScroll } from '../scroll-buttons/actions';
+import withIntersectionObserver from '../../services/withIntersectionObserver';
 import laptopImage from '../../assets/profile_laptop.jpg';
 import mobileImage from '../../assets/profile_mobile.jpg';
 import './hero.css';
 
 class Hero extends PureComponent {
-
-  componentDidMount() {
-    const { config, setCurrentSectionByScroll } = this.props;
-    
-    let observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { buttonScroll } = this.props; //needs to be pulled off every time
-        const { target: { className }, isIntersecting, intersectionRatio } = entry;
-
-        if(!buttonScroll && (isIntersecting === true || intersectionRatio > 0)) setCurrentSectionByScroll(className); 
-      });
-    }, config);
-    
-    observer.observe(this.hero);
-  }
 
   render() {
 
@@ -39,9 +23,4 @@ class Hero extends PureComponent {
   }
 }
 
-export default connect(
-  ({ buttonScroll }) => ({
-    buttonScroll
-  }),
-  ({ setCurrentSectionByScroll })
-)(Hero);
+export default withIntersectionObserver(Hero);

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollButton render tests should change when hovering 1`] = `
+<div
+  className="scroll-buttons"
+>
+  <button
+    className="up reset-button"
+    onClick={[Function]}
+  >
+    <FaCaretUp />
+  </button>
+  <button
+    className="down reset-button"
+    onClick={[Function]}
+  >
+    <FaCaretDown />
+  </button>
+</div>
+`;
+
+exports[`ScrollButton render tests should render correctly 1`] = `
+<div
+  className="scroll-buttons"
+>
+  <button
+    className="up reset-button"
+    onClick={[Function]}
+  >
+    <FaCaretUp />
+  </button>
+  <button
+    className="down reset-button"
+    onClick={[Function]}
+  >
+    <FaCaretDown />
+  </button>
+</div>
+`;
