@@ -7,6 +7,7 @@ import react from '../../assets/react.png';
 import sass from '../../assets/sass.png';
 import redux from '../../assets/redux.png';
 import webpack from '../../assets/webpack.png';
+import jest from '../../assets/jest.svg';
 import './skills.css';
 
 class Skills extends PureComponent {
@@ -18,25 +19,28 @@ class Skills extends PureComponent {
 
         <div className="max-width">
           <div>
-            <img src={express} alt="express logo"/>
+            <img className="logo" src={express} alt="express logo"/>
           </div>
           <div>
-            <img src={firebase} alt="firebase logo"/>
+            <img className="logo" src={firebase} alt="firebase logo"/>
           </div>
           <div>
-            <img src={node} alt="node logo"/>
+            <img className="logo" src={node} alt="node logo"/>
           </div>
           <div>
-            <img src={react} alt="react logo"/>
+            <img className="logo" src={react} alt="react logo"/>
           </div>
           <div>
-            <img src={redux} alt="redux logo"/>
+            <img className="logo" src={redux} alt="redux logo"/>
           </div>
           <div>
-            <img src={sass} alt="sass logo"/>
+            <img className="logo" src={sass} alt="sass logo"/>
           </div>
           <div>
-            <img src={webpack} alt="webpack logo"/>
+            <img className="logo" src={webpack} alt="webpack logo"/>
+          </div>
+          <div>
+            <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
           </div>
         </div>
       </section>
