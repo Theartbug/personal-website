@@ -16,10 +16,21 @@
     padding: .3rem;
     border-radius: 10px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+    }
   }
   
-  img {
+  .logo {
     margin: auto;
+    height: 35px;    
+    width: auto;
+  }
+  .text-logo {
     height: 35px;    
     width: auto;
   }
