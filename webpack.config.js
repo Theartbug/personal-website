@@ -20,15 +20,15 @@ module.exports = {
     historyApiFallback: true
   },
   devtool: process.env.NODE_ENV === 'production' ?
-    'inline-source-map' :
-    'cheap-eval-source-map',
+    'cheap-eval-source-map' :
+    'inline-source-map',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        // defaults the environment to development if not specified
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     // defaults the environment to development if not specified
+    //     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    //   }
+    // }),
     new ExtractTextPlugin('styles.css'),
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './app/src/index.html' }),

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "webpack NODE_ENV=production",
-    "start": "webpack-dev-server --hot NODE_ENV=development",
+    "build": "webpack env.NODE_ENV=production",
+    "start": "webpack-dev-server --hot",
     "test": "jest",
     "test:watch": "npm run test -- --watch"
   },
