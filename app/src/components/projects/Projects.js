@@ -3,6 +3,7 @@ import withIntersectionObserver from '../../services/withIntersectionObserver';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
 import uRateLogo from '../../assets/uRater-logo.svg';
+import marketoLogo from '../../assets/Marketo_logo.png';
 import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
@@ -13,6 +14,16 @@ class Projects extends PureComponent {
     return (
       <section className="projects" id="projects" ref={projects => this.projects = projects}>
         <h2 className="lines">Projects</h2>
+
+        <div className="app">
+          <img className="urate" src={marketoLogo} alt='marketo logo'/>
+          <div className="text">
+            <h3>Marketo</h3>
+            <h4>React, Redux, Jest, CSS, Node.js</h4>
+            <p>A marketing automation platform.</p>
+          </div>
+        </div>
+
         <div className="app">
           <img className="urate" src={uRateLogo} alt='U-Rate logo'/>
           <div className="text">
