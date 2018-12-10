@@ -9,7 +9,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 console.log('node env', process.env.NODE_ENV);
 
-module.exports = {
+module.exports = env => ({
   entry: './app/src/main.js',
   output: {
     path,
@@ -20,16 +20,16 @@ module.exports = {
     contentBase: './build',
     historyApiFallback: true
   },
-  devtool: process.env.NODE_ENV === 'production' ?
+  devtool: env === 'production' ?
     'cheap-eval-source-map' :
     'inline-source-map',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        // defaults the environment to development if not specified
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     // defaults the environment to development if not specified
+    //     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    //   }
+    // }),
     new ExtractTextPlugin('styles.css'),
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './app/src/index.html' }),
@@ -52,7 +52,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: process.env.NODE_ENV === 'production' ?
+            loader: env === 'production' ?
               ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: 'css-loader'
@@ -82,4 +82,4 @@ module.exports = {
       }
     ]
   }
-};
+});
