@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = `${__dirname}/build`;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+console.log('node env', process.env.NODE_ENV);
 
 module.exports = {
   entry: './app/src/main.js',
