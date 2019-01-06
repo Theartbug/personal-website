@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "webpack",
-    "start": "webpack-dev-server --hot",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "jest",
     "test:watch": "npm run test -- --watch"
   },
@@ -45,18 +45,21 @@
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-react": "^7.6.1",
     "file-loader": "^1.1.7",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.0",
     "jest-css-modules": "^1.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.0",
     "precss": "^3.1.0",
     "prop-types": "^15.6.0",
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "intersection-observer": "^0.5.0",
