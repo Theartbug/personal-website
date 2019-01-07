@@ -20,7 +20,7 @@ class Projects extends PureComponent {
           <div className="text">
             <h3>Marketo</h3>
             <h4>React, Redux, Jest, CSS, Node.js</h4>
-            <p>A marketing automation platform.</p>
+            <p>A marketing automation platform. Specifically, working on MyMarketo on the Sky team in Portland, OR.</p>
           </div>
         </div>
 

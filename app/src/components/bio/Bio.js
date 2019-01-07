@@ -17,7 +17,7 @@ class Bio extends PureComponent {
         <div className="grid">
           <div>
             <BikeIcon/>
-            <p>She is <span>Active</span> and enjoys bike commuting, rock climbing, dancing, hiking, camping, and urban walks.</p>
+            <p>She is <span>Active</span> and enjoys bike commuting, rock climbing, dancing, hiking, camping, and urban walks around Portland, OR.</p>
           </div>
           <div>
             <BookIcon/>
