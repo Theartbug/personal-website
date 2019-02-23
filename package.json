@@ -67,7 +67,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-icons": "^2.2.7",
-    "react-intersection-observer": "^6.4.2",
+    "react-intersection-observer": "^8.0.5",
     "react-redux": "^5.0.7",
     "react-scroll": "^1.7.11",
     "react-spinners": "^0.3.3",
