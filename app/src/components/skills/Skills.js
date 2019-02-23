@@ -12,7 +12,7 @@ import './skills.css';
 
 function Skills() {
   return (
-    <section className="skills" id="skills" ref={skills => this.skills = skills}>
+    <section className="skills" id="skills">
       <h2 className="lines">Skills</h2>
 
       <div className="max-width">

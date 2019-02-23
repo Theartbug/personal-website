@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 import { setCurrentSectionByScroll } from '../components/scroll-buttons/actions';
 
-export default function BaseComponent(props) {
+export default function Wrapper(BaseComponent) {
   const displayName = BaseComponent.displayName || BaseComponent.name || 'Component';
   
-  function WithIntersectionObserver() {
+  function WithIntersectionObserver(props) {
     const [ref, inView] = useInView({ rootMargin: '-10% 0px -55%' });
 
     function handleChange() {
@@ -17,7 +17,7 @@ export default function BaseComponent(props) {
 
     if(inView) handleChange();
 
-    return <BaseComponent ref={ref} {...props}/>;
+    return <BaseComponent forwardRef={ref} {...props}/>;
     
   }
 

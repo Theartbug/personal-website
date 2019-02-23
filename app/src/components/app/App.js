@@ -17,12 +17,12 @@ const config = {
 export default function App() {
   return (
     <main id="app" role="main">
-      <Hero config={config} />
-      <Bio config={config} />
-      <Skills config={config} />
-      <Github config={config} />
-      <Projects config={config} />
-      <Contact config={config} />
+      <Hero/>
+      <Bio/>
+      <Skills/>
+      <Github/>
+      <Projects/>
+      <Contact/>
       <Copyright/>
       <ScrollButtons/>
     </main>
