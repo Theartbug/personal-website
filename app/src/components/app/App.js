@@ -14,20 +14,17 @@ const config = {
   rootMargin: '10% 0px -55%',
 };
 
-export default class App extends PureComponent {
-
-  render() {
-    return (
-      <main id="app" role="main">
-        <Hero config={config} />
-        <Bio config={config} />
-        <Skills config={config} />
-        <Github config={config} />
-        <Projects config={config} />
-        <Contact config={config} />
-        <Copyright/>
-        <ScrollButtons/>
-      </main>
-    );
-  }
+export default function App() {
+  return (
+    <main id="app" role="main">
+      <Hero config={config} />
+      <Bio config={config} />
+      <Skills config={config} />
+      <Github config={config} />
+      <Projects config={config} />
+      <Contact config={config} />
+      <Copyright/>
+      <ScrollButtons/>
+    </main>
+  );
 }

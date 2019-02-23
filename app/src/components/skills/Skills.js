@@ -10,42 +10,40 @@ import webpack from '../../assets/webpack.png';
 import jest from '../../assets/jest.svg';
 import './skills.css';
 
-class Skills extends PureComponent {
+function Skills() {
+  return (
+    <section className="skills" id="skills" ref={skills => this.skills = skills}>
+      <h2 className="lines">Skills</h2>
 
-  render() {
-    return (
-      <section className="skills" id="skills" ref={skills => this.skills = skills}>
-        <h2 className="lines">Skills</h2>
-
-        <div className="max-width">
-          <div>
-            <img className="logo" src={express} alt="express logo"/>
-          </div>
-          <div>
-            <img className="logo" src={firebase} alt="firebase logo"/>
-          </div>
-          <div>
-            <img className="logo" src={node} alt="node logo"/>
-          </div>
-          <div>
-            <img className="logo" src={react} alt="react logo"/>
-          </div>
-          <div>
-            <img className="logo" src={redux} alt="redux logo"/>
-          </div>
-          <div>
-            <img className="logo" src={sass} alt="sass logo"/>
-          </div>
-          <div>
-            <img className="logo" src={webpack} alt="webpack logo"/>
-          </div>
-          <div>
-            <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
-          </div>
+      <div className="max-width">
+        <div>
+          <img className="logo" src={express} alt="express logo"/>
         </div>
-      </section>
-    );
-  }
+        <div>
+          <img className="logo" src={firebase} alt="firebase logo"/>
+        </div>
+        <div>
+          <img className="logo" src={node} alt="node logo"/>
+        </div>
+        <div>
+          <img className="logo" src={react} alt="react logo"/>
+        </div>
+        <div>
+          <img className="logo" src={redux} alt="redux logo"/>
+        </div>
+        <div>
+          <img className="logo" src={sass} alt="sass logo"/>
+        </div>
+        <div>
+          <img className="logo" src={webpack} alt="webpack logo"/>
+        </div>
+        <div>
+          <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
+        </div>
+      </div>
+    </section>
+  );
+
 }
 
 export default withIntersectionObserver(Skills);
