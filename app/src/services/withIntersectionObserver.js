@@ -20,7 +20,8 @@ export default function Wrapper(BaseComponent) {
 
     if(inView) handleChange();
 
-    return <BaseComponent ref={ref}/>;
+    // each child component will need React.forwardRef() as refs cannot be passed to functions (what BaseComponent is)
+    return <BaseComponent ref={ref}/>; 
   }
 
   WithIntersectionObserver.displayName = `withIntersectionObserver(${displayName})`;
