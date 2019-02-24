@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
@@ -7,9 +7,13 @@ import marketoLogo from '../../assets/Marketo_logo.png';
 import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
-function Projects() {
+const Projects = forwardRef((props, ref) => {
   return (
-    <section className="projects" id="projects">
+    <section 
+      ref={ ref }
+      className="projects" 
+      id="projects"
+      { ...props }>
       <h2 className="lines">Projects</h2>
 
       <div className="app">
@@ -59,6 +63,7 @@ function Projects() {
       </div>
     </section>
   );
-}
+});
+Projects.displayName = 'Projects';
 
 export default withIntersectionObserver(Projects);

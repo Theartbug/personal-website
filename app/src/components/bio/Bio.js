@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import BikeIcon from 'react-icons/lib/fa/bicycle';
 import BookIcon from 'react-icons/lib/fa/book';
 import MedIcon from 'react-icons/lib/io/ios-medkit';
@@ -7,9 +7,13 @@ import PlantIcon from 'react-icons/lib/fa/pagelines';
 import './bio.css';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
 
-function Bio() {
+const Bio = forwardRef((props, ref) => {
   return (
-    <section className="bio" id="bio">
+    <section 
+      ref={ ref }
+      className="bio"
+      id="bio"
+      { ...props }>
       <h2 className="lines">About</h2>
       <div className="grid">
         <div>
@@ -35,6 +39,6 @@ function Bio() {
       </div>
     </section>
   );
-}
-
+});
+Bio.displayName = 'Bio';
 export default withIntersectionObserver(Bio);

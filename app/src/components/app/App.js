@@ -9,11 +9,6 @@ import Copyright from '../copyright/Copyright';
 import ScrollButtons from '../scroll-buttons/ScrollButtons';
 import './app.css';
 
-const config = {
-  //give a little wiggle room at the top before jumping to next section as 'current' for intersectionObserver
-  rootMargin: '10% 0px -55%',
-};
-
 export default function App() {
   return (
     <main id="app" role="main">

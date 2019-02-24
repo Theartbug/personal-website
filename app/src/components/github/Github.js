@@ -4,7 +4,7 @@ import { getLanguagesAndLibraries } from '../../services/githubAPI';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
 
-class Github extends PureComponent {
+export default class Github extends PureComponent {
 
   state = {
     loading: true
@@ -42,4 +42,4 @@ class Github extends PureComponent {
   }
 }
 
-export default withIntersectionObserver(Github);
+// export default withIntersectionObserver(Github);
