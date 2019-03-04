@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
