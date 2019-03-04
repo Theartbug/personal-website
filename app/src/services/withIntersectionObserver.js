@@ -15,6 +15,7 @@ export default function Wrapper(BaseComponent) {
     function handleChange() {
       const { buttonScroll, setCurrentSectionByScroll } = props;
 
+      // if we aren't currently scrolling from the buttons, change the current section in the store
       if(!buttonScroll) setCurrentSectionByScroll(displayName.toLowerCase());
     };
 

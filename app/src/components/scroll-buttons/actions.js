@@ -14,7 +14,7 @@ export const setCurrentSectionByScroll = (className) => {
   return setCurrentSection(current);
 };
 
-export const setButtonScroll = (bool) => ({ type: BUTTON_PRESS, payload: bool });
+export const setButtonScroll = bool => ({ type: BUTTON_PRESS, payload: bool });
 
 const setCurrentSection = payload => ({ type: SECTION_CHANGE, payload });
 
