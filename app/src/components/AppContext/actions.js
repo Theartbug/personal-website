@@ -14,9 +14,15 @@ export const setCurrentSectionByScroll = (className) => {
   return setCurrentSection(current);
 };
 
-export const setButtonScroll = bool => ({ type: BUTTON_PRESS, payload: bool });
+export const setButtonScroll = payload => ({ 
+  type: BUTTON_PRESS, 
+  payload
+});
 
-const setCurrentSection = payload => ({ type: SECTION_CHANGE, payload });
+const setCurrentSection = payload => ({ 
+  type: SECTION_CHANGE, 
+  payload 
+});
 
 const scrollTo = (id) => {
   if(!id) return;

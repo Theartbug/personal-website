@@ -23,4 +23,11 @@ Research other personal websites that I find well done. Take parts from those an
 Research and implement Github API so the number of applications I have created will automatically update. Test functions created using Jest. Create a cache in local storage to store results since it takes ~10 seconds to retrieve all of the data. Check the cache date when a user visits the page; if it is over a month old, refresh the data.
 
 Research and implement IntersectionObserver API so I can keep track of what section the user is viewing; the auto-scroll buttons will update to match. Also works with page refresh!
- 
+
+### Update 3/10/19
+
+Convert website to use react hooks!
+References:
+- [useContext & useReducer](https://medium.com/crowdbotics/how-to-use-usereducer-in-react-hooks-for-performance-optimization-ecafca9e7bf5)
+- [useReducer with useMemo example](https://github.com/reactjs/reactjs.org/issues/1604#issuecomment-458878841)
+- [react-redux useRedux issues](https://github.com/reduxjs/react-redux/issues/1177) 
