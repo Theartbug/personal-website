@@ -8,17 +8,17 @@ const initialState = {
 
 // It returns an object with 2 values:
 // { Provider, Consumer }
-const Context = React.createContext(initialState);
+const Context = React.createContext();
 
 function AppContext({ children }) {
-  const [{ currentSection, buttonScroll }, dispatch] = useReducer(reducer);
+  const [{ buttonScroll, currentSection }, dispatch] = useReducer(reducer, initialState);
   // const value = { state, dispatch };
   // ^^^^^^ don't do as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
   //https://reactjs.org/docs/context.html#caveats
   // instead useMemo so that the object is only changed when currentSection or buttonScroll changes
   const value = useMemo(() => ({
-      currentSection,
       buttonScroll,
+      currentSection,
       dispatch
     }),
     [currentSection, buttonScroll]);
@@ -33,6 +33,10 @@ function AppContext({ children }) {
 }
 
 // this gives multiple consumers a way to access the same context
-const useMyContext = () => useContext(Context);
+const useMyContext = () => {
+  
+  const stuff = useContext(Context);
+  return stuff;
+}
 
 export { useMyContext, AppContext };

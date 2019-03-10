@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { Events } from 'react-scroll';
-import { setCurrentSectionByButtons, setButtonScroll } from '../AppContext/actions';
-import { useMyContext } from '../AppContext/AppContext.js';
+import { setCurrentSectionByButtons, setButtonScroll } from '../appContext/actions.js';
+import { useMyContext } from '../appContext/AppContext.js';
 import UpAngleIcon from 'react-icons/lib/fa/caret-up';
 import DownAngleIcon from 'react-icons/lib/fa/caret-down';
 import './scroll-buttons.css';
 
 export default function ScrollButtons(props) {
   // const { setButtonScroll, currentSection, setCurrentSectionByButtons } = props;
-  const { currentSection: { currentSection }, dispatch } = useMyContext(Context);
+  const { currentSection: { currentSection }, dispatch } = useMyContext();
   
   useEffect(setScrollListener, []);
 
