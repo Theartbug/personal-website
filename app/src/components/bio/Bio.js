@@ -40,5 +40,5 @@ const Bio = forwardRef((props, ref) => {
     </section>
   );
 });
-Bio.displayName = 'Bio';
+Bio.displayName = 'bio';
 export default withIntersectionObserver(Bio);

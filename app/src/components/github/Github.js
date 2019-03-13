@@ -42,5 +42,5 @@ const Github = forwardRef((props, ref) => {
     </section>
   );
 });
-Github.displayName = 'Github';
+Github.displayName = 'github';
 export default withIntersectionObserver(Github);

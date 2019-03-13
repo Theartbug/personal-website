@@ -15,7 +15,7 @@ export default function Wrapper(BaseComponent) {
     console.log('displayName: ', displayName);
     console.log('inView: ', inView);
   
-    const { buttonScroll: { buttonScroll }, dispatch } = useMyContext();
+    const { buttonScroll, dispatch } = useMyContext();
   
     function handleChange() {
       // if we aren't currently scrolling from the buttons, change the current section in the store

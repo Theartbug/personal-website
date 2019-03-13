@@ -21,5 +21,5 @@ const Hero = forwardRef((props, ref) => {
     </figure>
   );
 });
-Hero.displayName = 'Hero';
+Hero.displayName = 'hero';
 export default withIntersectionObserver(Hero);

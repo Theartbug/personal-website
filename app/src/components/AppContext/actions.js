@@ -3,14 +3,23 @@ import { scroller } from 'react-scroll';
 
 const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
 
+const scrollTo = (id) => {
+  if(!id) return;
+  scroller.scrollTo(id, {
+    duration: 1000,
+    delay: 0,
+    smooth: 'easeInOutQuart'
+  });
+};
+
 export const setCurrentSectionByButtons = section => dispatch => {
   scrollTo(list[section]);
   dispatch(setButtonScroll(true));
   dispatch(setCurrentSection(section));
 };
 
-export const setCurrentSectionByScroll = (className) => {
-  const current = list.indexOf(className);
+export const setCurrentSectionByScroll = section => {
+  const current = list.indexOf(section);
   return setCurrentSection(current);
 };
 
@@ -23,15 +32,6 @@ const setCurrentSection = payload => ({
   type: SECTION_CHANGE, 
   payload 
 });
-
-const scrollTo = (id) => {
-  if(!id) return;
-  scroller.scrollTo(id, {
-    duration: 1000,
-    delay: 0,
-    smooth: 'easeInOutQuart'
-  });
-};
 
 
 

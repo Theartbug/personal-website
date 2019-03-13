@@ -29,5 +29,5 @@ const Contact = forwardRef((props, ref) => {
     </section>
   );
 });
-Contact.displayName = 'Contact';
+Contact.displayName = 'contact';
 export default withIntersectionObserver(Contact);

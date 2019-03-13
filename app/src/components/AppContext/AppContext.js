@@ -1,6 +1,11 @@
 import React, { useReducer, useMemo, useContext } from 'react';
 import { reducer } from './reducers.js';
 
+// Thunk middleware replacement
+const augmentDispatch = (dispatch, state) =>
+  (input) =>
+    input instanceof Function ? input(dispatch, state) : dispatch(input);
+
 const initialState = {
   buttonScroll: false,
   currentSection: 0,
@@ -11,17 +16,18 @@ const initialState = {
 const Context = React.createContext();
 
 function AppContext({ children }) {
-  const [{ buttonScroll, currentSection }, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { buttonScroll, currentSection } = state;
   // const value = { state, dispatch };
-  // ^^^^^^ don't do as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
+  // ^^^^^^ DON'T DO as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
   //https://reactjs.org/docs/context.html#caveats
   // instead useMemo so that the object is only changed when currentSection or buttonScroll changes
   const value = useMemo(() => ({
       buttonScroll,
       currentSection,
-      dispatch
+      dispatch: augmentDispatch(dispatch, state) // now supports thunks
     }),
-    [currentSection, buttonScroll]);
+    [buttonScroll, currentSection]);
 
   return (
     // provider updates any time the value given is updated

@@ -64,6 +64,6 @@ const Projects = forwardRef((props, ref) => {
     </section>
   );
 });
-Projects.displayName = 'Projects';
+Projects.displayName = 'projects';
 
 export default withIntersectionObserver(Projects);

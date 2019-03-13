@@ -48,5 +48,5 @@ const Skills = forwardRef((props, ref) => {
     </section>
   );
 });
-Skills.displayName = 'Skills';
+Skills.displayName = 'skills';
 export default withIntersectionObserver(Skills);
