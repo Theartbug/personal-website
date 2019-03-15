@@ -44,7 +44,7 @@ function checkCache() {
   const convertedStorage = JSON.parse(storage);
   const { date } = convertedStorage;
   //if the storage was fetched in the past month (below in milliseconds), return it, else fetch it again
-  return (new Date() - new Date(date) > 454305569297142.8125) && convertedStorage;
+  return (new Date() - new Date(date) < 454305569297142.8125) && convertedStorage;
 };
 
 function setStorage({ languages, libraries }) {
@@ -66,23 +66,25 @@ export const useGithubApi = () => {
 
   const storage = checkCache();
 
-  if(storage) {
-    setLanguages(storage.languages);
-    setLibraries(storage.libraries);
-    setLoading(false);
-  }
-  async function getRepos() {
-    const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-    try {
-      const data = await getCORS(url, options)
-      setRepos(data);
-    } catch(e) {
-      setError(true);
+  useEffect(() => {
+    if(storage) {
+      setLanguages(storage.languages);
+      setLibraries(storage.libraries);
+      setLoading(false);
+    } else {
+      async function getRepos() {
+        const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
+        try {
+          const data = await getCORS(url, options)
+          setRepos(data);
+        } catch(e) {
+          setError(true);
+        }
+      };
+      getRepos(); // let the async functions manipulate the data
     }
-  };
+  }, []);
 
-  getRepos(); // let the async functions manipulate the data
-  
   useEffect(() => {
     async function getLanguagesAndLibraries(data) {
       try {
@@ -92,7 +94,7 @@ export const useGithubApi = () => {
         ]);
         setLanguages(returnedLanguages);
         setLibraries(returnedLibraries);
-        setStorage({ languages, libraries }); // set storage for next time
+        setStorage({ languages: returnedLanguages, libraries: returnedLibraries }); // set storage for next time
         setLoading(false);
       } catch (e) {
         setError(true);
