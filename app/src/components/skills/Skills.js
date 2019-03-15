@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
@@ -10,11 +10,14 @@ import webpack from '../../assets/webpack.png';
 import jest from '../../assets/jest.svg';
 import './skills.css';
 
-class Skills extends PureComponent {
-
-  render() {
-    return (
-      <section className="skills" id="skills" ref={skills => this.skills = skills}>
+const Skills = forwardRef((props, ref) => {
+  return (
+    <section 
+      ref={ ref } 
+      className="skills" 
+      id="skills"
+      { ...props }>
+      <div>
         <h2 className="lines">Skills</h2>
 
         <div className="max-width">
@@ -43,9 +46,9 @@ class Skills extends PureComponent {
             <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
           </div>
         </div>
-      </section>
-    );
-  }
-}
-
+      </div>
+    </section>
+  );
+});
+Skills.displayName = 'skills';
 export default withIntersectionObserver(Skills);

@@ -1,15 +1,11 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   plugins: [
-    new Dotenv({
-      systemvars: true //allows netlify system variables to work in production
-    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

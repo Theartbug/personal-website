@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import BikeIcon from 'react-icons/lib/fa/bicycle';
 import BookIcon from 'react-icons/lib/fa/book';
 import MedIcon from 'react-icons/lib/io/ios-medkit';
@@ -7,12 +7,14 @@ import PlantIcon from 'react-icons/lib/fa/pagelines';
 import './bio.css';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
 
-class Bio extends PureComponent {
-
-  render() {
-
-    return (
-      <section className="bio" id="bio" ref={bio => this.bio = bio}>
+const Bio = forwardRef((props, ref) => {
+  return (
+    <section 
+      ref={ ref }
+      className="bio"
+      id="bio"
+      { ...props }>
+      <div>
         <h2 className="lines">About</h2>
         <div className="grid">
           <div>
@@ -36,10 +38,9 @@ class Bio extends PureComponent {
             <p>She is <span>Currently</span> a software engineer at Marketo. She enjoys her work and has a deep satisfaction in debugging, pushing pixels, and creating elegant logic.</p>
           </div>
         </div>
-
-      </section>
-    );
-  }
-}
-
+      </div>
+    </section>
+  );
+});
+Bio.displayName = 'bio';
 export default withIntersectionObserver(Bio);

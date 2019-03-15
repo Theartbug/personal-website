@@ -1,44 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Observer from 'react-intersection-observer';
-import { setCurrentSectionByScroll } from '../components/scroll-buttons/actions';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useMyContext } from '../components/app-context/AppContext.js';
+import { setCurrentSectionByScroll } from '../components/app-context/actions.js';
 
-export default BaseComponent => {
+export default function Wrapper(BaseComponent) {
   const displayName = BaseComponent.displayName || BaseComponent.name || 'Component';
 
-  class WithIntersectionObserver extends Component {
-    static displayName = `withIntersectionObserver(${displayName})`;
+  function WithIntersectionObserver() {
+    const [ref, inView] = useInView({ 
+      //shrink the size of the root intersecting area to limit the amount that will be in view for currentSection
+      rootMargin: '-10% 0px -65%',
+    });
 
-    state = {
-      isIntersecting: false,
+    const { buttonScroll, dispatch } = useMyContext();
+  
+    function handleChange() {
+      // if we aren't currently scrolling from the buttons, change the current section in the store
+      if(!buttonScroll) dispatch(setCurrentSectionByScroll(displayName.toLowerCase()));
     };
-
-    handleChange = (isIntersecting) => {
-
-      const { buttonScroll, setCurrentSectionByScroll } = this.props;
-
-      if(!buttonScroll && isIntersecting) setCurrentSectionByScroll(displayName.toLowerCase());
-    };
-
-    render() {
-
-      const options = {
-        onChange: this.handleChange,
-        rootMargin: '-10% 0px -55%',
-      };
-      return (
-        <Observer {...options}>
-          <BaseComponent {...this.props} isVisible={this.state.isIntersecting} />
-        </Observer>
-      );
-    }
+  
+    if(inView) handleChange();
+  
+    // each child component will need React.forwardRef() as refs cannot be passed to functions (what BaseComponent is)
+    return <BaseComponent ref={ref}/>; 
   }
 
-  return connect(
-    ({ buttonScroll }) => ({
-      buttonScroll
-    }),
-    ({ setCurrentSectionByScroll })
-  )(WithIntersectionObserver);
-};
+  WithIntersectionObserver.displayName = `withIntersectionObserver(${displayName})`;
+
+  return WithIntersectionObserver;
+}
 
