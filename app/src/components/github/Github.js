@@ -1,22 +1,11 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
-import { getLanguagesAndLibraries } from '../../services/githubAPI';
+import { getLanguagesAndLibraries, useGithubApi } from '../../services/githubAPI';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
 
 const Github = forwardRef((props, ref) => {
-  const [loading, setLoading] = useState(true);
-  const [languages, setLanguages] = useState();
-  const [libraries, setLibraries] = useState();
-
-  useEffect(() => {
-    getLanguagesAndLibraries()
-      .then(({ languages, libraries })=> {
-        setLanguages(languages);
-        setLibraries(libraries);
-        setLoading(false);
-      });
-  }, []) // empty array tells react this code only runs once
+  const { loading, languages, libraries, error } = useGithubApi();
 
   return (
     <section 
@@ -32,12 +21,17 @@ const Github = forwardRef((props, ref) => {
             <small>Fetching data...</small> 
           </div>
         }
+        {error &&
+          <div className='loader'>
+            <small>{ error }</small> 
+          </div>
+        }
         <ul className="languages">
-          {!loading && Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
+          {languages && Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
         </ul>
         <hr/>       
         <ul className="libraries">
-          {!loading && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
+          {libraries && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
         </ul>
         <small>*Powered by Github API</small>
       </div>

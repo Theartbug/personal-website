@@ -1,4 +1,9 @@
-import { getCORS } from './request';
+import { useDataApi } from './useDataApi.js';
+import { useState, useEffect } from 'react';
+import { getCORS } from './request.js';
+
+const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
+
 const BASE_URL = 'https://api.github.com';
 const options = {
   withCredentials: true,
@@ -7,40 +12,98 @@ const options = {
   }
 };
 
-const checkCache = () => {
-  const storage = localStorage.getItem('languagesAndLibraries');
+// const githubReducer = (state, { type, payload }) => {
+//   switch (type) {
+//     case 'FETCH_INIT':
+//       return {
+//         ...state,
+//         isLoading: true,
+//         isError: false
+//       };
+//     case 'FETCH_SUCCESS':
+//       return {
+//         ...state,
+//         isLoading: false,
+//         isError: false,
+//         data: payload,
+//       };
+//     case 'FETCH_FAILURE':
+//       return {
+//         ...state,
+//         isLoading: false,
+//         isError: true,
+//       };
+//     default:
+//       throw new Error();
+//   }
+// };
+
+function checkCache() {
+  const storage = localStorage.getItem(LANGUAGES_AND_LIBRARIES);
   if(!storage) return false;
   const convertedStorage = JSON.parse(storage);
   const { date } = convertedStorage;
   //if the storage was fetched in the past month (below in milliseconds), return it, else fetch it again
-  return new Date() - new Date(date) > 454305569297142.8125 ? false : convertedStorage;
-  
+  return (new Date() - new Date(date) > 454305569297142.8125) && convertedStorage;
 };
 
-export const getLanguagesAndLibraries = () => {
+function setStorage({ languages, libraries }) {
+  const date = new Date();
+  const storage = { 
+    languages, 
+    libraries, 
+    date 
+  }; 
+  localStorage.setItem(LANGUAGES_AND_LIBRARIES, JSON.stringify(storage)); //set the item into storage for next time
+}
+
+export const useGithubApi = () => {
+  const [repos, setRepos] = useState(null);
+  const [languages, setLanguages] = useState(null);
+  const [libraries, setLibraries] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const storage = checkCache();
 
-  //must create as promise for .then() in Github.js
-  if(storage) return new Promise((resolve) => resolve(storage));
-  else {
-    return getRepos(options)
-      .then(async(r) => {
-        const contents = await Promise.all([findLanguages(r), findLibraries(r)]);
-        const date = new Date();
-        const storage = { languages: contents[0], libraries: contents[1], date }; 
-        localStorage.setItem('languagesAndLibraries', JSON.stringify(storage)); //set the item into storage for next time
-        return storage;
-      });
-
+  if(storage) {
+    setLanguages(storage.languages);
+    setLibraries(storage.libraries);
+    setLoading(false);
   }
-};
+  async function getRepos() {
+    const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
+    try {
+      const data = await getCORS(url, options)
+      setRepos(data);
+    } catch(e) {
+      setError(true);
+    }
+  };
 
-export const getRepos = (options) => {
-  const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-  return getCORS(url, options)
-    .catch(err => console.log(err));
-};
+  getRepos(); // let the async functions manipulate the data
+  
+  useEffect(() => {
+    async function getLanguagesAndLibraries(data) {
+      try {
+        const [returnedLanguages, returnedLibraries] = await Promise.all([
+          findLanguages(data),
+          findLibraries(data),
+        ]);
+        setLanguages(returnedLanguages);
+        setLibraries(returnedLibraries);
+        setStorage({ languages, libraries }); // set storage for next time
+        setLoading(false);
+      } catch (e) {
+        setError(true);
+        setLoading(false);
+      }
+    } 
+    if(repos) getLanguagesAndLibraries(repos);
+  }, [repos]);
+
+  return { loading, languages, libraries, error };
+}
 
 export const findLibraries = async(repos) => {
 
