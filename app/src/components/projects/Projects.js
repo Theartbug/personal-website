@@ -22,16 +22,20 @@ const Projects = forwardRef((props, ref) => {
           <div className="text">
             <h3>Marketo</h3>
             <h4>React, Redux, Jest, CSS, Node.js</h4>
-            <p>A marketing automation platform. Specifically, working on MyMarketo on the Sky team in Portland, OR.</p>
+            <p>A marketing automation platform. Working on a project to re-skin the UI in Portland, OR.</p>
           </div>
         </div>
 
         <div className="app">
-          <img className="urate" src={uRateLogo} alt='U-Rate logo'/>
+          <a href="https://itunes.apple.com/us/app/ugyde/id1450573145?mt=8" target="_blank" rel="noopener noreferrer">
+            <img className="urate" src={uRateLogo} alt='U-Rate logo'/>
+          </a>
           <div className="text">
-            <h3>U-Gyde</h3>
+            <a href="https://itunes.apple.com/us/app/ugyde/id1450573145?mt=8" target="_blank" rel="noopener noreferrer">
+              <h3>U-Gyde</h3>
+            </a>
             <h4>React, Firebase, Webpack, Google APIs</h4>
-            <p>A video-based business reviewing app. The rest is confidential.</p>
+            <p>A video-based business reviewing app centered in Portland, OR.</p>
           </div>
         </div>
 
@@ -58,7 +62,7 @@ const Projects = forwardRef((props, ref) => {
               <h3>PokeFlip</h3>
             </a>
             <h4>jQuery, Handlebars, page.js, pokeAPI, Heroku, postgreSQL, Express, Node</h4>
-            <a className="code" href='https://github.com/PokeFlip/ClientSide' target="_blank" rel="noopener noreferrer">	<ExternalLink/> Code</a>
+            <a className="code" href='https://github.com/PokeFlip/ClientSide' target="_blank" rel="noopener noreferrer"><ExternalLink/> Code</a>
             <p>A memory game app that utilizes PokeAPI for pokemon data. Created in a week for a final project after 3 weeks of bootcamp.</p>
           </div>
         </div>
