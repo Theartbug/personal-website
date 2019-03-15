@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useContext } from 'react';
+import React, { useReducer, useMemo, useContext, useCallback } from 'react';
 import { reducer } from './reducers.js';
 
 // Thunk middleware replacement
@@ -27,8 +27,7 @@ function AppContext({ children }) {
       currentSection,
       dispatch: augmentDispatch(dispatch, state) // now supports thunks
     }),
-    [buttonScroll, currentSection]);
-
+    [buttonScroll, currentSection, dispatch]);
   return (
     // provider updates any time the value given is updated
     <Context.Provider 
@@ -39,10 +38,6 @@ function AppContext({ children }) {
 }
 
 // this gives multiple consumers a way to access the same context
-const useMyContext = () => {
-  
-  const stuff = useContext(Context);
-  return stuff;
-}
+const useMyContext = () => useContext(Context);
 
 export { useMyContext, AppContext };

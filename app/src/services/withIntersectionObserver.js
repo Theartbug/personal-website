@@ -8,13 +8,10 @@ export default function Wrapper(BaseComponent) {
 
   function WithIntersectionObserver() {
     const [ref, inView] = useInView({ 
-      //give a little wiggle room at the top before jumping to next section as 'current' for intersectionObserver
-      rootMargin: '-10% 0px -55%',
+      //shrink the size of the root intersecting area to limit the amount that will be in view for currentSection
+      rootMargin: '-10% 0px -65%',
     });
 
-    console.log('displayName: ', displayName);
-    console.log('inView: ', inView);
-  
     const { buttonScroll, dispatch } = useMyContext();
   
     function handleChange() {
