@@ -33,6 +33,7 @@
     justify-content: space-around;
     margin: auto;
     max-width: 950px;
+    width: 80vw;
     
     li {
       width: 33%;

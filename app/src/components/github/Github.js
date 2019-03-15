@@ -24,21 +24,23 @@ const Github = forwardRef((props, ref) => {
       className="github"
       id="github"
       { ...props }>
-      <h2 className="lines">App Stats</h2>
-      {loading && 
-        <div className='loader'>
-          <ClipLoader loading={loading} color={'#d40b0b'} />
-          <small>Fetching data...</small> 
-        </div>
-      }
-      <ul className="languages">
-        {!loading && Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
-      </ul>
-      <hr/>       
-      <ul className="libraries">
-        {!loading && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
-      </ul>
-      <small>*Powered by Github API</small>
+      <div>
+        <h2 className="lines">App Stats</h2>
+        {loading && 
+          <div className='loader'>
+            <ClipLoader loading={loading} color={'#d40b0b'} />
+            <small>Fetching data...</small> 
+          </div>
+        }
+        <ul className="languages">
+          {!loading && Object.keys(languages).map((l, i) => <li key={i}><h3>{l}</h3><span>{languages[l]}</span></li>)}
+        </ul>
+        <hr/>       
+        <ul className="libraries">
+          {!loading && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
+        </ul>
+        <small>*Powered by Github API</small>
+      </div>
     </section>
   );
 });

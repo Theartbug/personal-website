@@ -17,32 +17,34 @@ const Skills = forwardRef((props, ref) => {
       className="skills" 
       id="skills"
       { ...props }>
-      <h2 className="lines">Skills</h2>
+      <div>
+        <h2 className="lines">Skills</h2>
 
-      <div className="max-width">
-        <div>
-          <img className="logo" src={express} alt="express logo"/>
-        </div>
-        <div>
-          <img className="logo" src={firebase} alt="firebase logo"/>
-        </div>
-        <div>
-          <img className="logo" src={node} alt="node logo"/>
-        </div>
-        <div>
-          <img className="logo" src={react} alt="react logo"/>
-        </div>
-        <div>
-          <img className="logo" src={redux} alt="redux logo"/>
-        </div>
-        <div>
-          <img className="logo" src={sass} alt="sass logo"/>
-        </div>
-        <div>
-          <img className="logo" src={webpack} alt="webpack logo"/>
-        </div>
-        <div>
-          <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
+        <div className="max-width">
+          <div>
+            <img className="logo" src={express} alt="express logo"/>
+          </div>
+          <div>
+            <img className="logo" src={firebase} alt="firebase logo"/>
+          </div>
+          <div>
+            <img className="logo" src={node} alt="node logo"/>
+          </div>
+          <div>
+            <img className="logo" src={react} alt="react logo"/>
+          </div>
+          <div>
+            <img className="logo" src={redux} alt="redux logo"/>
+          </div>
+          <div>
+            <img className="logo" src={sass} alt="sass logo"/>
+          </div>
+          <div>
+            <img className="logo" src={webpack} alt="webpack logo"/>
+          </div>
+          <div>
+            <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
+          </div>
         </div>
       </div>
     </section>

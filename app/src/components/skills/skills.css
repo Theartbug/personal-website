@@ -7,11 +7,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     grid-gap: 1rem;
-    margin: 0 auto;
-    max-width: 950px
+    max-width: 950px;
+    width: 80vw;
   }
 
-  div > div {
+  .max-width > div {
     border: 3px solid $white;
     padding: .3rem;
     border-radius: 10px;
