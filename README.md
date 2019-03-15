@@ -28,6 +28,9 @@ Research and implement IntersectionObserver API so I can keep track of what sect
 
 Convert website to use react hooks!
 References:
+- [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
+- [How to Fetch Data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)
+- [Redux-like app with React Hooks](https://medium.com/yld-engineering-blog/rolling-your-own-redux-with-react-hooks-and-context-bbeea18b1253)
 - [useContext & useReducer](https://medium.com/crowdbotics/how-to-use-usereducer-in-react-hooks-for-performance-optimization-ecafca9e7bf5)
 - [useReducer with useMemo example](https://github.com/reactjs/reactjs.org/issues/1604#issuecomment-458878841)
 - [react-redux useRedux issues](https://github.com/reduxjs/react-redux/issues/1177) 
