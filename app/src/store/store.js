@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { currentSection, buttonScroll } from '../components/appContext/reducers.js';
+import { currentSection, buttonScroll } from '../components/app-context/reducers.js';
 
 const reducer = combineReducers({
   currentSection,

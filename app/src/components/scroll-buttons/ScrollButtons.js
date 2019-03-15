@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Events } from 'react-scroll';
-import { setCurrentSectionByButtons, setButtonScroll } from '../appContext/actions.js';
-import { useMyContext } from '../appContext/AppContext.js';
+import { setCurrentSectionByButtons, setButtonScroll } from '../app-context/actions.js';
+import { useMyContext } from '../app-context/AppContext.js';
 import UpAngleIcon from 'react-icons/lib/fa/caret-up';
 import DownAngleIcon from 'react-icons/lib/fa/caret-down';
 import './scroll-buttons.css';
