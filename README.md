@@ -24,9 +24,12 @@ Research and implement Github API so the number of applications I have created w
 
 Research and implement IntersectionObserver API so I can keep track of what section the user is viewing; the auto-scroll buttons will update to match. Also works with page refresh!
 
-### Update 3/10/19
+### Update 3/14/19
 
-Convert website to use react hooks!
+Convert website to use react hooks! 
+
+Difficult parts: recognizing that `forwardRef` was needed for my `withIntersectionObserver` HOC, nesting react-hooks within other functions is an anti-pattern, hooks themselves cannot be async (can get around with an async function inside the hook), hooks can only be called inside of a function component (harder to unit test).
+
 References:
 - [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 - [How to Fetch Data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)
@@ -34,3 +37,4 @@ References:
 - [useContext & useReducer](https://medium.com/crowdbotics/how-to-use-usereducer-in-react-hooks-for-performance-optimization-ecafca9e7bf5)
 - [useReducer with useMemo example](https://github.com/reactjs/reactjs.org/issues/1604#issuecomment-458878841)
 - [react-redux useRedux issues](https://github.com/reduxjs/react-redux/issues/1177) 
+- [hooks-rules](https://reactjs.org/docs/hooks-rules.html#explanation)

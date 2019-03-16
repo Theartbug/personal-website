@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useContext, useCallback } from 'react';
+import React, { useReducer, useMemo, useContext } from 'react';
 import { reducer } from './reducers.js';
 
 // Thunk middleware replacement
