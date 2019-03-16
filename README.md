@@ -26,7 +26,7 @@ Research and implement IntersectionObserver API so I can keep track of what sect
 
 ### Update 3/14/19
 
-Convert website to use react hooks! Difficult parts: recognizing that `forwardRef` was needed for my `withIntersectionObserver` HOC, nesting react-hooks within other functions is anti-pattern.
+Convert website to use react hooks! Difficult parts: recognizing that `forwardRef` was needed for my `withIntersectionObserver` HOC, nesting react-hooks within other functions is anti-pattern, hooks themselves cannot be async (can get around with an async function inside the hook).
 References:
 - [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 - [How to Fetch Data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)

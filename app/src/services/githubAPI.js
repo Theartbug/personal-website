@@ -1,10 +1,13 @@
-import { useDataApi } from './useDataApi.js';
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 import { getCORS } from './request.js';
 
 const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
-
+const FETCH_INIT = 'FETCH_INIT';
+const FETCH_REPOS = 'FETCH_REPOS';
+const FETCH_LANGUAGES_AND_LIBRARIES = 'FETCH_LANGUAGES_AND_LIBRARIES';
+const FETCH_FAILURE = 'FETCH_FAILURE';
 const BASE_URL = 'https://api.github.com';
+
 const options = {
   withCredentials: true,
   headers: {
@@ -12,31 +15,44 @@ const options = {
   }
 };
 
-// const githubReducer = (state, { type, payload }) => {
-//   switch (type) {
-//     case 'FETCH_INIT':
-//       return {
-//         ...state,
-//         isLoading: true,
-//         isError: false
-//       };
-//     case 'FETCH_SUCCESS':
-//       return {
-//         ...state,
-//         isLoading: false,
-//         isError: false,
-//         data: payload,
-//       };
-//     case 'FETCH_FAILURE':
-//       return {
-//         ...state,
-//         isLoading: false,
-//         isError: true,
-//       };
-//     default:
-//       throw new Error();
-//   }
-// };
+const initialState = {
+  loading: true,
+  error: null,
+  repos: null,
+  languages: null,
+  libraries: null,
+};
+
+const githubReducer = (state, { type, payload }) => {
+  switch (type) {
+    case FETCH_INIT:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    case FETCH_REPOS:
+      return {
+        ...state,
+        repos: payload,
+      };
+    case FETCH_LANGUAGES_AND_LIBRARIES:
+      return {
+        ...state,
+        languages: payload.languages,
+        libraries: payload.libraries,
+        loading: false,
+      };
+    case FETCH_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+      };
+    default:
+      throw new Error();
+  }
+};
 
 function checkCache() {
   const storage = localStorage.getItem(LANGUAGES_AND_LIBRARIES);
@@ -54,36 +70,40 @@ function setStorage({ languages, libraries }) {
     libraries, 
     date 
   }; 
-  localStorage.setItem(LANGUAGES_AND_LIBRARIES, JSON.stringify(storage)); //set the item into storage for next time
+  //set the item into storage for next time
+  localStorage.setItem(LANGUAGES_AND_LIBRARIES, JSON.stringify(storage)); 
 }
 
 export const useGithubApi = () => {
-  const [repos, setRepos] = useState(null);
-  const [languages, setLanguages] = useState(null);
-  const [libraries, setLibraries] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [{ 
+    loading, 
+    languages, 
+    libraries, 
+    error, 
+    repos
+  }, dispatch] = useReducer(githubReducer, initialState);
 
   const storage = checkCache();
 
   useEffect(() => {
     if(storage) {
-      setLanguages(storage.languages);
-      setLibraries(storage.libraries);
-      setLoading(false);
+      dispatch({ type: FETCH_LANGUAGES_AND_LIBRARIES, payload: { 
+        languages: storage.languages, 
+        libraries: storage.libraries,
+      }})
     } else {
       async function getRepos() {
         const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
         try {
-          const data = await getCORS(url, options)
-          setRepos(data);
+          const payload = await getCORS(url, options)
+          dispatch({ type: FETCH_REPOS, payload });
         } catch(e) {
-          setError(true);
+          dispatch({ type: FETCH_FAILURE });
         }
       };
-      getRepos(); // let the async functions manipulate the data
+      getRepos(); // let the async function manipulate the data
     }
-  }, []);
+  }, []); // only run once
 
   useEffect(() => {
     async function getLanguagesAndLibraries(data) {
@@ -92,17 +112,17 @@ export const useGithubApi = () => {
           findLanguages(data),
           findLibraries(data),
         ]);
-        setLanguages(returnedLanguages);
-        setLibraries(returnedLibraries);
+        dispatch({ type: FETCH_LANGUAGES_AND_LIBRARIES, payload: { 
+          languages: returnedLanguages, 
+          libraries: returnedLibraries 
+        }})
         setStorage({ languages: returnedLanguages, libraries: returnedLibraries }); // set storage for next time
-        setLoading(false);
       } catch (e) {
-        setError(true);
-        setLoading(false);
+        dispatch({ type: FETCH_FAILURE });
       }
     } 
     if(repos) getLanguagesAndLibraries(repos);
-  }, [repos]);
+  }, [repos]); // run again if repos changes
 
   return { loading, languages, libraries, error };
 }
