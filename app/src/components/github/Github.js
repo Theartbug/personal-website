@@ -23,7 +23,7 @@ const Github = forwardRef((props, ref) => {
         }
         {error &&
           <div className='loader'>
-            <small>{ error }</small> 
+            <small>Something went wrong...</small> 
           </div>
         }
         <ul className="languages">

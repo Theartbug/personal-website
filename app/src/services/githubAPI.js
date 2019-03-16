@@ -99,6 +99,7 @@ export const useGithubApi = () => {
           dispatch({ type: FETCH_REPOS, payload });
         } catch(e) {
           dispatch({ type: FETCH_FAILURE });
+          console.log('Error', e);
         }
       };
       getRepos(); // let the async function manipulate the data
@@ -119,6 +120,7 @@ export const useGithubApi = () => {
         setStorage({ languages: returnedLanguages, libraries: returnedLibraries }); // set storage for next time
       } catch (e) {
         dispatch({ type: FETCH_FAILURE });
+        console.log('Error', e);
       }
     } 
     if(repos) getLanguagesAndLibraries(repos);
@@ -128,7 +130,6 @@ export const useGithubApi = () => {
 }
 
 export const findLibraries = async (repos) => {
-
   const seen = {
     react: 0,
     webpack: 0,
@@ -163,10 +164,11 @@ export const findLibraries = async (repos) => {
       if(packageJSON.includes('firebase')) seen.firebase++;
 
       return repo; //return the repo to indicate done
-      }); //promises
+    }); //promises
   
     await Promise.all(promises);
     return seen;
+
   } catch(e) {
     throw new Error(e);
   }
