@@ -103,7 +103,7 @@ export const useGithubApi = () => {
       };
       getRepos(); // let the async function manipulate the data
     }
-  }, []); // only run once
+  }, [storage]); // only run once
 
   useEffect(() => {
     async function getLanguagesAndLibraries(data) {
@@ -127,7 +127,7 @@ export const useGithubApi = () => {
   return { loading, languages, libraries, error };
 }
 
-export const findLibraries = async(repos) => {
+export const findLibraries = async (repos) => {
 
   const seen = {
     react: 0,
@@ -138,61 +138,59 @@ export const findLibraries = async(repos) => {
     node: 0
   };
 
-  const promises = repos.map(repo => 
-    //fetch content list for each repo
-    getRepoContent(repo.name)
-      .then(list => {
-        //find the index of the package.json in the tree
-        const packageJSONIndex = list.tree.findIndex(item => item.path.includes('package.json'));
+  try {
+    const promises = repos.map(async repo => {
+      //fetch content list for each repo
+      const list = await getRepoContent(repo.name);
 
-        if(packageJSONIndex === -1) return repo; //if there is no package.json, end
-
-        seen.node++;
-
-        //get the contents of the package.json
-        return getPackageJson(list.tree[packageJSONIndex].url)
-          .then(encoded => {
-
-            //convert from base64 then stringify
-            const packageJSON = JSON.stringify(window.atob(encoded.content));
-
-            if(packageJSON.includes('express')) seen.express++;
-            if(packageJSON.includes('webpack')) seen.webpack++;
-            if(packageJSON.includes('react')) seen.react++;
-            if(packageJSON.includes('redux')) seen.redux++;
-            if(packageJSON.includes('firebase')) seen.firebase++;
-
-            return repo; //return the repo to indicate done
-          });
-      })
-  ); //promises
-
-  await Promise.all(promises);
-  return seen;
+      //find the index of the package.json in the tree
+      const packageJSONIndex = list.tree.findIndex(item => item.path.includes('package.json'));
   
+      //if there is no package.json, end
+      if(packageJSONIndex === -1) return repo; 
+
+      seen.node++;
+
+      //get the contents of the package.json
+      const encoded = await getPackageJson(list.tree[packageJSONIndex].url);
+      //convert from base64 then stringify
+      const packageJSON = JSON.stringify(window.atob(encoded.content));
+
+      if(packageJSON.includes('express')) seen.express++;
+      if(packageJSON.includes('webpack')) seen.webpack++;
+      if(packageJSON.includes('react')) seen.react++;
+      if(packageJSON.includes('redux')) seen.redux++;
+      if(packageJSON.includes('firebase')) seen.firebase++;
+
+      return repo; //return the repo to indicate done
+      }); //promises
+  
+    await Promise.all(promises);
+    return seen;
+  } catch(e) {
+    throw new Error(e);
+  }
 };
 
 export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options)
-  .catch(err => console.log(err));
 
 export const getPackageJson = (url) => getCORS(url, options)
-  .catch(err => console.log(err));
 
-export const findLanguages = async(repos) => {
+export const findLanguages = async (repos) => {
   const seen = {};
-  const promises = repos.map(repo => 
-    getCORS(repo.languages_url, options)
-      .then(languages => {
-        const languagesArr = Object.keys(languages);
-        if(languagesArr.length < 1) return;
-        
-        languagesArr.forEach(language => 
-          seen[language] ? seen[language]++ : seen[language] = 1);
-      })
-      .catch(err => console.log(err))
-  );
+  try {
+    const promises = repos.map(async repo => {
+      const languages = await getCORS(repo.languages_url, options)
+      const languagesArr = Object.keys(languages);
+      if(languagesArr.length < 1) return;
+      
+      languagesArr.forEach(language => 
+        seen[language] ? seen[language]++ : seen[language] = 1);
+    });
 
-  await Promise.all(promises);
-  return seen;
-
+    await Promise.all(promises);
+    return seen;
+  } catch(e) {
+    throw new Error(e);
+  }
 };
