@@ -1,6 +1,6 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import withIntersectionObserver from '../../services/withIntersectionObserver';
-import { getLanguagesAndLibraries, useGithubApi } from '../../services/githubAPI';
+import { useGithubApi } from '../../services/githubAPI';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
 
