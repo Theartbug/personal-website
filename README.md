@@ -38,3 +38,10 @@ References:
 - [useReducer with useMemo example](https://github.com/reactjs/reactjs.org/issues/1604#issuecomment-458878841)
 - [react-redux useRedux issues](https://github.com/reduxjs/react-redux/issues/1177) 
 - [hooks-rules](https://reactjs.org/docs/hooks-rules.html#explanation)
+
+### Update 3/17/19
+
+Add react-testing-library!
+
+References:
+[react-testing-library Intro](https://kentcdodds.com/blog/introducing-the-react-testing-library)
