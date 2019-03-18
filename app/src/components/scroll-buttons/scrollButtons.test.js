@@ -1,28 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent, cleanup, waitForElement } from 'test-utils';
+import { StateMock } from '@react-mock/state';
+import { AppContext } from '../app-context/AppContext.js';
+import 'jest-dom/extend-expect';
 import { ScrollButtons } from './ScrollButtons';
 
-describe('ScrollButton render tests', () => {
+describe('ScrollButton tests', () => {
+  // automatically unmount and cleanup DOM after the test is finished.
+  afterEach(cleanup)
+
   const setCurrentSectionByButtons = jest.fn();
-  const component = shallow(<ScrollButtons setCurrentSectionByButtons={setCurrentSectionByButtons}/>);
+
+  const renderComponent = () => render(
+    <ScrollButtons setCurrentSectionByButtons={setCurrentSectionByButtons}/>
+  );
   
   it('should render correctly', () => {
     
-    expect(component).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
   
-  it('should change when hovering', () => {
-    component.find('.up').simulate('mouseover');
+  // it('should change when hovering', () => {
+  //   component.find('.up').simulate('mouseover');
 
-    expect(component).toMatchSnapshot();
-  });
+  //   expect(component).toMatchSnapshot();
+  // });
 
-  it('should handle clicks', () => {
-    component.find('.up').simulate('click');
-    component.find('.down').simulate('click');
+  // it('should handle clicks', () => {
+  //   component.find('.up').simulate('click');
+  //   component.find('.down').simulate('click');
 
-    expect(setCurrentSectionByButtons).toHaveBeenCalled();
-    expect(setCurrentSectionByButtons).toHaveBeenCalled();
-  });
+  //   expect(setCurrentSectionByButtons).toHaveBeenCalled();
+  //   expect(setCurrentSectionByButtons).toHaveBeenCalled();
+  // });
   
 });

@@ -58,6 +58,7 @@
     "precss": "^3.1.0",
     "prop-types": "^15.6.0",
     "react-hooks-testing-library": "^0.3.7",
+    "react-mock": "^6.0.1",
     "react-testing-library": "^6.0.0",
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",

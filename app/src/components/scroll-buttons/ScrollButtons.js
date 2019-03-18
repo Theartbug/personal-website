@@ -6,7 +6,7 @@ import UpAngleIcon from 'react-icons/lib/fa/caret-up';
 import DownAngleIcon from 'react-icons/lib/fa/caret-down';
 import './scroll-buttons.css';
 
-export default function ScrollButtons(props) {
+export default function ScrollButtons() {
   const { currentSection, dispatch } = useMyContext();
   
   useEffect(setScrollListener, []);

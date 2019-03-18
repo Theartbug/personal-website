@@ -45,3 +45,7 @@ Add react-testing-library!
 
 References:
 [react-testing-library Intro](https://kentcdodds.com/blog/introducing-the-react-testing-library)
+[react-testing-library github](https://github.com/kentcdodds/react-testing-library)
+[jest-dom github](https://github.com/gnapse/jest-dom#readme)
+[rtl testing examples](https://react-testing-examples.com/jest-rtl/)
+[react-hooks rtl github](https://github.com/mpeyper/react-hooks-testing-library)
