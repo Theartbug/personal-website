@@ -1,7 +1,6 @@
 const rtl = require('react-testing-library');
 const AppContext = require('./components/app-context/AppContext.js');
 
-
 const AllTheProviders = ({ children }) => {
   return (
     <AppContext> 

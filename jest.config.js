@@ -1,6 +1,6 @@
 module.exports = {
-  setupFilesAfterEnv: ['./rtl.setup.js'],
-  moduleDirectories: [
-    __dirname, // the root directory
-  ],
+  setupFilesAfterEnv: ['./rtl.setup.js']
+  // moduleDirectories: [
+  //   __dirname, // the root directory
+  // ],
 }

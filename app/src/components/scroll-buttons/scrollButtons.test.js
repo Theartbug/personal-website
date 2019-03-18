@@ -1,6 +1,10 @@
+jest.mock('./app-context/actions.js', () => ({
+  setCurrentSectionByButtons: jest.fn(),
+  setButtonScroll: jest.fn()
+}));
+
 import React from 'react';
-import { render, fireEvent, cleanup, waitForElement } from 'test-utils';
-import { StateMock } from '@react-mock/state';
+import { render, fireEvent, cleanup, waitForElement } from 'react-testing-library';
 import { AppContext } from '../app-context/AppContext.js';
 import 'jest-dom/extend-expect';
 import { ScrollButtons } from './ScrollButtons';
@@ -9,14 +13,11 @@ describe('ScrollButton tests', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup)
 
-  const setCurrentSectionByButtons = jest.fn();
-
   const renderComponent = () => render(
-    <ScrollButtons setCurrentSectionByButtons={setCurrentSectionByButtons}/>
+    <ScrollButtons />
   );
   
   it('should render correctly', () => {
-    
     expect(container.firstChild).toMatchSnapshot();
   });
   
