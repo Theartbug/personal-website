@@ -1,7 +1,14 @@
 import { SECTION_CHANGE, BUTTON_PRESS } from './reducers';
 import { scroller } from 'react-scroll';
 
-const list = ['hero', 'bio', 'skills', 'github', 'projects', 'contact'];
+export const HERO = 'hero';
+export const BIO = 'bio';
+export const SKILLS = 'skills';
+export const GITHUB = 'github';
+export const CONTACT = 'contact';
+export const PROJECTS = 'projects';
+
+const list = [HERO, BIO, SKILLS, GITHUB, PROJECTS, CONTACT];
 
 const scrollTo = (id) => {
   if(!id) return;

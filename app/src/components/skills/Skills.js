@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
-import withIntersectionObserver from '../../services/withIntersectionObserver';
+import React from 'react';
+import useIntersectionObserver from '../../services/useIntersectionObserver.js';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
 import node from '../../assets/node.png';
@@ -8,9 +8,12 @@ import sass from '../../assets/sass.png';
 import redux from '../../assets/redux.png';
 import webpack from '../../assets/webpack.png';
 import jest from '../../assets/jest.svg';
+import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
-const Skills = forwardRef((props, ref) => {
+const Skills = props => {
+  const { ref } = useIntersectionObserver(SKILLS);
+
   return (
     <section 
       ref={ ref } 
@@ -49,6 +52,7 @@ const Skills = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
-Skills.displayName = 'skills';
-export default withIntersectionObserver(Skills);
+};
+
+Skills.displayName = SKILLS;
+export default Skills;

@@ -104,7 +104,7 @@ export const useGithubApi = () => {
       };
       getRepos(); // let the async function manipulate the data
     }
-  }, [storage]); // only run once
+  }, []); // only run once
 
   useEffect(() => {
     async function getLanguagesAndLibraries(data) {
