@@ -12,7 +12,7 @@ import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
 const Skills = props => {
-  const { ref } = useIntersectionObserver(SKILLS);
+  const ref = useIntersectionObserver(SKILLS);
 
   return (
     <section 

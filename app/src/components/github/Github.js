@@ -7,7 +7,7 @@ import { GITHUB } from '../app-context/actions';
 
 const Github = props => {
   const { loading, languages, libraries, error } = useGithubApi();
-  const { ref } = useIntersectionObserver(GITHUB);
+  const ref = useIntersectionObserver(GITHUB);
 
   return (
     <section 

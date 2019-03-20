@@ -9,7 +9,7 @@ import './bio.css';
 import { BIO } from '../app-context/actions.js';
 
 const Bio = props => {
-  const { ref } = useIntersectionObserver(BIO);
+  const ref = useIntersectionObserver(BIO);
 
   return (
     <section 

@@ -8,7 +8,7 @@ import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
 const Contact = props => {
-  const { ref } = useIntersectionObserver(CONTACT);
+  const ref = useIntersectionObserver(CONTACT);
 
   return (
     <section 

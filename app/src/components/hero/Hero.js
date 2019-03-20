@@ -6,7 +6,7 @@ import mobileImage from '../../assets/profile_mobile.jpg';
 import './hero.css';
 
 const Hero = props => {
-  const { ref } = useIntersectionObserver(HERO);
+  const ref = useIntersectionObserver(HERO);
 
   return (
     <figure 
