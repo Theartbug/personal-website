@@ -1,13 +1,16 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
+import useIntersectionObserver from '../../services/useIntersectionObserver.js';
 import BikeIcon from 'react-icons/lib/fa/bicycle';
 import BookIcon from 'react-icons/lib/fa/book';
 import MedIcon from 'react-icons/lib/io/ios-medkit';
 import CodeIcon from 'react-icons/lib/fa/code';
 import PlantIcon from 'react-icons/lib/fa/pagelines';
 import './bio.css';
-import withIntersectionObserver from '../../services/withIntersectionObserver';
+import { BIO } from '../app-context/actions.js';
 
-const Bio = forwardRef((props, ref) => {
+const Bio = props => {
+  const ref = useIntersectionObserver(BIO);
+
   return (
     <section 
       ref={ ref }
@@ -41,6 +44,7 @@ const Bio = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
-Bio.displayName = 'bio';
-export default withIntersectionObserver(Bio);
+};
+
+Bio.displayName = BIO;
+export default Bio;

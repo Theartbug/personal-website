@@ -1,11 +1,13 @@
-import React, { forwardRef } from 'react';
-import withIntersectionObserver from '../../services/withIntersectionObserver';
-import { useGithubApi } from '../../services/githubAPI';
+import React from 'react';
+import { useGithubApi } from '../../services/githubAPI.js';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
+import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import { GITHUB } from '../app-context/actions';
 
-const Github = forwardRef((props, ref) => {
+const Github = props => {
   const { loading, languages, libraries, error } = useGithubApi();
+  const ref = useIntersectionObserver(GITHUB);
 
   return (
     <section 
@@ -37,6 +39,7 @@ const Github = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
-Github.displayName = 'github';
-export default withIntersectionObserver(Github);
+};
+
+Github.displayName = GITHUB;
+export default Github;
