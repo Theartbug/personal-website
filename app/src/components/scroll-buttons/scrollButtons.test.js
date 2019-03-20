@@ -1,11 +1,12 @@
-jest.mock('./app-context/actions.js', () => ({
+jest.mock('../app-context/actions.js', () => ({
   setCurrentSectionByButtons: jest.fn(),
   setButtonScroll: jest.fn()
 }));
 
 import React from 'react';
-import { render, fireEvent, cleanup, waitForElement } from 'react-testing-library';
+import { render, fireEvent, cleanup, waitForElement } from 'test-utils';
 import { AppContext } from '../app-context/AppContext.js';
+import { LocalStorageMock } from '@react-mock/localstorage';
 import 'jest-dom/extend-expect';
 import { ScrollButtons } from './ScrollButtons';
 
