@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useMyContext } from '../components/app-context/AppContext.js';
 import { setCurrentSectionByScroll } from '../components/app-context/actions.js';
