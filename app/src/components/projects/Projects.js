@@ -1,5 +1,6 @@
-import React, { forwardRef } from 'react';
-import withIntersectionObserver from '../../services/withIntersectionObserver';
+import React from 'react';
+import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import { PROJECTS } from '../app-context/actions.js';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
 import uRateLogo from '../../assets/uRater-logo.svg';
@@ -7,7 +8,9 @@ import marketoLogo from '../../assets/Marketo_logo.png';
 import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
-const Projects = forwardRef((props, ref) => {
+const Projects = props => {
+  const ref = useIntersectionObserver(PROJECTS);
+
   return (
     <section 
       ref={ ref }
@@ -69,7 +72,7 @@ const Projects = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
-Projects.displayName = 'projects';
+};
 
-export default withIntersectionObserver(Projects);
+Projects.displayName = PROJECTS;
+export default Projects;

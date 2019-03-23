@@ -1,12 +1,15 @@
-import React, { forwardRef } from 'react';
-import withIntersectionObserver from '../../services/withIntersectionObserver';
+import React from 'react';
+import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import { CONTACT } from '../app-context/actions.js';
 import MailIcon from 'react-icons/lib/fa/envelope-o';
 import LinkedInIcon from 'react-icons/lib/fa/linkedin-square';
 import GithubIcon from 'react-icons/lib/fa/github-square';
 import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
-const Contact = forwardRef((props, ref) => {
+const Contact = props => {
+  const ref = useIntersectionObserver(CONTACT);
+
   return (
     <section 
       ref={ ref }
@@ -30,6 +33,7 @@ const Contact = forwardRef((props, ref) => {
       </div>
     </section>
   );
-});
-Contact.displayName = 'contact';
-export default withIntersectionObserver(Contact);
+};
+
+Contact.displayName = CONTACT;
+export default Contact;
