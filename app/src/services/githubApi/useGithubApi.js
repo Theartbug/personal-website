@@ -7,7 +7,7 @@ import {
   findLanguages,
   BASE_URL,
   options,
-} from './useGithubApiHepers.js';
+} from './useGithubApiHelpers.js';
 import { githubReducer } from './reducers.js';
 import {
   setLanguagesAndLibraries,
