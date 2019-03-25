@@ -1,31 +1,15 @@
-import { useEffect, useReducer } from 'react';
 import { getCORS } from '../request.js';
-import { githubReducer } from './reducers.js';
-import {
-  setLanguagesAndLibraries,
-  setRepos,
-  setFailure,
-} from './actions.js';
 
-const BASE_URL = 'https://api.github.com';
 const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
-
-const options = {
+export const BASE_URL = 'https://api.github.com';
+export const options = {
   withCredentials: true,
   headers: {
     Authorization: `token ${process.env.GITHUB_TOKEN}`
   }
 };
 
-const initialState = {
-  loading: true,
-  error: false,
-  repos: null,
-  languages: null,
-  libraries: null,
-};
-
-function checkCache() {
+export function checkCache() {
   const storage = localStorage.getItem(LANGUAGES_AND_LIBRARIES);
   if(!storage) return false;
   const convertedStorage = JSON.parse(storage);
@@ -34,7 +18,7 @@ function checkCache() {
   return (new Date() - new Date(date) < 454305569297142.8125) && convertedStorage;
 };
 
-function setStorage({ languages, libraries }) {
+export function setStorage({ languages, libraries }) {
   const date = new Date();
   const storage = { 
     languages, 
@@ -43,64 +27,6 @@ function setStorage({ languages, libraries }) {
   }; 
   //set the item into storage for next time
   localStorage.setItem(LANGUAGES_AND_LIBRARIES, JSON.stringify(storage)); 
-}
-
-export const useGithubApi = () => {
-  const [{ 
-    loading, 
-    languages, 
-    libraries, 
-    error, 
-    repos
-  }, dispatch] = useReducer(githubReducer, initialState);
-
-  const storage = checkCache();
-
-  useEffect(() => {
-    if(storage) {
-      dispatch(setLanguagesAndLibraries({ 
-        languages: storage.languages, 
-        libraries: storage.libraries,
-      }));
-    } else {
-      async function getRepos() {
-        const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-        try {
-          const repos = await getCORS(url, options);
-          dispatch(setRepos(repos));
-        } catch(e) {
-          dispatch(setFailure());
-          console.log('Error', e);
-        }
-      };
-      getRepos(); // let the async function manipulate the data
-    }
-  }, []); // only run once
-
-  useEffect(() => {
-    async function getLanguagesAndLibraries(data) {
-      try {
-        const [returnedLanguages, returnedLibraries] = await Promise.all([
-          findLanguages(data),
-          findLibraries(data),
-        ]);
-        dispatch(setLanguagesAndLibraries({ 
-          languages: returnedLanguages, 
-          libraries: returnedLibraries,
-        }))
-        setStorage({ 
-          languages: returnedLanguages, 
-          libraries: returnedLibraries 
-        }); // set storage for next time
-      } catch (e) {
-        dispatch({ type: FETCH_FAILURE });
-        console.log('Error', e);
-      }
-    } 
-    if(repos) getLanguagesAndLibraries(repos);
-  }, [repos]); // run again if repos changes
-
-  return { loading, languages, libraries, error };
 }
 
 export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
