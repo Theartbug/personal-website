@@ -1,12 +1,14 @@
 import { useEffect, useReducer } from 'react';
-import { getCORS } from './request.js';
+import { getCORS } from '../request.js';
+import { githubReducer } from './reducers.js';
+import {
+  setLanguagesAndLibraries,
+  setRepos,
+  setFailure,
+} from './actions.js';
 
-const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
-const FETCH_INIT = 'FETCH_INIT';
-const FETCH_REPOS = 'FETCH_REPOS';
-const FETCH_LANGUAGES_AND_LIBRARIES = 'FETCH_LANGUAGES_AND_LIBRARIES';
-const FETCH_FAILURE = 'FETCH_FAILURE';
 const BASE_URL = 'https://api.github.com';
+const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
 
 const options = {
   withCredentials: true,
@@ -17,41 +19,10 @@ const options = {
 
 const initialState = {
   loading: true,
-  error: null,
+  error: false,
   repos: null,
   languages: null,
   libraries: null,
-};
-
-const githubReducer = (state, { type, payload }) => {
-  switch (type) {
-    case FETCH_INIT:
-      return {
-        ...state,
-        loading: true,
-        error: false,
-      };
-    case FETCH_REPOS:
-      return {
-        ...state,
-        repos: payload,
-      };
-    case FETCH_LANGUAGES_AND_LIBRARIES:
-      return {
-        ...state,
-        languages: payload.languages,
-        libraries: payload.libraries,
-        loading: false,
-      };
-    case FETCH_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: true,
-      };
-    default:
-      throw new Error();
-  }
 };
 
 function checkCache() {
@@ -87,18 +58,18 @@ export const useGithubApi = () => {
 
   useEffect(() => {
     if(storage) {
-      dispatch({ type: FETCH_LANGUAGES_AND_LIBRARIES, payload: { 
+      dispatch(setLanguagesAndLibraries({ 
         languages: storage.languages, 
         libraries: storage.libraries,
-      }})
+      }));
     } else {
       async function getRepos() {
         const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
         try {
-          const payload = await getCORS(url, options)
-          dispatch({ type: FETCH_REPOS, payload });
+          const repos = await getCORS(url, options);
+          dispatch(setRepos(repos));
         } catch(e) {
-          dispatch({ type: FETCH_FAILURE });
+          dispatch(setFailure());
           console.log('Error', e);
         }
       };
@@ -113,11 +84,14 @@ export const useGithubApi = () => {
           findLanguages(data),
           findLibraries(data),
         ]);
-        dispatch({ type: FETCH_LANGUAGES_AND_LIBRARIES, payload: { 
+        dispatch(setLanguagesAndLibraries({ 
+          languages: returnedLanguages, 
+          libraries: returnedLibraries,
+        }))
+        setStorage({ 
           languages: returnedLanguages, 
           libraries: returnedLibraries 
-        }})
-        setStorage({ languages: returnedLanguages, libraries: returnedLibraries }); // set storage for next time
+        }); // set storage for next time
       } catch (e) {
         dispatch({ type: FETCH_FAILURE });
         console.log('Error', e);
@@ -128,6 +102,10 @@ export const useGithubApi = () => {
 
   return { loading, languages, libraries, error };
 }
+
+export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
+
+export const getPackageJson = (url) => getCORS(url, options);
 
 export const findLibraries = async (repos) => {
   const seen = {
@@ -173,10 +151,6 @@ export const findLibraries = async (repos) => {
     throw new Error(e);
   }
 };
-
-export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options)
-
-export const getPackageJson = (url) => getCORS(url, options)
 
 export const findLanguages = async (repos) => {
   const seen = {};
