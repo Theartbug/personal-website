@@ -15,6 +15,7 @@ import {
   setFailure,
 } from './actions.js';
 
+const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;
 const initialState = {
   loading: true,
   error: false,
@@ -41,42 +42,46 @@ export const useGithubApi = () => {
         libraries: storage.libraries,
       }));
     } else {
-      async function getRepos() {
-        const url = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-        try {
-          const repos = await getCORS(url, options);
-          dispatch(setRepos(repos));
-        } catch(e) {
-          dispatch(setFailure());
-          console.log('Error', e);
-        }
-      };
-      getRepos(); // let the async function manipulate the data
-    }
-  }, []); // only run once
-
-  useEffect(() => {
-    async function getLanguagesAndLibraries(data) {
-      try {
-        const [returnedLanguages, returnedLibraries] = await Promise.all([
-          findLanguages(data),
-          findLibraries(data),
-        ]);
-        dispatch(setLanguagesAndLibraries({ 
-          languages: returnedLanguages, 
-          libraries: returnedLibraries,
-        }))
-        setStorage({ 
-          languages: returnedLanguages, 
-          libraries: returnedLibraries 
-        }); // set storage for next time
-      } catch (e) {
-        dispatch({ type: FETCH_FAILURE });
-        console.log('Error', e);
+      async function fetchGithubData() {
+        if(!repos) await getRepos();
+        else if(repos) await getLanguagesAndLibraries(repos);
       }
-    } 
-    if(repos) getLanguagesAndLibraries(repos);
-  }, [repos]); // run again if repos changes
+      fetchGithubData();
+    }
+  }, [repos]); 
+
+  async function getRepos() {
+    try {
+      const repos = await getCORS(URL, options);
+      dispatch(setRepos(repos));
+    } catch(e) {
+      dispatch(setFailure());
+      console.log('Error', e);
+    }
+  };
+  
+  async function getLanguagesAndLibraries(data) {
+    try {
+      const [languages, libraries] = 
+      await Promise.all([
+        findLanguages(data),
+        findLibraries(data),
+      ]);
+      dispatch(setLanguagesAndLibraries({ 
+        languages,
+        libraries,
+      }))
+      setStorage({ 
+        languages,
+        libraries 
+      }); // set storage for next time
+    } catch (e) {
+      dispatch(setFailure());
+      console.log('Error', e);
+    }
+  } 
 
   return { loading, languages, libraries, error };
 }
+
+

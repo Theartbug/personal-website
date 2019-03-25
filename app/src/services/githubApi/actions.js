@@ -13,11 +13,6 @@ export const setLanguagesAndLibraries = ({ languages, libraries }) => ({
   }
 });
 
-export const setRepos = (payload) => ({
-  type: FETCH_REPOS,
-  payload
-});
-
 export const setFailure = () => ({
   type: FETCH_FAILURE
 });
@@ -25,3 +20,8 @@ export const setFailure = () => ({
 export const setInit = () => ({
   type: FETCH_INIT
 })
+
+export const setRepos = (payload) => ({
+  type: FETCH_REPOS,
+  payload
+});
