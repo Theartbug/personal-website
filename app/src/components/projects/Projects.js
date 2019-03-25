@@ -9,7 +9,7 @@ import ExternalLink from 'react-icons/lib/fa/external-link';
 import './projects.css';
 
 const Projects = props => {
-  const { ref } = useIntersectionObserver(PROJECTS);
+  const ref = useIntersectionObserver(PROJECTS);
 
   return (
     <section 
