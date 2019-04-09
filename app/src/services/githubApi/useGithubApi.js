@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useCallback } from 'react';
 import { getCORS } from '../request.js';
 import {
   checkCache,
@@ -33,7 +33,8 @@ export const useGithubApi = () => {
     repos
   }, dispatch] = useReducer(githubReducer, initialState);
 
-  const storage = checkCache();
+  // useCallback memoizes the function
+  const storage = useCallback(checkCache(), []);
 
   useEffect(() => {
     if(storage) {
@@ -42,13 +43,14 @@ export const useGithubApi = () => {
         libraries: storage.libraries,
       }));
     } else {
+      // eslint-disable-next-line no-inner-declarations
       async function fetchGithubData() {
         if(!repos) await getRepos();
         else if(repos) await getLanguagesAndLibraries(repos);
       }
       fetchGithubData();
     }
-  }, [repos]); 
+  }, [repos, storage]); 
 
   async function getRepos() {
     try {
@@ -58,8 +60,9 @@ export const useGithubApi = () => {
       dispatch(setFailure());
       console.log('Error', e);
     }
-  };
-  
+  }
+
+
   async function getLanguagesAndLibraries(data) {
     try {
       const [languages, libraries] = 
@@ -70,18 +73,18 @@ export const useGithubApi = () => {
       dispatch(setLanguagesAndLibraries({ 
         languages,
         libraries,
-      }))
+      }));
       setStorage({ 
         languages,
         libraries 
       }); // set storage for next time
-    } catch (e) {
+    } catch(e) {
       dispatch(setFailure());
       console.log('Error', e);
     }
   } 
 
   return { loading, languages, libraries, error };
-}
+};
 
 

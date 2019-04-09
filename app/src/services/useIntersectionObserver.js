@@ -13,7 +13,7 @@ export default function useIntersectionObserver(displayName) {
   function handleChange() {
     // if we aren't currently scrolling from the buttons, change the current section in the store
     if(!buttonScroll) dispatch(setCurrentSectionByScroll(displayName));
-  };
+  }
 
   if(inView) handleChange();
   

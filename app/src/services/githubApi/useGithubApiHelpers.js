@@ -16,7 +16,7 @@ export function checkCache() {
   const { date } = convertedStorage;
   //if the storage was fetched in the past month (below in milliseconds), return it, else fetch it again
   return (new Date() - new Date(date) < 454305569297142.8125) && convertedStorage;
-};
+}
 
 export function setStorage({ languages, libraries }) {
   const date = new Date();
@@ -33,7 +33,7 @@ export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug
 
 export const getPackageJson = (url) => getCORS(url, options);
 
-export const findLibraries = async (repos) => {
+export const findLibraries = async(repos) => {
   const seen = {
     react: 0,
     webpack: 0,
@@ -78,11 +78,11 @@ export const findLibraries = async (repos) => {
   }
 };
 
-export const findLanguages = async (repos) => {
+export const findLanguages = async(repos) => {
   const seen = {};
   try {
     const promises = repos.map(async repo => {
-      const languages = await getCORS(repo.languages_url, options)
+      const languages = await getCORS(repo.languages_url, options);
       const languagesArr = Object.keys(languages);
       if(languagesArr.length < 1) return;
       

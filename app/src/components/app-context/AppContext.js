@@ -17,17 +17,17 @@ const Context = React.createContext();
 
 function AppContext({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { buttonScroll, currentSection } = state;
+  const { currentSection, buttonScroll } = state;
   // const value = { state, dispatch };
   // ^^^^^^ DON'T DO as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
   //https://reactjs.org/docs/context.html#caveats
   // instead useMemo so that the object is only changed when currentSection or buttonScroll changes
   const value = useMemo(() => ({
-      buttonScroll,
-      currentSection,
-      dispatch: augmentDispatch(dispatch, state) // now supports thunks
-    }),
-    [buttonScroll, currentSection]);
+    buttonScroll,
+    currentSection,
+    dispatch: augmentDispatch(dispatch, { buttonScroll, currentSection }) // now supports thunks
+  }),
+  [buttonScroll, currentSection]);
   return (
     // provider updates any time the value given is updated
     <Context.Provider 
