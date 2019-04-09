@@ -2,9 +2,9 @@ jest.mock('./request', () => ({
   getCORS: jest.fn(() => Promise.resolve({}))
 }));
 
-import { repos, repo, listWithPackage, base64, listWithoutPackage } from './mockData.js';
+import { repos, repo, listWithPackage, base64, listWithoutPackage } from '../mockData.js';
 import { useGithubApi, findLibraries, getRepoContent, findLanguages, getPackageJson } from './githubAPI';
-import { getCORS } from './request';
+import { getCORS } from '../request';
 import 'isomorphic-fetch';
 
 describe('useGithubAPI tests', () => {

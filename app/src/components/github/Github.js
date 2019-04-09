@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGithubApi } from '../../services/githubAPI.js';
+import { useGithubApi } from '../../services/githubApi/useGithubApi.js';
 import { ClipLoader } from 'react-spinners';
 import './github.css';
 import useIntersectionObserver from '../../services/useIntersectionObserver.js';

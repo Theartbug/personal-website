@@ -27,7 +27,7 @@ function AppContext({ children }) {
       currentSection,
       dispatch: augmentDispatch(dispatch, state) // now supports thunks
     }),
-    [buttonScroll, currentSection, dispatch]);
+    [buttonScroll, currentSection]);
   return (
     // provider updates any time the value given is updated
     <Context.Provider 
