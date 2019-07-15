@@ -4,8 +4,8 @@
   "description": "A personal branding website for Grace Provost",
   "main": "index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Theartbug/personal-website.git"
+    "type": "git",
+    "url": "https://github.com/Theartbug/personal-website.git"
   },
   "scripts": {
     "lint": "eslint src",
