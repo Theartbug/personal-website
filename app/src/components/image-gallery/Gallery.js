@@ -4,6 +4,7 @@ import useIntersectionObserver from '../../services/useIntersectionObserver.js';
 import Carousel, { Modal, ModalGateway } from "react-images";
 import photos from '../../assets/photos/photos.js';
 import { GALLERY } from '../app-context/actions.js';
+import './gallery.css';
 
 function Gallery(props) {
   const ref = useIntersectionObserver(GALLERY);
@@ -28,6 +29,7 @@ function Gallery(props) {
     { ...props }>
       <div>
         <h2 className="lines">Gallery</h2>
+        <p>Snaps from my life</p>
         <PhotoGallery 
           photos={ photos }
           onClick={ openModal } />

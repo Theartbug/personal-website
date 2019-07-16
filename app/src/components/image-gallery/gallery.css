@@ -1,5 +1,9 @@
 @import '../../styles/variables.css';
 
 .gallery {
-  background-color: $light-grey;
+  background-color: $dark-grey;
+
+  p {
+    text-align: center;
+  }
 }
