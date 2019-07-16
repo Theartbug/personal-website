@@ -2,6 +2,7 @@
   "name": "personal-website",
   "version": "1.0.0",
   "description": "A personal branding website for Grace Provost",
+  "repository": "https://github.com/Theartbug/personal-website.git",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -76,9 +77,6 @@
     "react-photo-gallery": "^8.0.0",
     "react-redux": "^5.0.7",
     "react-scroll": "^1.7.11",
-    "react-spinners": "^0.3.3",
-    "react-transition-group": "1.x",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "react-spinners": "^0.3.3"
   }
 }

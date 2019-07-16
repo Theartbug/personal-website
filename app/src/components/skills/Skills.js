@@ -8,6 +8,7 @@ import sass from '../../assets/sass.png';
 import redux from '../../assets/redux.png';
 import webpack from '../../assets/webpack.png';
 import jest from '../../assets/jest.svg';
+import spring from '../../assets/spring_logo.png';
 import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
@@ -47,6 +48,9 @@ const Skills = props => {
           </div>
           <div>
             <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
+          </div>
+          <div>
+            <img className="logo" src={spring} alt="spring logo"/>
           </div>
         </div>
       </div>
