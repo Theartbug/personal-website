@@ -1,47 +1,56 @@
+import basinHike from './lakes_basin.jpg';
+import catStretch from './city_cat_pets_stretches.jpg';
+import catPets from './city_cat_pets.jpg';
+import mushroom from './mushroom_hike.jpg';
+import angelsRest from './rainy_hike.jpg';
+import smithRock from './smith_rock_climbing.jpg';
+import snowshoeing from './snowshoeing.jpg';
+
+
 export default [
   {
-    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-    width: 4,
-    height: 3
+    src: basinHike,
+    width: 900,
+    height: 675,
+    alt: '7 Lakes Basin of Olympic National Forest',
   },
   {
-    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-    width: 1,
-    height: 1
+    src: catStretch,
+    width: 960,
+    height: 720,
+    alt: 'Some good city cat pets',
+
   },
   {
-    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
-    width: 3,
-    height: 4
+    src: mushroom,
+    width: 960,
+    height: 720,
+    alt: 'Wet mushroom whilst hiking',
+
   },
   {
-    src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
-    width: 3,
-    height: 4
+    src: smithRock,
+    width: 667,
+    height: 500,
+    alt: 'Climbing at Smith Rock',
+
   },
   {
-    src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
-    width: 3,
-    height: 4
+    src: angelsRest,
+    width: 960,
+    height: 720,
+    alt: 'Angels Rest after 2017 fire',
   },
   {
-    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
-    width: 4,
-    height: 3
+    src: catPets,
+    width: 960,
+    height: 720,
+    alt: 'Getting some good kitty pets',
   },
   {
-    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
-    width: 3,
-    height: 4
+    src: snowshoeing,
+    width: 720,
+    height: 960,
+    alt: 'Snowshoeing Elk Lake, Mt. Hood',
   },
-  {
-    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
-    width: 4,
-    height: 3
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3
-  }
 ];

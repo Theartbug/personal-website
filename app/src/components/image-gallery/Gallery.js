@@ -32,7 +32,8 @@ function Gallery(props) {
         <p>Snaps from my life</p>
         <PhotoGallery 
           photos={ photos }
-          onClick={ openModal } />
+          onClick={ openModal } 
+          targetRowHeight={ 100 } />
           <ModalGateway>
           { modalOpen && 
             <Modal onClose={ closeModal }>
