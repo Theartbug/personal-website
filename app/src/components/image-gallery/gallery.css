@@ -1,0 +1,5 @@
+@import '../../styles/variables.css';
+
+.gallery {
+  background-color: $light-grey;
+}

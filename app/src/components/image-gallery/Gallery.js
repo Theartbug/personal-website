@@ -26,24 +26,26 @@ function Gallery(props) {
     className="gallery"
     id="gallery"
     { ...props }>
-      <h2 className="lines">Photos</h2>
-      <PhotoGallery 
-        photos={ photos }
-        onClick={ openModal } />
-        <ModalGateway>
-        { modalOpen && 
-          <Modal onClose={ closeModal }>
-            <Carousel
-              currentIndex={ currentImage }
-              views={ photos.map(x => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title
-              }))}
-            />
-          </Modal>
-        }
-      </ModalGateway>
+      <div>
+        <h2 className="lines">Gallery</h2>
+        <PhotoGallery 
+          photos={ photos }
+          onClick={ openModal } />
+          <ModalGateway>
+          { modalOpen && 
+            <Modal onClose={ closeModal }>
+              <Carousel
+                currentIndex={ currentImage }
+                views={ photos.map(x => ({
+                  ...x,
+                  srcset: x.srcSet,
+                  caption: x.title
+                }))}
+              />
+            </Modal>
+          }
+        </ModalGateway>
+      </div>
     </section>
   );
 };
