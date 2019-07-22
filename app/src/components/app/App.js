@@ -7,6 +7,7 @@ import Projects from '../projects/Projects';
 import Contact from '../contact/Contact';
 import Copyright from '../copyright/Copyright';
 import ScrollButtons from '../scroll-buttons/ScrollButtons';
+import Gallery from '../image-gallery/Gallery';
 import './app.css';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <Skills/>
       <Github/>
       <Projects/>
+      <Gallery/>
       <Contact/>
       <Copyright/>
       <ScrollButtons/>

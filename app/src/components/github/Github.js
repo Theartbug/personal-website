@@ -17,6 +17,7 @@ const Github = props => {
       { ...props }>
       <div>
         <h2 className="lines">App Stats</h2>
+        <p>Technologies and the numbers of times I've used them in projects</p>
         {loading && 
           <div className='loader'>
             <ClipLoader loading={loading} color={'#d40b0b'} />

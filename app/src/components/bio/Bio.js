@@ -38,7 +38,7 @@ const Bio = props => {
           </div>
           <div>
             <CodeIcon/>
-            <p>They are <span>Currently</span> a software engineer at Marketo. They enjoy their work and have deep satisfaction in debugging, pushing pixels, and creating elegant logic.</p>
+            <p>They are currently a <span>software engineer</span> at Marketo. They enjoy their work and have deep satisfaction in debugging, pushing pixels, and creating elegant logic.</p>
           </div>
         </div>
       </div>

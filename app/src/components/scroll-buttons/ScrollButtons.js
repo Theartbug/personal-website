@@ -21,7 +21,7 @@ export default function ScrollButtons() {
 
   function handleDownClick() {
   //if the currentSection position is at the end and the direction wants to go further, dont let it.
-    if(currentSection === 5) return;
+    if(currentSection === 6) return;
     const next = currentSection + 1;
     dispatch(setCurrentSectionByButtons(next));
   }

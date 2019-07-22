@@ -1,0 +1,18 @@
+@import '../../styles/variables.css';
+
+.gallery {
+  background-color: $dark-grey;
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    width: inherit;
+    height: 150px;
+  }
+
+  .react-photo-gallery--gallery > div {
+    justify-content: center;
+  }
+}

@@ -7,8 +7,9 @@ export const SKILLS = 'skills';
 export const GITHUB = 'github';
 export const CONTACT = 'contact';
 export const PROJECTS = 'projects';
+export const GALLERY = 'gallery';
 
-const list = [HERO, BIO, SKILLS, GITHUB, PROJECTS, CONTACT];
+const list = [HERO, BIO, SKILLS, GITHUB, PROJECTS, GALLERY, CONTACT];
 
 const scrollTo = (id) => {
   if(!id) return;
