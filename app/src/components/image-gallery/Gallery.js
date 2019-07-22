@@ -41,8 +41,7 @@ function Gallery(props) {
                 currentIndex={ currentImage }
                 views={ photos.map(x => ({
                   ...x,
-                  srcset: x.srcSet,
-                  caption: x.title
+                  caption: x.alt
                 }))}
               />
             </Modal>
