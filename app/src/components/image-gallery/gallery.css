@@ -9,6 +9,10 @@
 
   img {
     width: inherit;
-    height: inherit;
+    height: 150px;
+  }
+
+  .react-photo-gallery--gallery > div {
+    justify-content: center;
   }
 }
