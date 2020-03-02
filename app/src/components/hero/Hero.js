@@ -14,10 +14,10 @@ const Hero = props => {
       className="hero" 
       id="hero"
       { ...props }>
-      <h1><span>This is</span> Grace Provost</h1>
+      <h1><span>This is</span> Ash Provost</h1>
       <picture>
         <source srcSet={laptopImage} media="(min-width: 1000px)"/>
-        <img srcSet={mobileImage} alt="photo of Grace"/>
+        <img srcSet={mobileImage} alt="photo of Ash"/>
       </picture>
     </figure>
   );
