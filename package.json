@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "version": "1.0.0",
-  "description": "A personal branding website for Grace Provost",
+  "description": "A personal branding website for Ash Provost",
   "repository": "https://github.com/Theartbug/personal-website.git",
   "main": "index.js",
   "repository": {
@@ -26,7 +26,7 @@
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
     }
   },
-  "author": "Grace Provost",
+  "author": "Ash Provost",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.0.0",

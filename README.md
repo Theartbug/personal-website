@@ -6,6 +6,7 @@ Objective
 Create a personal website that demonstrates my design and application capabilities. Keep it brief and sleek.
 Use:
   - React
+  - Redux
   - Webpack
   - Netlify for hosting
   - CSS with pre / post processors

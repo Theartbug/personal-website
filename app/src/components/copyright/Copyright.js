@@ -2,9 +2,12 @@ import React from 'react';
 import './copyright.css';
 
 export default function Copyright() {
+  const date = new Date().getFullYear();
   return (
     <section className="copyright" id="copyright">
-      <small>&copy; Grace Provost 2018</small>
+      <small>
+        &copy; Ash Provost { date }
+      </small>
     </section>
   );
 }
