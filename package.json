@@ -42,7 +42,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.0",
     "jest-css-modules": "^2.1.0",
-    "mini-css-extract-plugin": "^0.5.0",
+    "mini-css-extract-plugin": "^1.1.1",
     "postcss": "^8.1.2",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.6",
