@@ -10,7 +10,7 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
-      {   
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -21,15 +21,15 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { 
+            options: {
               sourceMap: true,
-              importLoaders: 1 
+              importLoaders: 1,
             }
           },
           {
             loader: 'postcss-loader',
             options: { sourceMap: true }
-          }
+          },
         ]
       },
       {
