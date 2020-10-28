@@ -1,17 +1,20 @@
 {
   "presets": [
     [
-      "env", {
+      "@babel/preset-env",
+      {
         "targets": {
-          "browsers": "Chrome 60"
+          "node": "12"
         }
       }
-    ], 
-    "react"
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
     "emotion"
   ]
 }
