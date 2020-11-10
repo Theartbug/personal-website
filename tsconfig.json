@@ -13,7 +13,10 @@
     "target": "es5",
     "allowSyntheticDefaultImports" : true,
     "esModuleInterop" : true,
-    "baseUrl": "src",
     "isolatedModules": true,
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "*": ["src/*"]
+    // }
   }
 }

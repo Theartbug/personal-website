@@ -1,19 +1,23 @@
 import React, { useReducer, useMemo, useContext } from 'react';
-import { reducer } from './reducers.js';
+import { reducer, Action } from './reducers.js';
 
 // Thunk middleware replacement
-const augmentDispatch = (dispatch, state) =>
+const augmentDispatch = (dispatch: React.Dispatch<Action>, state): Function =>
   (input) =>
     input instanceof Function ? input(dispatch, state) : dispatch(input);
 
-const initialState = {
+interface AppContextInterface {
+  buttonScroll: boolean;
+  currentSection: number;
+}
+// It returns an object with 2 values:
+// { Provider, Consumer }
+const Context = React.createContext<AppContextInterface | null>(null);
+
+export const initialState = {
   buttonScroll: false,
   currentSection: 0,
 };
-
-// It returns an object with 2 values:
-// { Provider, Consumer }
-const Context = React.createContext();
 
 function AppContext({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -30,7 +34,7 @@ function AppContext({ children }) {
     [buttonScroll, currentSection]);
   return (
     // provider updates any time the value given is updated
-    <Context.Provider 
+    <Context.Provider
       value={ value }>
       { children }
     </Context.Provider>
