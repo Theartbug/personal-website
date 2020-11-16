@@ -1,26 +1,28 @@
 import React, { useReducer, useMemo, useContext } from 'react';
 import { reducer, Action } from './reducers.js';
 
-// Thunk middleware replacement
-const augmentDispatch = (dispatch: React.Dispatch<Action>, state): Function =>
-  (input) =>
-    input instanceof Function ? input(dispatch, state) : dispatch(input);
-
 interface AppContextInterface {
   buttonScroll: boolean;
   currentSection: number;
+  dispatch: React.Dispatch<Action>;
 }
-// It returns an object with 2 values:
-// { Provider, Consumer }
-const Context = React.createContext<AppContextInterface | null>(null);
-
 export const initialState = {
   buttonScroll: false,
   currentSection: 0,
 };
+export type stateType = typeof initialState;
+// It returns an object with 2 values:
+// { Provider, Consumer }
+const Context = React.createContext<stateType>(initialState);
+
+
+// Thunk middleware replacement
+const augmentDispatch = (dispatch: React.Dispatch<Action>, state: stateType): Function =>
+  (input: Function | Action) =>
+    input instanceof Function ? input(dispatch, state) : dispatch(input);
 
 function AppContext({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer<React.Reducer<stateType, Action>>(reducer, initialState);
   const { buttonScroll, currentSection } = state;
   // const value = { state, dispatch };
   // ^^^^^^ DON'T DO as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders

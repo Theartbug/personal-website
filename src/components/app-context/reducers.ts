@@ -1,4 +1,4 @@
-import { initialState } from './AppContext';
+import { stateType } from './AppContext';
 
 export const SECTION_CHANGE = 'SECTION_CHANGE';
 export const BUTTON_PRESS = 'BUTTON_PRESS';
@@ -12,12 +12,12 @@ type ButtonScrollType = {
 }
 export type Action = CurrentSectionType | ButtonScrollType;
 
-export const reducer = (state: typeof initialState, { type, payload }: Action) => {
+export const reducer = (state: stateType, { type, payload }: Action): stateType => {
   switch(type) {
     case SECTION_CHANGE:
-      return { ...state, currentSection: payload };
+      return { ...state, currentSection: payload } as stateType;
     case BUTTON_PRESS:
-      return { ...state, buttonScroll: payload };
+      return { ...state, buttonScroll: payload } as stateType;
     default:
       return state;
   }
