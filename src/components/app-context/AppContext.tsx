@@ -1,12 +1,9 @@
 import React, { useReducer, useMemo, useContext } from 'react';
-import { reducer, Action } from './reducers.js';
+import { reducer } from './reducers.js';
+import { Action } from './actions';
 
 type dispatchType = React.Dispatch<Action>;
-interface AppContextInterface {
-  buttonScroll: boolean;
-  currentSection: number;
-  dispatch: Function;
-}
+
 export const initialState = {
   buttonScroll: false,
   currentSection: 0,
@@ -16,12 +13,19 @@ export type stateType = typeof initialState;
 // { Provider, Consumer }
 const Context = React.createContext<stateType>(initialState);
 
+export type middlewareType = Function | dispatchType;
 // Thunk middleware replacement
 const middleware = (dispatch: dispatchType, state: stateType): Function =>
-  (next: Function | Action): Function | dispatchType =>
+  (next: Function | Action): middlewareType =>
     next instanceof Function
       ? next(dispatch, state)
       : dispatch(next);
+
+interface AppContextInterface {
+  buttonScroll: boolean;
+  currentSection: number;
+  dispatch: middlewareType;
+}
 
 function AppContext({ children }) {
   const [state, dispatch] = useReducer<React.Reducer<stateType, Action>>(reducer, initialState);

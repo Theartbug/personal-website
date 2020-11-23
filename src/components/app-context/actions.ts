@@ -1,5 +1,5 @@
-import { SECTION_CHANGE, BUTTON_PRESS } from './reducers';
 import { scroller } from 'react-scroll';
+import { middlewareType } from './AppContext';
 
 export const HERO = 'hero';
 export const BIO = 'bio';
@@ -20,7 +20,7 @@ const scrollTo = (id) => {
   });
 };
 
-export const setCurrentSectionByButtons = section => dispatch => {
+export const setCurrentSectionByButtons = (section: number) => (dispatch: middlewareType) => {
   scrollTo(list[section]);
   dispatch(setButtonScroll(true));
   dispatch(setCurrentSection(section));
@@ -31,15 +31,29 @@ export const setCurrentSectionByScroll = section => {
   return setCurrentSection(current);
 };
 
-export const setButtonScroll = payload => ({ 
-  type: BUTTON_PRESS, 
+export const BUTTON_PRESS = 'BUTTON_PRESS';
+type ButtonScrollType = {
+  type: typeof BUTTON_PRESS;
+  payload: boolean;
+};
+
+export const setButtonScroll = (payload: boolean): ButtonScrollType => ({
+  type: BUTTON_PRESS,
   payload
 });
 
-const setCurrentSection = payload => ({ 
-  type: SECTION_CHANGE, 
-  payload 
+export const SECTION_CHANGE = 'SECTION_CHANGE';
+type CurrentSectionType = {
+  type: typeof SECTION_CHANGE;
+  payload: number;
+};
+
+const setCurrentSection = (payload: number): CurrentSectionType => ({
+  type: SECTION_CHANGE,
+  payload
 });
 
+
+export type Action = CurrentSectionType | ButtonScrollType;
 
 
