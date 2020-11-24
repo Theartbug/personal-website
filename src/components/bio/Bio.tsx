@@ -1,22 +1,21 @@
 import React from 'react';
 import useIntersectionObserver from '../../services/useIntersectionObserver.js';
-import BikeIcon from 'react-icons/lib/fa/bicycle';
-import BookIcon from 'react-icons/lib/fa/book';
-import MedIcon from 'react-icons/lib/io/ios-medkit';
-import CodeIcon from 'react-icons/lib/fa/code';
-import PlantIcon from 'react-icons/lib/fa/pagelines';
+import { FaBicycle as BikeIcon } from 'react-icons/fa';
+import { FaBook as BookIcon } from 'react-icons/fa';
+import { IoIosMedkit as MedIcon } from 'react-icons/io';
+import { FaCode as CodeIcon } from 'react-icons/fa';
+import { FaPagelines as PlantIcon } from 'react-icons/fa';
 import './bio.css';
 import { BIO } from '../app-context/actions.js';
 
-const Bio = props => {
+const Bio: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(BIO);
 
   return (
-    <section 
+    <section
       ref={ ref }
-      className="bio"
-      id="bio"
-      { ...props }>
+      className={ BIO }
+      id={ BIO }>
       <div>
         <h2 className="lines">About</h2>
         <div className="grid">
