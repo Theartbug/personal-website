@@ -10,7 +10,7 @@ import ScrollButtons from '../scroll-buttons/ScrollButtons';
 import Gallery from '../image-gallery/Gallery';
 import './app.css';
 
-const App: React.FC  = (): JSX.Element => (
+const App: React.FC = (): JSX.Element => (
   <main id="app" role="main">
     <Hero/>
     <Bio/>
