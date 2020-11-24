@@ -27,8 +27,10 @@ interface AppContextInterface {
   dispatch: middlewareType;
 }
 
-function AppContext({ children }) {
+const AppContext: React.FC = ({ children }): JSX.Element => {
+
   const [state, dispatch] = useReducer<React.Reducer<stateType, Action>>(reducer, initialState);
+  
   const { buttonScroll, currentSection } = state;
   // const value = { state, dispatch };
   // ^^^^^^ DON'T DO as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
@@ -47,7 +49,7 @@ function AppContext({ children }) {
       { children }
     </Context.Provider>
   );
-}
+};
 
 // this gives multiple consumers a way to access the same context
 const useMyContext = () => useContext(Context);
