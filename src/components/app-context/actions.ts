@@ -9,7 +9,7 @@ export const CONTACT = 'contact';
 export const PROJECTS = 'projects';
 export const GALLERY = 'gallery';
 
-type appAreaIds = typeof HERO
+export type appAreaIds = typeof HERO
   | typeof BIO
   | typeof SKILLS
   | typeof GITHUB
