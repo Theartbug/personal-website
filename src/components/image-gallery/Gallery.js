@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import PhotoGallery from 'react-photo-gallery';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
 import Carousel, { Modal, ModalGateway } from "react-images";
 import photos from '../../assets/photos/photos.js';
-import { GALLERY } from '../app-context/actions.js';
+import { GALLERY } from '../app-context/actions';
 import './gallery.css';
 
 function Gallery(props) {
@@ -22,7 +22,7 @@ function Gallery(props) {
   }
 
   return (
-    <section 
+    <section
     ref={ ref }
     className="gallery"
     id="gallery"
@@ -30,12 +30,12 @@ function Gallery(props) {
       <div>
         <h2 className="lines">Gallery</h2>
         <p>Snaps from my life</p>
-        <PhotoGallery 
+        <PhotoGallery
           photos={ photos }
-          onClick={ openModal } 
+          onClick={ openModal }
           targetRowHeight={ 100 } />
           <ModalGateway>
-          { modalOpen && 
+          { modalOpen &&
             <Modal onClose={ closeModal }>
               <Carousel
                 currentIndex={ currentImage }

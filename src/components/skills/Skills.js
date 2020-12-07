@@ -1,5 +1,5 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
 import node from '../../assets/node.png';
@@ -16,9 +16,9 @@ const Skills = props => {
   const ref = useIntersectionObserver(SKILLS);
 
   return (
-    <section 
-      ref={ ref } 
-      className="skills" 
+    <section
+      ref={ ref }
+      className="skills"
       id="skills"
       { ...props }>
       <div>

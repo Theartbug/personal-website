@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
-import { useMyContext } from '../components/app-context/AppContext.js';
-import { setCurrentSectionByScroll, appAreaIds } from '../components/app-context/actions.js';
+import { useMyContext } from '../components/app-context/AppContext';
+import { setCurrentSectionByScroll, appAreaIds } from '../components/app-context/actions';
 
 export default function useIntersectionObserver(id: appAreaIds) {
   const [ref, inView] = useInView({

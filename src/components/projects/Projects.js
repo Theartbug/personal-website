@@ -1,21 +1,21 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
-import { PROJECTS } from '../app-context/actions.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
+import { PROJECTS } from '../app-context/actions';
 import parkPlace from '../../assets/park-place.png';
 import pokeFlip from '../../assets/poke-flip.png';
 import uRateLogo from '../../assets/uRater-logo.svg';
 import marketoLogo from '../../assets/Marketo_logo.png';
 import websiteImage from '../../assets/website_image.png';
-import ExternalLink from 'react-icons/lib/fa/external-link';
+import { FaExternalLinkAlt as ExternalLink } from 'react-icons/fa';
 import './projects.css';
 
 const Projects = props => {
   const ref = useIntersectionObserver(PROJECTS);
 
   return (
-    <section 
+    <section
       ref={ ref }
-      className="projects" 
+      className="projects"
       id="projects"
       { ...props }>
       <div>

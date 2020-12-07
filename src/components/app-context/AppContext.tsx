@@ -1,5 +1,5 @@
 import React, { useReducer, useMemo, useContext } from 'react';
-import { reducer } from './reducers.js';
+import { reducer } from './reducers';
 import { Action } from './actions';
 
 type dispatchType = React.Dispatch<Action>;

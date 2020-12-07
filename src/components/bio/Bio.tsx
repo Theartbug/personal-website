@@ -1,12 +1,12 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
 import { FaBicycle as BikeIcon } from 'react-icons/fa';
 import { FaBook as BookIcon } from 'react-icons/fa';
 import { IoIosMedkit as MedIcon } from 'react-icons/io';
 import { FaCode as CodeIcon } from 'react-icons/fa';
 import { FaPagelines as PlantIcon } from 'react-icons/fa';
 import './bio.css';
-import { BIO } from '../app-context/actions.js';
+import { BIO } from '../app-context/actions';
 
 const Bio: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(BIO);
