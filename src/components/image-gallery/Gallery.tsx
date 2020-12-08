@@ -1,17 +1,17 @@
-import React, { useState, useCallback } from 'react';
-import PhotoGallery from 'react-photo-gallery';
+import React, { useState } from 'react';
+import PhotoGallery, { PhotoClickHandler } from 'react-photo-gallery';
 import useIntersectionObserver from '../../services/useIntersectionObserver';
 import Carousel, { Modal, ModalGateway } from "react-images";
-import photos from '../../assets/photos/photos.js';
+import { photos, galleryPhotos } from '../../assets/photos/photos';
 import { GALLERY } from '../app-context/actions';
 import './gallery.css';
 
-function Gallery(props) {
+const Gallery: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(GALLERY);
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = (e, { photo, index }) => {
+  const openModal: PhotoClickHandler = (_e, { index }) => {
     setCurrentImage(index);
     setModalOpen(true);
   }
@@ -24,9 +24,8 @@ function Gallery(props) {
   return (
     <section
     ref={ ref }
-    className="gallery"
-    id="gallery"
-    { ...props }>
+    className={ GALLERY }
+    id={ GALLERY }>
       <div>
         <h2 className="lines">Gallery</h2>
         <p>Snaps from my life</p>
@@ -39,10 +38,7 @@ function Gallery(props) {
             <Modal onClose={ closeModal }>
               <Carousel
                 currentIndex={ currentImage }
-                views={ photos.map(x => ({
-                  ...x,
-                  caption: x.alt
-                }))}
+                views={ galleryPhotos }
               />
             </Modal>
           }

@@ -5,16 +5,15 @@ import './github.css';
 import useIntersectionObserver from '../../services/useIntersectionObserver';
 import { GITHUB } from '../app-context/actions';
 
-const Github = props => {
+const Github: React.FC = (): JSX.Element => {
   const { loading, languages, libraries, error } = useGithubApi();
   const ref = useIntersectionObserver(GITHUB);
 
   return (
     <section
       ref={ ref }
-      className="github"
-      id="github"
-      { ...props }>
+      className={ GITHUB }
+      id={ GITHUB }>
       <div>
         <h2 className="lines">App Stats</h2>
         <p>Technologies and the numbers of times I've used them in projects</p>
