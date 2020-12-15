@@ -16,7 +16,7 @@ const Gallery: React.FC = (): JSX.Element => {
     setModalOpen(true);
   }
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setCurrentImage(0);
     setModalOpen(false);
   }

@@ -9,15 +9,14 @@ import websiteImage from '../../assets/website_image.png';
 import { FaExternalLinkAlt as ExternalLink } from 'react-icons/fa';
 import './projects.css';
 
-const Projects = props => {
+const Projects: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(PROJECTS);
 
   return (
     <section
       ref={ ref }
-      className="projects"
-      id="projects"
-      { ...props }>
+      className={ PROJECTS }
+      id={ PROJECTS }>
       <div>
         <h2 className="lines">Projects</h2>
 
@@ -25,7 +24,7 @@ const Projects = props => {
           <img src={websiteImage} alt='marketo logo'/>
           <div className="text">
             <h3>Personal Website</h3>
-            <h4>React, React-hooks, Redux, Jest, Enzyme, CSS, Webpack</h4>
+            <h4>Typescript, React, React-hooks, React Context, Jest, Enzyme, CSS, Webpack</h4>
             <p>This website! Hand-rolled by me; a playground for testing new tech.</p>
           </div>
         </div>
@@ -34,7 +33,7 @@ const Projects = props => {
           <img className="urate" src={marketoLogo} alt='marketo logo'/>
           <div className="text">
             <h3>Adobe</h3>
-            <h4>React, Redux, Jest, Enzyme, CSS, Webpack, Docker, Selenium Web Driver, Node.js</h4>
+            <h4>React, Redux, Jest, React Testing Library, CSS, Webpack, Docker, Selenium Web Driver, Node.js, Websockets</h4>
             <p>A marketing automation platform. Working on a project to re-skin the UI in Portland, OR.</p>
           </div>
         </div>
