@@ -6,7 +6,7 @@ import { FaCaretUp as UpAngleIcon } from 'react-icons/fa';
 import { FaCaretDown as DownAngleIcon } from 'react-icons/fa';
 import './scroll-buttons.css';
 
-export default function ScrollButtons() {
+const ScrollButtons: React.FC = (): JSX.Element =>{
   const { currentSection, dispatch } = useMyContext();
 
   useEffect(setScrollListener, []);
@@ -27,7 +27,7 @@ export default function ScrollButtons() {
   }
 
   function handleUpClick() {
-  //if the currentSection position is at the beginning the direction wants to go further, dont let it.
+  //if the currentSection position is at the beginning and the direction wants to go further, dont let it.
     if(currentSection === 0) return;
     const prev = currentSection - 1;
     dispatch(setCurrentSectionByButtons(prev));
@@ -48,3 +48,5 @@ export default function ScrollButtons() {
     </div>
   );
 }
+
+export default ScrollButtons;

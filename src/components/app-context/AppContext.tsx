@@ -3,10 +3,11 @@ import { reducer } from './reducers';
 import { Action } from './actions';
 
 type dispatchType = React.Dispatch<Action>;
+export type middlewareType = dispatchType | React.Dispatch<Function>;
 interface State {
   buttonScroll: boolean;
   currentSection: number;
-  dispatch: middlewareType;
+  dispatch: () => middlewareType;
 }
 export const initialState = {
   buttonScroll: false,
@@ -18,10 +19,9 @@ export const initialState = {
 // { Provider, Consumer }
 const Context = React.createContext<State>(initialState);
 
-export type middlewareType = Function | dispatchType;
 // Thunk middleware replacement
 const middleware = (dispatch: dispatchType, state: State): Function =>
-  (next: Function | Action): middlewareType =>
+  (next: Function | Action): void =>
     next instanceof Function
       ? next(dispatch, state)
       : dispatch(next);
