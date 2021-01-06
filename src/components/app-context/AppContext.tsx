@@ -3,29 +3,29 @@ import { reducer } from './reducers';
 import { Action } from './actions';
 
 type dispatchType = React.Dispatch<Action>;
-export type middlewareType = dispatchType | React.Dispatch<Function>;
-interface State {
+export type middlewareType = (next: Function | Action) => (dispatchType | middlewareType);
+
+// Thunk middleware replacement
+const middleware = (dispatch: dispatchType, state: State): middlewareType =>
+  (next: Function | Action) =>
+    next instanceof Function
+      ? next(dispatch, state)
+      : dispatch(next);
+
+export interface State {
   buttonScroll: boolean;
   currentSection: number;
-  dispatch: () => middlewareType;
+  dispatch: middlewareType;
 }
 export const initialState = {
   buttonScroll: false,
   currentSection: 0,
-  dispatch: () => initialState,
+  dispatch: middleware,
 };
 
 // It returns an object with 2 values:
 // { Provider, Consumer }
 const Context = React.createContext<State>(initialState);
-
-// Thunk middleware replacement
-const middleware = (dispatch: dispatchType, state: State): Function =>
-  (next: Function | Action): void =>
-    next instanceof Function
-      ? next(dispatch, state)
-      : dispatch(next);
-
 
 const AppContext: React.FC = ({ children }): JSX.Element => {
   const [state, dispatch] = useReducer<React.Reducer<State, Action>>(reducer, initialState);

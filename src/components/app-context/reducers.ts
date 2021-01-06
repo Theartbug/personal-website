@@ -1,13 +1,13 @@
-import { stateType } from './AppContext';
+import { State } from './AppContext';
 import { Action, SECTION_CHANGE, BUTTON_PRESS } from './actions';
 
-export const reducer = (state: stateType, { type, payload }: Action): stateType => {
+export const reducer = (state: State, { type, payload }: Action): State => {
   switch(type) {
     case SECTION_CHANGE:
-      return { ...state, currentSection: payload } as stateType;
+      return { ...state, currentSection: payload } as State;
     case BUTTON_PRESS:
-      return { ...state, buttonScroll: payload } as stateType;
+      return { ...state, buttonScroll: payload } as State;
     default:
       return state;
   }
-}
+};

@@ -50,26 +50,26 @@ export const setCurrentSectionByScroll = (section: appAreaIds) => {
 };
 
 export const BUTTON_PRESS = 'BUTTON_PRESS';
-type buttonScrollType = {
+type buttonScrollAction = {
   type: typeof BUTTON_PRESS;
   payload: boolean;
 };
-export const setButtonScroll = (payload: boolean): buttonScrollType => ({
+export const setButtonScroll = (payload: boolean): buttonScrollAction => ({
   type: BUTTON_PRESS,
   payload
 });
 
 export const SECTION_CHANGE = 'SECTION_CHANGE';
-type currentSectionType = {
+type currentSectionAction = {
   type: typeof SECTION_CHANGE;
   payload: number;
 };
-const setCurrentSection = (payload: number): currentSectionType => ({
+const setCurrentSection = (payload: number): currentSectionAction => ({
   type: SECTION_CHANGE,
   payload
 });
 
 
-export type Action = currentSectionType | buttonScrollType;
+export type Action = currentSectionAction | buttonScrollAction;
 
 
