@@ -6,7 +6,7 @@ import { FaCaretUp as UpAngleIcon } from 'react-icons/fa';
 import { FaCaretDown as DownAngleIcon } from 'react-icons/fa';
 import './scroll-buttons.css';
 
-const ScrollButtons: React.FC = (): JSX.Element =>{
+const ScrollButtons: React.FC = (): JSX.Element => {
   const { currentSection, dispatch } = useMyContext();
 
   useEffect(setScrollListener, []);
