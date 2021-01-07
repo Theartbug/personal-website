@@ -12,15 +12,14 @@ import spring from '../../assets/spring_logo.png';
 import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
-const Skills = props => {
+const Skills: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(SKILLS);
 
   return (
     <section
       ref={ ref }
-      className="skills"
-      id="skills"
-      { ...props }>
+      className={ SKILLS }
+      id={ SKILLS }>
       <div>
         <h2 className="lines">Skills</h2>
 
