@@ -8,28 +8,21 @@ import {
   BASE_URL,
   options,
 } from './useGithubApiHelpers.js';
-import { githubReducer } from './reducers.js';
+import { githubReducer, initialState } from './reducers';
 import {
   setLanguagesAndLibraries,
   setRepos,
   setFailure,
-} from './actions.js';
+} from './actions';
 
 const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-const initialState = {
-  loading: true,
-  error: false,
-  repos: null,
-  languages: null,
-  libraries: null,
-};
 
 export const useGithubApi = () => {
-  const [{ 
-    loading, 
-    languages, 
-    libraries, 
-    error, 
+  const [{
+    loading,
+    languages,
+    libraries,
+    error,
     repos
   }, dispatch] = useReducer(githubReducer, initialState);
 
@@ -37,8 +30,8 @@ export const useGithubApi = () => {
 
   useEffect(() => {
     if(storage) {
-      dispatch(setLanguagesAndLibraries({ 
-        languages: storage.languages, 
+      dispatch(setLanguagesAndLibraries({
+        languages: storage.languages,
         libraries: storage.libraries,
       }));
     } else {
@@ -48,7 +41,7 @@ export const useGithubApi = () => {
       }
       fetchGithubData();
     }
-  }, [repos]); 
+  }, [repos]);
 
   async function getRepos() {
     try {
@@ -59,27 +52,27 @@ export const useGithubApi = () => {
       console.log('Error', e);
     }
   };
-  
-  async function getLanguagesAndLibraries(data) {
+
+  async function getLanguagesAndLibraries(repos) {
     try {
-      const [languages, libraries] = 
+      const [languages, libraries] =
       await Promise.all([
-        findLanguages(data),
-        findLibraries(data),
+        findLanguages(repos),
+        findLibraries(repos),
       ]);
-      dispatch(setLanguagesAndLibraries({ 
+      dispatch(setLanguagesAndLibraries({
         languages,
         libraries,
       }))
-      setStorage({ 
+      setStorage({
         languages,
-        libraries 
+        libraries
       }); // set storage for next time
     } catch (e) {
       dispatch(setFailure());
       console.log('Error', e);
     }
-  } 
+  }
 
   return { loading, languages, libraries, error };
 }

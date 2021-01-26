@@ -1,9 +1,25 @@
-export const FETCH_INIT = 'FETCH_INIT';
-export const FETCH_REPOS = 'FETCH_REPOS';
-export const FETCH_LANGUAGES_AND_LIBRARIES = 'FETCH_LANGUAGES_AND_LIBRARIES';
-export const FETCH_FAILURE = 'FETCH_FAILURE';
+import {
+  FETCH_INIT,
+  FETCH_REPOS,
+  FETCH_LANGUAGES_AND_LIBRARIES,
+  FETCH_FAILURE,
+  Repo,
+} from './actions';
 
-export const githubReducer = (state, { type, payload }) => {
+export const initialState = {
+  loading: true,
+  error: false,
+};
+
+export type State = {
+  loading: boolean;
+  error: boolean;
+  repos: Repo[];
+  languages: Record<string,number>;
+  libraries: Record<string,number>;
+}
+
+export const githubReducer = (state: State, { type, payload }): State => {
   switch (type) {
     case FETCH_INIT:
       return {
@@ -30,6 +46,6 @@ export const githubReducer = (state, { type, payload }) => {
         error: true,
       };
     default:
-      throw new Error();
+      return state;
   }
 };
