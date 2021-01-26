@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from 'react';
 import { getCORS } from '../request.js';
 import {
-  checkCache,
+  getStorage,
   setStorage,
   findLibraries,
   findLanguages,
@@ -26,7 +26,7 @@ export const useGithubApi = () => {
     repos
   }, dispatch] = useReducer(githubReducer, initialState);
 
-  const storage = checkCache();
+  const storage = getStorage();
 
   useEffect(() => {
     if(storage) {

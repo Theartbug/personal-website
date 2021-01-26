@@ -6,11 +6,13 @@ export type Repo = {
   name: string,
   languages_url: string,
 };
+export type Languages = Record<string,number>;
+export type Libraries = Record<string,number>;
 
 type LanguagesAndLibrariesAction = {
   type: typeof FETCH_LANGUAGES_AND_LIBRARIES, payload: {
-    languages: Record<string,number>,
-    libraries: Record<string,number>,
+    languages: Languages,
+    libraries: Libraries,
   },
 }
 export const setLanguagesAndLibraries = ({ languages, libraries }): LanguagesAndLibrariesAction => ({

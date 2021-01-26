@@ -1,4 +1,5 @@
 import { getCORS } from '../request.js';
+import { Languages, Libraries, Repo } from './actions';
 
 const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
 export const BASE_URL = 'https://api.github.com';
@@ -9,17 +10,25 @@ export const options = {
   }
 };
 
-export function checkCache() {
-  const storage = localStorage.getItem(LANGUAGES_AND_LIBRARIES);
-  if(!storage) return false;
-  const convertedStorage = JSON.parse(storage);
-  const { date } = convertedStorage;
-  //if the storage was fetched in the past month (below in milliseconds), return it, else fetch it again
-  return (new Date() - new Date(date) < 454305569297142.8125) && convertedStorage;
+type Storage = {
+  languages: Languages,
+  libraries: Libraries,
+  date: number,
 };
 
-export function setStorage({ languages, libraries }) {
-  const date = new Date();
+export function getStorage(): Storage | null {
+  const storage = localStorage.getItem(LANGUAGES_AND_LIBRARIES);
+  if (storage) {
+    const convertedStorage = JSON.parse(storage);
+    const { date } = convertedStorage;
+    //if the storage was fetched in the past month (in milliseconds), return it, else return null to fetch again
+    if (new Date().getTime() - date < 454305569297142.8125) return convertedStorage;
+  }
+  return null;
+};
+
+export function setStorage({ languages, libraries }: { languages: Languages, libraries: Libraries }): void {
+  const date = new Date().getTime();
   const storage = {
     languages,
     libraries,
@@ -29,11 +38,11 @@ export function setStorage({ languages, libraries }) {
   localStorage.setItem(LANGUAGES_AND_LIBRARIES, JSON.stringify(storage));
 }
 
-export const getRepoContent = (repoName) => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
+export const getRepoContent = (repoName: string): Promise<any> => getCORS(`${BASE_URL}/repos/theartbug/${repoName}/git/trees/master?recursive=1`, options);
 
-export const getPackage = (url) => getCORS(url, options);
+export const getPackage = (url: string): Promise<any> => getCORS(url, options);
 
-export const findLibraries = async (repos) => {
+export const findLibraries = async (repos: Repo[]) => {
   const seen = {
     react: 0,
     webpack: 0,
@@ -49,9 +58,9 @@ export const findLibraries = async (repos) => {
       //fetch content list for each repo
       const list = await getRepoContent(repo.name);
 
-      //find the index of the package.json or pom.xml in the tree
+      //find the index of the package.json in the tree
       const packageJSONIndex = list.tree.findIndex(item => item.path.includes('package.json'));
-      //if there is no neither, end
+      //if there is no package.json, end
       if(packageJSONIndex === -1) return repo;
 
       let packages;
@@ -83,11 +92,11 @@ export const findLibraries = async (repos) => {
   }
 };
 
-export const findLanguages = async (repos) => {
+export const findLanguages = async (repos: Repo[]) => {
   const seen = {};
   try {
-    const promises = repos.map(async repo => {
-      const languages = await getCORS(repo.languages_url, options)
+    const promises = repos.map(async ({ languages_url }) => {
+      const languages = await getCORS(languages_url, options)
       const languagesArr = Object.keys(languages);
       if(languagesArr.length < 1) return;
 
