@@ -1,13 +1,9 @@
+import { Libraries, Languages, Repo } from './reducers';
+
 export const FETCH_INIT = 'FETCH_INIT';
 export const FETCH_REPOS = 'FETCH_REPOS';
 export const FETCH_LANGUAGES_AND_LIBRARIES = 'FETCH_LANGUAGES_AND_LIBRARIES';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
-export type Repo = {
-  name: string,
-  languages_url: string,
-};
-export type Languages = Record<string,number>;
-export type Libraries = Record<string,number>;
 
 type LanguagesAndLibrariesAction = {
   type: typeof FETCH_LANGUAGES_AND_LIBRARIES, payload: {
@@ -15,6 +11,7 @@ type LanguagesAndLibrariesAction = {
     libraries: Libraries,
   },
 }
+
 export const setLanguagesAndLibraries = ({ languages, libraries }): LanguagesAndLibrariesAction => ({
   type: FETCH_LANGUAGES_AND_LIBRARIES,
   payload: {

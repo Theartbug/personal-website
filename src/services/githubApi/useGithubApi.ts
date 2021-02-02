@@ -12,7 +12,6 @@ import { githubReducer, initialState } from './reducers';
 import {
   setLanguagesAndLibraries,
   setRepos,
-  setFailure,
 } from './actions';
 
 const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;

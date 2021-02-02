@@ -3,7 +3,7 @@ import {
   FETCH_REPOS,
   FETCH_LANGUAGES_AND_LIBRARIES,
   FETCH_FAILURE,
-  Repo,
+  Action,
 } from './actions';
 
 export const initialState = {
@@ -11,15 +11,32 @@ export const initialState = {
   error: false,
 };
 
+export type Repo = {
+  name: string,
+  languages_url: string,
+};
+
+export type Libraries = {
+  react: number;
+  webpack: number;
+  express: number;
+  redux: number;
+  firebase: number;
+  node: number;
+  mysql: number;
+};
+
+export type Languages = Record<string,number>;
+
 export type State = {
   loading: boolean;
   error: boolean;
   repos: Repo[];
-  languages: Record<string,number>;
-  libraries: Record<string,number>;
+  languages: Languages;
+  libraries: Libraries;
 }
 
-export const githubReducer = (state: State, { type, payload }): State => {
+export const githubReducer = (state: State, { type, payload }: Action): State => {
   switch (type) {
     case FETCH_INIT:
       return {
