@@ -1,5 +1,5 @@
 import { scroller } from 'react-scroll';
-import { middlewareType } from './AppContext';
+import { Middleware } from './AppContext';
 
 export const HERO = 'hero';
 export const BIO = 'bio';
@@ -38,7 +38,7 @@ const scrollTo = (id: appAreaIds): void => {
   });
 };
 
-export const setCurrentSectionByButtons = (section: number) => (dispatch: middlewareType): void => {
+export const setCurrentSectionByButtons = (section: number) => (dispatch: Middleware): void => {
   scrollTo(list[section]);
   dispatch(setButtonScroll(true));
   dispatch(setCurrentSection(section));

@@ -1,20 +1,23 @@
 import { useEffect, useReducer } from 'react';
-import { getCORS } from '../request.js';
 import {
   getStorage,
   setStorage,
   findLibraries,
   findLanguages,
-  BASE_URL,
-  options,
-} from './useGithubApiHelpers.js';
-import { githubReducer, initialState } from './reducers';
+  fetchRepos,
+} from './useGithubApiHelpers';
+import {
+  githubReducer,
+  initialState,
+  State,
+  Repo,
+} from './reducers';
 import {
   setLanguagesAndLibraries,
   setRepos,
+  Action,
+  FETCH_FAILURE,
 } from './actions';
-
-const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;
 
 export const useGithubApi = () => {
   const [{
@@ -22,37 +25,38 @@ export const useGithubApi = () => {
     languages,
     libraries,
     error,
-    repos
-  }, dispatch] = useReducer(githubReducer, initialState);
+    repos,
+  }, dispatch] = useReducer<React.Reducer<State, Action>>(githubReducer, initialState);
 
   const storage = getStorage();
 
   useEffect(() => {
+    // useEffect cannot be async, must have a function async inside of it
+    async function fetchGithubData() {
+      if(!repos) await getRepos();
+      else await getLanguagesAndLibraries(repos);
+    }
     if(storage) {
       dispatch(setLanguagesAndLibraries({
         languages: storage.languages,
         libraries: storage.libraries,
       }));
     } else {
-      async function fetchGithubData() {
-        if(!repos) await getRepos();
-        else if(repos) await getLanguagesAndLibraries(repos);
-      }
       fetchGithubData();
     }
   }, [repos]);
 
-  async function getRepos() {
+  async function getRepos(): Promise<void> {
     try {
-      const repos = await getCORS(URL, options);
+      const repos = await fetchRepos();
       dispatch(setRepos(repos));
     } catch(e) {
-      dispatch(setFailure());
+      dispatch({ type: FETCH_FAILURE });
       console.log('Error', e);
     }
   };
 
-  async function getLanguagesAndLibraries(repos) {
+  async function getLanguagesAndLibraries(repos: Repo[]): Promise<void> {
     try {
       const [languages, libraries] =
       await Promise.all([
@@ -68,7 +72,7 @@ export const useGithubApi = () => {
         libraries
       }); // set storage for next time
     } catch (e) {
-      dispatch(setFailure());
+      dispatch({ type: FETCH_FAILURE });
       console.log('Error', e);
     }
   }

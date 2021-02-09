@@ -9,6 +9,9 @@ import {
 export const initialState = {
   loading: true,
   error: false,
+  repos: null,
+  languages: null,
+  libraries: null,
 };
 
 export type Repo = {
@@ -36,8 +39,9 @@ export type State = {
   libraries: Libraries;
 }
 
-export const githubReducer = (state: State, { type, payload }: Action): State => {
-  switch (type) {
+export const githubReducer = (state: State, action: Action): State => {
+  // do not destructure here as typescript has a hard time determining type
+  switch (action.type) {
     case FETCH_INIT:
       return {
         ...state,
@@ -47,13 +51,13 @@ export const githubReducer = (state: State, { type, payload }: Action): State =>
     case FETCH_REPOS:
       return {
         ...state,
-        repos: payload,
+        repos: action.payload,
       };
     case FETCH_LANGUAGES_AND_LIBRARIES:
       return {
         ...state,
-        languages: payload.languages,
-        libraries: payload.libraries,
+        languages: action.payload.languages,
+        libraries: action.payload.libraries,
         loading: false,
       };
     case FETCH_FAILURE:

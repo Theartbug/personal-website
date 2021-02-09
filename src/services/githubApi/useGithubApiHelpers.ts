@@ -1,9 +1,8 @@
 import { getCORS } from '../request.js';
-import { Languages, Repo } from './actions';
-import { Languages, Libraries } from './reducers';
+import { Repo, Languages, Libraries } from './reducers';
 
-const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
 export const BASE_URL = 'https://api.github.com';
+const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;
 export const options = {
   withCredentials: true,
   headers: {
@@ -11,6 +10,9 @@ export const options = {
   }
 };
 
+export const fetchRepos = async (): Promise<Repo[]> => await getCORS(URL, options);
+
+const LANGUAGES_AND_LIBRARIES = 'languagesAndLibraries';
 type Storage = {
   languages: Languages,
   libraries: Libraries,
