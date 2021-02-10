@@ -1,6 +1,6 @@
 // source: https://www.robinwieruch.de/react-hooks-fetch-data/
 import { useState, useEffect, useReducer } from 'react';
-import { getCORS } from './request.js';
+import { getCORS } from './request';
 
 const dataFetchReducer = (state, { type, payload }) => {
   switch (type) {
@@ -38,7 +38,7 @@ export const useDataApi = ({ initialUrl, initialData, options }) => {
   });
 
   useEffect(() => {
-    // allows clean-up if the fetching component unmounts 
+    // allows clean-up if the fetching component unmounts
     let didCancel = false;
 
     const fetchData = async () => {

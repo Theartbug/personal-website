@@ -1,9 +1,9 @@
-import { getCORS } from '../request.js';
+import { getCORS, Options } from '../request';
 import { Repo, Languages, Libraries } from './reducers';
 
-export const BASE_URL = 'https://api.github.com';
+const BASE_URL = 'https://api.github.com';
 const URL = `${BASE_URL}/users/theartbug/repos?per_page=100`;
-export const options = {
+const options: Options = {
   withCredentials: true,
   headers: {
     Authorization: `token ${process.env.GITHUB_TOKEN}`
@@ -66,7 +66,6 @@ export const findLibraries = async (repos: Repo[]): Promise<Libraries> => {
     redux: 0,
     firebase: 0,
     node: 0,
-    mysql: 0,
   };
 
   try {
@@ -94,7 +93,6 @@ export const findLibraries = async (repos: Repo[]): Promise<Libraries> => {
         if(packages.includes('react')) seen.react++;
         if(packages.includes('redux')) seen.redux++;
         if(packages.includes('firebase')) seen.firebase++;
-        if(packages.includes('mysql')) seen.mysql++;
       }
 
       return repo; //return the repo to indicate done

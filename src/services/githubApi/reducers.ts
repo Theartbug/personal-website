@@ -26,7 +26,6 @@ export type Libraries = {
   redux: number;
   firebase: number;
   node: number;
-  mysql: number;
 };
 
 export type Languages = Record<string,number>;
