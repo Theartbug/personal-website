@@ -39,7 +39,7 @@ export type State = {
 }
 
 export const githubReducer = (state: State, action: Action): State => {
-  // do not destructure here as typescript has a hard time determining type
+  // do not destructure here as typescript cannot determine type of payload
   switch (action.type) {
     case FETCH_INIT:
       return {

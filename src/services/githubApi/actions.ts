@@ -24,12 +24,16 @@ type ReposAction = {
   type: typeof FETCH_REPOS,
   payload: Repo[]
 }
+
 export const setRepos = (payload: Repo[]): ReposAction => ({
   type: FETCH_REPOS,
   payload
 });
 
-export type Action = { type: typeof FETCH_INIT }
-  | { type: typeof FETCH_FAILURE }
+interface SimpleAction {
+  type: typeof FETCH_FAILURE | typeof FETCH_INIT;
+}
+
+export type Action = SimpleAction
   | ReposAction
   | LanguagesAndLibrariesAction;
