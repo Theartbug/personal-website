@@ -1,5 +1,5 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
 import express from '../../assets/express.png';
 import firebase from '../../assets/firebase.png';
 import node from '../../assets/node.png';
@@ -12,15 +12,14 @@ import spring from '../../assets/spring_logo.png';
 import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
-const Skills = props => {
+const Skills: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(SKILLS);
 
   return (
-    <section 
-      ref={ ref } 
-      className="skills" 
-      id="skills"
-      { ...props }>
+    <section
+      ref={ ref }
+      className={ SKILLS }
+      id={ SKILLS }>
       <div>
         <h2 className="lines">Skills</h2>
 

@@ -1,21 +1,20 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
-import { CONTACT } from '../app-context/actions.js';
-import MailIcon from 'react-icons/lib/fa/envelope-o';
-import LinkedInIcon from 'react-icons/lib/fa/linkedin-square';
-import GithubIcon from 'react-icons/lib/fa/github-square';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
+import { CONTACT } from '../app-context/actions';
+import { FaEnvelope as MailIcon } from 'react-icons/fa';
+import { FaLinkedin as LinkedInIcon } from 'react-icons/fa';
+import { FaGithubSquare as GithubIcon } from 'react-icons/fa';
 import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
-const Contact = props => {
+const Contact: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(CONTACT);
 
   return (
     <section
       ref={ ref }
-      className="contact"
-      id="contact"
-      { ...props }>
+      className={ CONTACT }
+      id={ CONTACT }>
       <div>
         <h2 className="lines">Contact</h2>
         <div className="icons">

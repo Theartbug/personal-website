@@ -1,7 +1,7 @@
 import React from 'react';
 import './copyright.css';
 
-export default function Copyright() {
+const Copyright: React.FC = (): JSX.Element => {
   const date = new Date().getFullYear();
   return (
     <section className="copyright" id="copyright">
@@ -11,3 +11,4 @@ export default function Copyright() {
     </section>
   );
 }
+export default Copyright;

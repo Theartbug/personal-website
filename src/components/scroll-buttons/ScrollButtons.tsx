@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { Events } from 'react-scroll';
-import { setCurrentSectionByButtons, setButtonScroll } from '../app-context/actions.js';
-import { useMyContext } from '../app-context/AppContext.js';
-import UpAngleIcon from 'react-icons/lib/fa/caret-up';
-import DownAngleIcon from 'react-icons/lib/fa/caret-down';
+import { setCurrentSectionByButtons, setButtonScroll } from '../app-context/actions';
+import { useMyContext } from '../app-context/AppContext';
+import { FaCaretUp as UpAngleIcon } from 'react-icons/fa';
+import { FaCaretDown as DownAngleIcon } from 'react-icons/fa';
 import './scroll-buttons.css';
 
-export default function ScrollButtons() {
+const ScrollButtons: React.FC = (): JSX.Element => {
   const { currentSection, dispatch } = useMyContext();
-  
+
   useEffect(setScrollListener, []);
 
   function setScrollListener() {
@@ -27,7 +27,7 @@ export default function ScrollButtons() {
   }
 
   function handleUpClick() {
-  //if the currentSection position is at the beginning the direction wants to go further, dont let it.
+  //if the currentSection position is at the beginning and the direction wants to go further, dont let it.
     if(currentSection === 0) return;
     const prev = currentSection - 1;
     dispatch(setCurrentSectionByButtons(prev));
@@ -35,16 +35,18 @@ export default function ScrollButtons() {
 
   return (
     <div className="scroll-buttons">
-      <button 
-        className="up reset-button" 
+      <button
+        className="up reset-button"
         onClick={ handleUpClick }>
         <UpAngleIcon/>
       </button>
-      <button 
-        className="down reset-button" 
+      <button
+        className="down reset-button"
         onClick={ handleDownClick }>
         <DownAngleIcon/>
       </button>
     </div>
   );
 }
+
+export default ScrollButtons;

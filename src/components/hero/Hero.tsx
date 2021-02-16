@@ -1,19 +1,18 @@
 import React from 'react';
-import useIntersectionObserver from '../../services/useIntersectionObserver.js';
-import { HERO } from '../app-context/actions.js';
+import useIntersectionObserver from '../../services/useIntersectionObserver';
+import { HERO } from '../app-context/actions';
 import laptopImage from '../../assets/profile_laptop.jpg';
 import mobileImage from '../../assets/profile_mobile.jpg';
 import './hero.css';
 
-const Hero = props => {
+const Hero: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(HERO);
 
   return (
-    <figure 
+    <figure
       ref={ ref }
-      className="hero" 
-      id="hero"
-      { ...props }>
+      className={ HERO }
+      id={ HERO }>
       <h1><span>This is</span> Ash Provost</h1>
       <picture>
         <source srcSet={laptopImage} media="(min-width: 1000px)"/>

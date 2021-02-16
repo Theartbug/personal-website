@@ -10,18 +10,18 @@ import ScrollButtons from '../scroll-buttons/ScrollButtons';
 import Gallery from '../image-gallery/Gallery';
 import './app.css';
 
-export default function App() {
-  return (
-    <main id="app" role="main">
-      <Hero/>
-      <Bio/>
-      <Skills/>
-      <Github/>
-      <Projects/>
-      <Gallery/>
-      <Contact/>
-      <Copyright/>
-      <ScrollButtons/>
-    </main>
-  );
-}
+const App: React.FC = (): JSX.Element => (
+  <main id="app" role="main">
+    <Hero/>
+    <Bio/>
+    <Skills/>
+    <Github/>
+    <Projects/>
+    <Gallery/>
+    <Contact/>
+    <Copyright/>
+    <ScrollButtons/>
+  </main>
+);
+
+export default App;

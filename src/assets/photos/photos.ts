@@ -5,9 +5,17 @@ import mushroom from './mushroom_hike.jpg';
 import angelsRest from './rainy_hike.jpg';
 import smithRock from './smith_rock_climbing.jpg';
 import snowshoeing from './snowshoeing.jpg';
+import { ViewType } from 'react-images';
 
 
-export default [
+type photo = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export const photos: photo[] = [
   {
     src: basinHike,
     width: 900,
@@ -54,3 +62,8 @@ export default [
     alt: 'Snowshoeing Elk Lake, Mt. Hood',
   },
 ];
+
+export const galleryPhotos: ViewType[] = photos.map(photo => ({
+  source: photo.src,
+  caption: photo.alt,
+}));

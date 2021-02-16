@@ -3,6 +3,8 @@
     "declaration": true,
     "jsx": "react",
     "module": "es6",
+    // denotes looking for modules in node_modules
+    "moduleResolution": "node",
     // "noImplicitAny": true,
     "outDir": "./build/",
     "preserveConstEnums": true,
@@ -11,6 +13,11 @@
     "target": "es5",
     "allowSyntheticDefaultImports" : true,
     "esModuleInterop" : true,
-    "skipLibCheck": true,
+    "isolatedModules": true,
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "*": ["src/*"]
+    // }
   }
 }

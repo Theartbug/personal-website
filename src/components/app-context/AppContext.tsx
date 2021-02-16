@@ -1,41 +1,55 @@
 import React, { useReducer, useMemo, useContext } from 'react';
-import { reducer } from './reducers.js';
+import { reducer } from './reducers';
+import { Action } from './actions';
+
+type Dispatch = React.Dispatch<Action>;
+export type Middleware = (next: Function | Action) => (Dispatch | Middleware);
 
 // Thunk middleware replacement
-const augmentDispatch = (dispatch, state) =>
-  (input) =>
-    input instanceof Function ? input(dispatch, state) : dispatch(input);
+const middleware = (dispatch: Dispatch, state: State): Middleware =>
+  (next: Function | Action) =>
+    next instanceof Function
+      ? next(dispatch, state)
+      : dispatch(next);
 
-const initialState = {
+export interface State {
+  buttonScroll: boolean;
+  currentSection: number;
+  dispatch: Middleware;
+}
+export const initialState = {
   buttonScroll: false,
   currentSection: 0,
+  dispatch: () => null, // hard time figuring out how to type, initial state doesn't matter too much
 };
 
 // It returns an object with 2 values:
 // { Provider, Consumer }
-const Context = React.createContext();
+const Context = React.createContext<State>(initialState);
 
-function AppContext({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const AppContext: React.FC = ({ children }): JSX.Element => {
+  const [state, dispatch] = useReducer<React.Reducer<State, Action>>(reducer, initialState);
   const { buttonScroll, currentSection } = state;
+
   // const value = { state, dispatch };
   // ^^^^^^ DON'T DO as react uses object.is() for reference comparisons, new object could possibly be created each time and trigger unnecessary re-renders
   //https://reactjs.org/docs/context.html#caveats
   // instead useMemo so that the object is only changed when currentSection or buttonScroll changes
-  const value = useMemo(() => ({
+  const value = useMemo<State>(() => ({
       buttonScroll,
       currentSection,
-      dispatch: augmentDispatch(dispatch, state) // now supports thunks
+      dispatch: middleware(dispatch, state) // now supports thunks
     }),
     [buttonScroll, currentSection]);
+
   return (
     // provider updates any time the value given is updated
-    <Context.Provider 
+    <Context.Provider
       value={ value }>
       { children }
     </Context.Provider>
   );
-}
+};
 
 // this gives multiple consumers a way to access the same context
 const useMyContext = () => useContext(Context);
