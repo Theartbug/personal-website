@@ -20,7 +20,7 @@ export interface State {
 export const initialState = {
   buttonScroll: false,
   currentSection: 0,
-  dispatch: () => null, // hard time figuring out how to handle
+  dispatch: () => null, // hard time figuring out how to type, initial state doesn't matter too much
 };
 
 // It returns an object with 2 values:
