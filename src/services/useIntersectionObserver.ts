@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useMyContext } from '../components/app-context/AppContext';
 import { setCurrentSectionByScroll, appAreaIds } from '../components/app-context/actions';
@@ -10,12 +11,14 @@ export default function useIntersectionObserver(id: appAreaIds) {
 
   const { buttonScroll, dispatch } = useMyContext();
 
-  function handleChange() {
-    // if we aren't currently scrolling from the buttons, change the current section in the store
-    if(!buttonScroll) dispatch(setCurrentSectionByScroll(id));
-  };
+  useEffect(() => {
+    function handleChange() {
+      // if we aren't currently scrolling from the buttons, change the current section in the store
+      if(!buttonScroll) dispatch(setCurrentSectionByScroll(id));
+    };
 
-  if(inView) handleChange();
+    if(inView) handleChange();
+  }, [buttonScroll, inView]);
 
   return ref;
 }
