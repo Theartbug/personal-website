@@ -5,65 +5,50 @@ import mushroom from './mushroom_hike.jpg';
 import angelsRest from './rainy_hike.jpg';
 import smithRock from './smith_rock_climbing.jpg';
 import snowshoeing from './snowshoeing.jpg';
-import { ViewType } from 'react-images';
 
-
-type photo = {
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
+type Image = {
+  original: string;
+  originalAlt: string;
+  description: string;
 }
 
-export const photos: photo[] = [
+export const images: Image[] = [
   {
-    src: basinHike,
-    width: 900,
-    height: 675,
-    alt: '7 Lakes Basin of Olympic National Forest',
+    original: basinHike,
+    originalAlt: '7 Lakes Basin of Olympic National Forest',
+    description: '7 Lakes Basin of Olympic National Forest',
   },
   {
-    src: catStretch,
-    width: 960,
-    height: 720,
-    alt: 'Some good city cat pets',
+    original: catStretch,
+    originalAlt: 'Some good city cat pets',
+    description: 'Some good city cat pets',
 
   },
   {
-    src: mushroom,
-    width: 960,
-    height: 720,
-    alt: 'Wet mushroom whilst hiking',
+    original: mushroom,
+    originalAlt: 'Wet mushroom whilst hiking',
+    description: 'Wet mushroom whilst hiking',
 
   },
   {
-    src: smithRock,
-    width: 667,
-    height: 500,
-    alt: 'Climbing at Smith Rock',
+    original: smithRock,
+    originalAlt: 'Climbing at Smith Rock',
+    description: 'Climbing at Smith Rock',
 
   },
   {
-    src: angelsRest,
-    width: 960,
-    height: 720,
-    alt: 'Angels Rest after 2017 fire',
+    original: angelsRest,
+    originalAlt: 'Angels Rest after 2017 fire',
+    description: 'Angels Rest after 2017 fire',
   },
   {
-    src: catPets,
-    width: 960,
-    height: 720,
-    alt: 'Getting some good kitty pets',
+    original: catPets,
+    originalAlt: 'Getting some good kitty pets',
+    description: 'Getting some good kitty pets',
   },
   {
-    src: snowshoeing,
-    width: 720,
-    height: 960,
-    alt: 'Snowshoeing Elk Lake, Mt. Hood',
+    original: snowshoeing,
+    originalAlt: 'Snowshoeing Elk Lake, Mt. Hood',
+    description: 'Snowshoeing Elk Lake, Mt. Hood',
   },
 ];
-
-export const galleryPhotos: ViewType[] = photos.map(photo => ({
-  source: photo.src,
-  caption: photo.alt,
-}));

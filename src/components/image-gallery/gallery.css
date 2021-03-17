@@ -1,18 +1,10 @@
 @import '../../styles/variables.css';
+@import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 .gallery {
   background-color: $dark-grey;
 
   p {
     text-align: center;
-  }
-
-  img {
-    width: inherit;
-    height: 150px;
-  }
-
-  .react-photo-gallery--gallery > div {
-    justify-content: center;
   }
 }
