@@ -1,14 +1,6 @@
 import React from 'react';
 import useIntersectionObserver from '../../services/useIntersectionObserver';
-import express from '../../assets/express.png';
-import firebase from '../../assets/firebase.png';
-import node from '../../assets/node.png';
-import react from '../../assets/react.png';
-import sass from '../../assets/sass.png';
-import redux from '../../assets/redux.png';
-import webpack from '../../assets/webpack.png';
-import jest from '../../assets/jest.svg';
-import spring from '../../assets/spring_logo.png';
+import { skills } from '../../assets/skills/skills';
 import { SKILLS } from '../app-context/actions';
 import './skills.css';
 
@@ -22,36 +14,19 @@ const Skills: React.FC = (): JSX.Element => {
       id={ SKILLS }>
       <div>
         <h2 className="lines">Skills</h2>
+        <p>In order of expertise</p>
 
         <div className="max-width">
-          <div>
-            <img className="logo" src={express} alt="express logo"/>
-          </div>
-          <div>
-            <img className="logo" src={firebase} alt="firebase logo"/>
-          </div>
-          <div>
-            <img className="logo" src={node} alt="node logo"/>
-          </div>
-          <div>
-            <img className="logo" src={react} alt="react logo"/>
-          </div>
-          <div>
-            <img className="logo" src={redux} alt="redux logo"/>
-          </div>
-          <div>
-            <img className="logo" src={sass} alt="sass logo"/>
-          </div>
-          <div>
-            <img className="logo" src={webpack} alt="webpack logo"/>
-          </div>
-          <div>
-            <img className="text-logo" src={jest} alt="jest logo"/><p>Jest</p>
-          </div>
-          <div>
-            <img className="logo" src={spring} alt="spring logo"/>
-          </div>
+            { skills.map(({ src, alt }) => {
+              return (
+                <div key={ alt }>
+                  <img  className="logo" src={ src } alt={ alt }/>
+                </div>
+              )
+            })
+          }
         </div>
+        
       </div>
     </section>
   );
