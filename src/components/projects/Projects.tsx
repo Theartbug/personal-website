@@ -62,13 +62,9 @@ const Projects: React.FC = (): JSX.Element => {
         </div>
 
         <div className="app">
-          <a href="https://pokeflip.github.io/ClientSide/" target="_blank" rel="noopener noreferrer">
-            <img src={pokeFlip} alt='Pokeflip screenshot'/>
-          </a>
+          <img src={pokeFlip} alt='Pokeflip screenshot'/>
           <div className="text">
-            <a href="https://pokeflip.github.io/ClientSide/" target="_blank" rel="noopener noreferrer">
-              <h3>PokeFlip</h3>
-            </a>
+            <h3>PokeFlip</h3>
             <h4>jQuery, Handlebars, page.js, pokeAPI, Heroku, postgreSQL, Express, Node</h4>
             <a className="code" href='https://github.com/PokeFlip/ClientSide' target="_blank" rel="noopener noreferrer"><ExternalLink/> Code</a>
             <p>A memory game app that utilizes PokeAPI for pokemon data. Created in a week for a final project after 3 weeks of bootcamp.</p>
