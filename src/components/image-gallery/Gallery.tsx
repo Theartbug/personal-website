@@ -1,25 +1,12 @@
-import React, { useState } from 'react';
-import PhotoGallery, { PhotoClickHandler } from 'react-photo-gallery';
+import React from 'react';
+import ImageGallery from 'react-image-gallery';
 import useIntersectionObserver from '../../services/useIntersectionObserver';
-import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos, galleryPhotos } from '../../assets/photos/photos';
+import { images } from '../../assets/photos/photos';
 import { GALLERY } from '../app-context/actions';
 import './gallery.css';
 
 const Gallery: React.FC = (): JSX.Element => {
   const ref = useIntersectionObserver(GALLERY);
-  const [currentImage, setCurrentImage] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal: PhotoClickHandler = (_e, { index }) => {
-    setCurrentImage(index);
-    setModalOpen(true);
-  }
-
-  const closeModal = (): void => {
-    setCurrentImage(0);
-    setModalOpen(false);
-  }
 
   return (
     <section
@@ -29,20 +16,14 @@ const Gallery: React.FC = (): JSX.Element => {
       <div>
         <h2 className="lines">Gallery</h2>
         <p>Snaps from my life</p>
-        <PhotoGallery
-          photos={ photos }
-          onClick={ openModal }
-          targetRowHeight={ 100 } />
-          <ModalGateway>
-          { modalOpen &&
-            <Modal onClose={ closeModal }>
-              <Carousel
-                currentIndex={ currentImage }
-                views={ galleryPhotos }
-              />
-            </Modal>
-          }
-        </ModalGateway>
+        <ImageGallery
+          showThumbnails={ false }
+          showPlayButton={ false }
+          autoPlay={ true }
+          slideDuration={ 1000 }
+          slideInterval={ 5000 }
+          items={ images }
+        />
       </div>
     </section>
   );
