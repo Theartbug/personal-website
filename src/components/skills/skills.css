@@ -2,7 +2,7 @@
 
 .skills {
   background-color: $dark-grey;
-  
+
   .max-width {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
@@ -19,19 +19,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    p {
-      margin: 0;
-    }
   }
   
+  p {
+    text-align: center;
+  }
+
   .logo {
     margin: auto;
-    height: 35px;    
+    height: 35px;
     width: auto;
   }
   .text-logo {
-    height: 35px;    
+    height: 35px;
     width: auto;
   }
 }

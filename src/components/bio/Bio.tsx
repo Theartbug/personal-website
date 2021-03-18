@@ -2,7 +2,6 @@ import React from 'react';
 import useIntersectionObserver from '../../services/useIntersectionObserver';
 import { FaBicycle as BikeIcon } from 'react-icons/fa';
 import { FaBook as BookIcon } from 'react-icons/fa';
-import { IoIosMedkit as MedIcon } from 'react-icons/io';
 import { FaCode as CodeIcon } from 'react-icons/fa';
 import { FaPagelines as PlantIcon } from 'react-icons/fa';
 import './bio.css';
@@ -29,15 +28,11 @@ const Bio: React.FC = (): JSX.Element => {
           </div>
           <div>
             <PlantIcon/>
-            <p>They are <span>Creative</span> and enjoy crafting, sewing, and cultivating many houseplants.</p>
-          </div>
-          <div>
-            <MedIcon/>
-            <p>They are <span>Determined</span> and come from a background in medicine; now plunging into the magnificent world of tech.</p>
+            <p>They are <span>Creative</span> and enjoy crafting, sewing, ceramics, and cultivating many houseplants.</p>
           </div>
           <div>
             <CodeIcon/>
-            <p>They are currently a <span>software engineer</span> at Marketo. They enjoy their work and have deep satisfaction in debugging, pushing pixels, and creating elegant logic.</p>
+            <p>They are currently a <span>software engineer</span> at Adobe. They enjoy their work and have deep satisfaction in debugging, pushing pixels, and creating elegant logic.</p>
           </div>
         </div>
       </div>
