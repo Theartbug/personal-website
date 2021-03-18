@@ -1,12 +1,11 @@
-import express from './express.png';
 import firebase from './firebase.png';
 import node from './node.png';
 import react from './react.png';
 import redux from './redux.png';
 import webpack from './webpack.png';
 import jest from './jest.png';
-import rtl from './rtl.png';
-import ts from './ts.png';
+import rtl from './RTL.png';
+import ts from './TS.png';
 import selenium from './selenium.png';
 
 type Skill = {
