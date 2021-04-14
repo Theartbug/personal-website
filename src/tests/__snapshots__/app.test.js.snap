@@ -1,0 +1,789 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Whole App Tests renders whole page 1`] = `
+<div>
+  <main
+    id="app"
+    role="main"
+  >
+    <figure
+      class="hero"
+      id="hero"
+    >
+      <h1>
+        <span>
+          This is
+        </span>
+         Ash Provost
+      </h1>
+      <picture>
+        <source
+          media="(min-width: 1000px)"
+          srcset="[object Object]"
+        />
+        <img
+          alt="photo of Ash"
+          srcset="[object Object]"
+        />
+      </picture>
+    </figure>
+    <section
+      class="bio"
+      id="bio"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          About
+        </h2>
+        <div
+          class="grid"
+        >
+          <div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 640 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M512.509 192.001c-16.373-.064-32.03 2.955-46.436 8.495l-77.68-125.153A24 24 0 0 0 368.001 64h-64c-8.837 0-16 7.163-16 16v16c0 8.837 7.163 16 16 16h50.649l14.896 24H256.002v-16c0-8.837-7.163-16-16-16h-87.459c-13.441 0-24.777 10.999-24.536 24.437.232 13.044 10.876 23.563 23.995 23.563h48.726l-29.417 47.52c-13.433-4.83-27.904-7.483-42.992-7.52C58.094 191.83.412 249.012.002 319.236-.413 390.279 57.055 448 128.002 448c59.642 0 109.758-40.793 123.967-96h52.033a24 24 0 0 0 20.406-11.367L410.37 201.77l14.938 24.067c-25.455 23.448-41.385 57.081-41.307 94.437.145 68.833 57.899 127.051 126.729 127.719 70.606.685 128.181-55.803 129.255-125.996 1.086-70.941-56.526-129.72-127.476-129.996zM186.75 265.772c9.727 10.529 16.673 23.661 19.642 38.228h-43.306l23.664-38.228zM128.002 400c-44.112 0-80-35.888-80-80s35.888-80 80-80c5.869 0 11.586.653 17.099 1.859l-45.505 73.509C89.715 331.327 101.213 352 120.002 352h81.3c-12.37 28.225-40.562 48-73.3 48zm162.63-96h-35.624c-3.96-31.756-19.556-59.894-42.383-80.026L237.371 184h127.547l-74.286 120zm217.057 95.886c-41.036-2.165-74.049-35.692-75.627-76.755-.812-21.121 6.633-40.518 19.335-55.263l44.433 71.586c4.66 7.508 14.524 9.816 22.032 5.156l13.594-8.437c7.508-4.66 9.817-14.524 5.156-22.032l-44.468-71.643a79.901 79.901 0 0 1 19.858-2.497c44.112 0 80 35.888 80 80-.001 45.54-38.252 82.316-84.313 79.885z"
+              />
+            </svg>
+            <p>
+              They are 
+              <span>
+                Active
+              </span>
+               and enjoy bike commuting, rock climbing, dancing, hiking, camping, and urban walks around Portland, OR.
+            </p>
+          </div>
+          <div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"
+              />
+            </svg>
+            <p>
+              They are 
+              <span>
+                Curious
+              </span>
+               and perpetually reading, discovering small tidbits of knowledge, and never failing to ask questions.
+            </p>
+          </div>
+          <div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 384 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M384 312.7c-55.1 136.7-187.1 54-187.1 54-40.5 81.8-107.4 134.4-184.6 134.7-16.1 0-16.6-24.4 0-24.4 64.4-.3 120.5-42.7 157.2-110.1-41.1 15.9-118.6 27.9-161.6-82.2 109-44.9 159.1 11.2 178.3 45.5 9.9-24.4 17-50.9 21.6-79.7 0 0-139.7 21.9-149.5-98.1 119.1-47.9 152.6 76.7 152.6 76.7 1.6-16.7 3.3-52.6 3.3-53.4 0 0-106.3-73.7-38.1-165.2 124.6 43 61.4 162.4 61.4 162.4.5 1.6.5 23.8 0 33.4 0 0 45.2-89 136.4-57.5-4.2 134-141.9 106.4-141.9 106.4-4.4 27.4-11.2 53.4-20 77.5 0 0 83-91.8 172-20z"
+              />
+            </svg>
+            <p>
+              They are 
+              <span>
+                Creative
+              </span>
+               and enjoy crafting, sewing, ceramics, and cultivating many houseplants.
+            </p>
+          </div>
+          <div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 640 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+              />
+            </svg>
+            <p>
+              They are currently a 
+              <span>
+                software engineer
+              </span>
+               at Adobe. They enjoy their work and have deep satisfaction in debugging, pushing pixels, and creating elegant logic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="skills"
+      id="skills"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          Skills
+        </h2>
+        <p>
+          In order of expertise
+        </p>
+        <div
+          class="max-width"
+        >
+          <div>
+            <img
+              alt="react logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="redux logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="jest logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="react testing library logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="typescript logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="selenium logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="webpack logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="node logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+          <div>
+            <img
+              alt="firebase logo"
+              class="logo"
+              src="[object Object]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="github"
+      id="github"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          App Stats
+        </h2>
+        <p>
+          Technologies and the numbers of times I've used them in projects
+        </p>
+        <div
+          class="loader"
+        >
+          <div
+            class="css-h1dnw9"
+          />
+          <small>
+            Fetching data...
+          </small>
+        </div>
+        <ul
+          class="languages"
+        />
+        <hr />
+        <ul
+          class="libraries"
+        />
+        <small>
+          *Powered by Github API
+        </small>
+      </div>
+    </section>
+    <section
+      class="projects"
+      id="projects"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          Projects
+        </h2>
+        <div
+          class="app"
+        >
+          <img
+            alt="marketo logo"
+            src="[object Object]"
+          />
+          <div
+            class="text"
+          >
+            <h3>
+              Personal Website
+            </h3>
+            <h4>
+              Typescript, React, React-hooks, React Context, Jest, Enzyme, CSS, Webpack
+            </h4>
+            <p>
+              This website! Hand-rolled by me; a playground for testing new tech.
+            </p>
+          </div>
+        </div>
+        <div
+          class="app"
+        >
+          <img
+            alt="marketo logo"
+            class="urate"
+            src="[object Object]"
+          />
+          <div
+            class="text"
+          >
+            <h3>
+              Adobe
+            </h3>
+            <h4>
+              React, Redux, Jest, React Testing Library, CSS, Webpack, Docker, Selenium Web Driver, Node.js, Websockets
+            </h4>
+            <p>
+              A marketing automation platform. Working on a project to re-skin the UI in Portland, OR.
+            </p>
+          </div>
+        </div>
+        <div
+          class="app"
+        >
+          <a
+            href="https://itunes.apple.com/us/app/ugyde/id1450573145?mt=8"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="U-Rate logo"
+              class="urate"
+              src="[object Object]"
+            />
+          </a>
+          <div
+            class="text"
+          >
+            <a
+              href="https://itunes.apple.com/us/app/ugyde/id1450573145?mt=8"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <h3>
+                U-Gyde
+              </h3>
+            </a>
+            <h4>
+              React, Firebase, Webpack, Google APIs
+            </h4>
+            <p>
+              A video-based business reviewing app centered in Portland, OR.
+            </p>
+          </div>
+        </div>
+        <div
+          class="app"
+        >
+          <img
+            alt="Park Place screenshot"
+            src="[object Object]"
+          />
+          <div
+            class="text"
+          >
+            <h3>
+              ParkPlace
+            </h3>
+            <h4>
+              React, Redux, Firebase, Webpack, Google Places API
+            </h4>
+            <a
+              class="code"
+              href="https://github.com/Theartbug/ParkPlace"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"
+                />
+              </svg>
+               Code
+            </a>
+            <p>
+              A world-wide park reviewing app that utilizes Google Places API. Created in a week for a final project after 13 weeks of bootcamp.
+            </p>
+          </div>
+        </div>
+        <div
+          class="app"
+        >
+          <img
+            alt="Pokeflip screenshot"
+            src="[object Object]"
+          />
+          <div
+            class="text"
+          >
+            <h3>
+              PokeFlip
+            </h3>
+            <h4>
+              jQuery, Handlebars, page.js, pokeAPI, Heroku, postgreSQL, Express, Node
+            </h4>
+            <a
+              class="code"
+              href="https://github.com/PokeFlip/ClientSide"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"
+                />
+              </svg>
+               Code
+            </a>
+            <p>
+              A memory game app that utilizes PokeAPI for pokemon data. Created in a week for a final project after 3 weeks of bootcamp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="gallery"
+      id="gallery"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          Gallery
+        </h2>
+        <p>
+          Snaps from my life
+        </p>
+        <div
+          aria-live="polite"
+          class="image-gallery"
+        >
+          <div
+            class="image-gallery-content bottom"
+          >
+            <div
+              class="image-gallery-slide-wrapper bottom"
+            >
+              <button
+                aria-label="Previous Slide"
+                class="image-gallery-icon image-gallery-left-nav"
+                type="button"
+              >
+                <svg
+                  class="image-gallery-svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  viewBox="6 0 12 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="15 18 9 12 15 6"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="Next Slide"
+                class="image-gallery-icon image-gallery-right-nav"
+                type="button"
+              >
+                <svg
+                  class="image-gallery-svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  viewBox="6 0 12 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="9 18 15 12 9 6"
+                  />
+                </svg>
+              </button>
+              <div
+                class="image-gallery-swipe"
+              >
+                <div
+                  class="image-gallery-slides"
+                >
+                  <div
+                    aria-label="Go to Slide 1"
+                    class="image-gallery-slide  center "
+                    role="button"
+                    style="transform: translate3d(0%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="7 Lakes Basin of Olympic National Forest"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        7 Lakes Basin of Olympic National Forest
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 2"
+                    class="image-gallery-slide  right "
+                    role="button"
+                    style="transform: translate3d(100%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Some good city cat pets"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Some good city cat pets
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 3"
+                    class="image-gallery-slide  "
+                    role="button"
+                    style="transform: translate3d(200%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Wet mushroom whilst hiking"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Wet mushroom whilst hiking
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 4"
+                    class="image-gallery-slide  "
+                    role="button"
+                    style="transform: translate3d(300%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Climbing at Smith Rock"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Climbing at Smith Rock
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 5"
+                    class="image-gallery-slide  "
+                    role="button"
+                    style="transform: translate3d(400%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Angels Rest after 2017 fire"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Angels Rest after 2017 fire
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 6"
+                    class="image-gallery-slide  "
+                    role="button"
+                    style="transform: translate3d(500%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Getting some good kitty pets"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Getting some good kitty pets
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    aria-label="Go to Slide 7"
+                    class="image-gallery-slide  left "
+                    role="button"
+                    style="transform: translate3d(-100%, 0, 0);"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <img
+                        alt="Snowshoeing Elk Lake, Mt. Hood"
+                        class="image-gallery-image"
+                        src="[object Object]"
+                      />
+                      <span
+                        class="image-gallery-description"
+                      >
+                        Snowshoeing Elk Lake, Mt. Hood
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                aria-label="Open Fullscreen"
+                class="image-gallery-icon image-gallery-fullscreen-button"
+                type="button"
+              >
+                <svg
+                  class="image-gallery-svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="contact"
+      id="contact"
+    >
+      <div>
+        <h2
+          class="lines"
+        >
+          Contact
+        </h2>
+        <div
+          class="icons"
+        >
+          <a
+            class="icon"
+            href="mailto:ash.g.provost@gmail.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+              />
+            </svg>
+          </a>
+          <a
+            class="icon"
+            href="https://github.com/Theartbug"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"
+              />
+            </svg>
+          </a>
+          <a
+            class="icon"
+            href="https://www.linkedin.com/in/ashprovost/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+              />
+            </svg>
+          </a>
+        </div>
+        <img
+          alt="bug logo"
+          src="[object Object]"
+        />
+      </div>
+    </section>
+    <section
+      class="copyright"
+      id="copyright"
+    >
+      <small>
+        © Ash Provost 
+        2021
+      </small>
+    </section>
+    <div
+      class="scroll-buttons"
+    >
+      <button
+        class="up reset-button"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 320 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"
+          />
+        </svg>
+      </button>
+      <button
+        class="down reset-button"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 320 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          />
+        </svg>
+      </button>
+    </div>
+  </main>
+</div>
+`;

@@ -15,6 +15,10 @@
     "test:watch": "npm run test -- --watch"
   },
   "jest": {
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest",
+      "^.+\\.svg$": "<rootDir>/svgTransform.js"
+    },
     "moduleNameMapper": {
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
     }
