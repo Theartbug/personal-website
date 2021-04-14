@@ -1,4 +1,7 @@
 {
+  "include": [
+    "./jest-setup.ts"
+  ],
   "compilerOptions": {
     "declaration": true,
     "jsx": "react",

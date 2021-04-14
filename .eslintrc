@@ -17,7 +17,8 @@
   },
   "plugins": [
     "babel",
-    "react-hooks"
+    "react-hooks",
+    "jest-dom"
   ],
   "extends": [
     "eslint:recommended",
@@ -34,9 +35,9 @@
     "comma-spacing": "error",
     "space-before-function-paren": ["error", "never"],
     "keyword-spacing": [
-      "error", 
-      { 
-        "before": true, 
+      "error",
+      {
+        "before": true,
         "after": true,
         "overrides": {
           "if": { "after": false },
@@ -45,7 +46,7 @@
           "do": { "after": false },
           "catch": { "after": false },
           "switch": { "after": false }
-        } 
+        }
       }
     ],
     "array-bracket-spacing": "error",
