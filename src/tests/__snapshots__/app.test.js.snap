@@ -19,11 +19,11 @@ exports[`Whole App Tests renders whole page 1`] = `
       <picture>
         <source
           media="(min-width: 1000px)"
-          srcset="[object Object]"
+          srcset="some Image"
         />
         <img
           alt="photo of Ash"
-          srcset="[object Object]"
+          srcset="some Image"
         />
       </picture>
     </figure>
@@ -151,63 +151,63 @@ exports[`Whole App Tests renders whole page 1`] = `
             <img
               alt="react logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="redux logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="jest logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="react testing library logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="typescript logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="selenium logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="webpack logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="node logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
           <div>
             <img
               alt="firebase logo"
               class="logo"
-              src="[object Object]"
+              src="some Image"
             />
           </div>
         </div>
@@ -263,7 +263,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         >
           <img
             alt="marketo logo"
-            src="[object Object]"
+            src="some Image"
           />
           <div
             class="text"
@@ -285,7 +285,7 @@ exports[`Whole App Tests renders whole page 1`] = `
           <img
             alt="marketo logo"
             class="urate"
-            src="[object Object]"
+            src="some Image"
           />
           <div
             class="text"
@@ -312,7 +312,7 @@ exports[`Whole App Tests renders whole page 1`] = `
             <img
               alt="U-Rate logo"
               class="urate"
-              src="[object Object]"
+              src="some Image"
             />
           </a>
           <div
@@ -340,7 +340,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         >
           <img
             alt="Park Place screenshot"
-            src="[object Object]"
+            src="some Image"
           />
           <div
             class="text"
@@ -382,7 +382,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         >
           <img
             alt="Pokeflip screenshot"
-            src="[object Object]"
+            src="some Image"
           />
           <div
             class="text"
@@ -501,7 +501,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="7 Lakes Basin of Olympic National Forest"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -521,7 +521,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Some good city cat pets"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -541,7 +541,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Wet mushroom whilst hiking"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -561,7 +561,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Climbing at Smith Rock"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -581,7 +581,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Angels Rest after 2017 fire"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -601,7 +601,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Getting some good kitty pets"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -621,7 +621,7 @@ exports[`Whole App Tests renders whole page 1`] = `
                       <img
                         alt="Snowshoeing Elk Lake, Mt. Hood"
                         class="image-gallery-image"
-                        src="[object Object]"
+                        src="some Image"
                       />
                       <span
                         class="image-gallery-description"
@@ -733,7 +733,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         </div>
         <img
           alt="bug logo"
-          src="[object Object]"
+          src="some Image"
         />
       </div>
     </section>

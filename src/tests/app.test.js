@@ -2,15 +2,24 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
-import { AppContext } from '../components/app-context/AppContext';
+
+jest.mock('../services/githubApi/useGithubApi', () => ({
+  useGithubApi: () => ({ loading: true }),
+}));
 
 describe('Whole App Tests', () => {
   test('renders whole page', () => {
-      const { container } = render(
-        <AppContext>
-          <App/>
-        </AppContext>
-      );
+      const { getByRole, container } = render(<App/>);
       expect(container).toMatchSnapshot();
+
+      // Splash
+      expect(getByRole('heading', { level: 1 })).toHaveTextContent('This is Ash Provost');
+      expect(getByRole('img', { name: 'photo of Ash' })).toBeInTheDocument();
+
+      // BIO
+
+      expect()
+
+
   });
 });
