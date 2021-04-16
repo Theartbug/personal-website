@@ -11,6 +11,7 @@ const Github: React.FC = (): JSX.Element => {
 
   return (
     <section
+      role='region'
       ref={ ref }
       className={ GITHUB }
       id={ GITHUB }>

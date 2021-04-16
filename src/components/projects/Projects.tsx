@@ -14,6 +14,7 @@ const Projects: React.FC = (): JSX.Element => {
 
   return (
     <section
+      role='region'
       ref={ ref }
       className={ PROJECTS }
       id={ PROJECTS }>

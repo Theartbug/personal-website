@@ -1,10 +1,13 @@
 import React from 'react';
 import './copyright.css';
 
+const date = new Date().getFullYear();
+
 const Copyright: React.FC = (): JSX.Element => {
-  const date = new Date().getFullYear();
   return (
-    <section className="copyright" id="copyright">
+    <section
+    role='region'
+    className="copyright" id="copyright">
       <small>
         &copy; Ash Provost { date }
       </small>

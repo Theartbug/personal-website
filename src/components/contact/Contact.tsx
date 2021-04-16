@@ -12,6 +12,7 @@ const Contact: React.FC = (): JSX.Element => {
 
   return (
     <section
+      role='region'
       ref={ ref }
       className={ CONTACT }
       id={ CONTACT }>

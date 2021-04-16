@@ -9,16 +9,51 @@ jest.mock('../services/githubApi/useGithubApi', () => ({
 
 describe('Whole App Tests', () => {
   test('renders whole page', () => {
-      const { getByRole, container } = render(<App/>);
+      const { getAllByRole, getByRole, container } = render(<App/>);
       expect(container).toMatchSnapshot();
 
       // Splash
       expect(getByRole('heading', { level: 1 })).toHaveTextContent('This is Ash Provost');
       expect(getByRole('img', { name: 'photo of Ash' })).toBeInTheDocument();
 
-      // BIO
+      // SECTIONS ORDER
+      const sectionHeadings = [
+        'About',
+        'Skills',
+        'Stats',
+        'Projects',
+        'Gallery',
+        'Contact',
+        '© Ash Provost 2021',
+      ];
+      const sections = getAllByRole('region');
+      expect(sections).toHaveLength(7);
+      sections.forEach((section, i) => {
+        expect(section).toHaveTextContent(sectionHeadings[i]);
+      });
 
-      expect()
+      // BIO
+      // const bioSection = getByRole('region', { name: 'About' });
+      // expect(getByRole('heading', { name: 'About' })).toBeInTheDocument();
+
+
+      // const iconTitles = [
+      //   'bike-icon',
+      //   'book-icon',
+      //   'plant-icon',
+      //   'code-icon',
+      // ];
+      // const bioIcons = getAllByRole('graphics-document');
+
+      // bioIcons.forEach((icon, i) => {
+      //   expect(icon).toHaveTextContent(iconTitles[i]);
+      // });
+
+      // expect(getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
+      // expect(getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
+      // expect(getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
+      // expect(getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
+      // expect(getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
 
 
   });
