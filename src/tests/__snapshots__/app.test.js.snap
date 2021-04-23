@@ -28,6 +28,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </picture>
     </figure>
     <section
+      aria-label="bio"
       class="bio"
       id="bio"
       role="region"
@@ -149,6 +150,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="skills"
       class="skills"
       id="skills"
       role="region"
@@ -232,6 +234,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="github"
       class="github"
       id="github"
       role="region"
@@ -268,6 +271,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="projects"
       class="projects"
       id="projects"
       role="region"
@@ -442,6 +446,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="gallery"
       class="gallery"
       id="gallery"
       role="region"
@@ -679,6 +684,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="contact"
       class="contact"
       id="contact"
       role="region"
@@ -760,6 +766,7 @@ exports[`Whole App Tests renders whole page 1`] = `
       </div>
     </section>
     <section
+      aria-label="copyright"
       class="copyright"
       id="copyright"
       role="region"

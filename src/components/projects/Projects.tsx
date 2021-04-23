@@ -15,6 +15,7 @@ const Projects: React.FC = (): JSX.Element => {
   return (
     <section
       role='region'
+      aria-label={ PROJECTS }
       ref={ ref }
       className={ PROJECTS }
       id={ PROJECTS }>

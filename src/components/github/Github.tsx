@@ -12,6 +12,7 @@ const Github: React.FC = (): JSX.Element => {
   return (
     <section
       role='region'
+      aria-label={ GITHUB }
       ref={ ref }
       className={ GITHUB }
       id={ GITHUB }>

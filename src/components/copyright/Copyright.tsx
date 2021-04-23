@@ -7,7 +7,8 @@ const Copyright: React.FC = (): JSX.Element => {
   return (
     <section
     role='region'
-    className="copyright" id="copyright">
+    aria-label='copyright'
+    className='copyright' id='copyright'>
       <small>
         &copy; Ash Provost { date }
       </small>

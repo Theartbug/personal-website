@@ -13,6 +13,7 @@ const Bio: React.FC = (): JSX.Element => {
   return (
     <section
       role='region'
+      aria-label={ BIO }
       ref={ ref }
       className={ BIO }
       id={ BIO }>

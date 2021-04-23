@@ -13,6 +13,7 @@ const Contact: React.FC = (): JSX.Element => {
   return (
     <section
       role='region'
+      aria-label={ CONTACT }
       ref={ ref }
       className={ CONTACT }
       id={ CONTACT }>

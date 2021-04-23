@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
+import { BIO } from '../components/app-context/actions';
 
 jest.mock('../services/githubApi/useGithubApi', () => ({
   useGithubApi: () => ({ loading: true }),
@@ -33,21 +34,22 @@ describe('Whole App Tests', () => {
       });
 
       // BIO
-      // const bioSection = getByRole('region', { name: 'About' });
-      // expect(getByRole('heading', { name: 'About' })).toBeInTheDocument();
+      const bioSection = within(getByRole('region', { name: BIO }));
+      expect(bioSection.getByRole('heading', { name: 'About' })).toBeInTheDocument();
 
+      const iconTitles = [
+        'bike-icon',
+        'book-icon',
+        'plant-icon',
+        'code-icon',
+      ];
+      const bioIcons = bioSection.getAllByRole('graphics-document');
 
-      // const iconTitles = [
-      //   'bike-icon',
-      //   'book-icon',
-      //   'plant-icon',
-      //   'code-icon',
-      // ];
-      // const bioIcons = getAllByRole('graphics-document');
-
-      // bioIcons.forEach((icon, i) => {
-      //   expect(icon).toHaveTextContent(iconTitles[i]);
-      // });
+      expect(bioIcons).toHaveLength(4);
+      bioIcons.forEach((icon, i) => {
+        expect(icon).toHaveTextContent(iconTitles[i]);
+        expect(icon.parentElement.querySelector('p')).toBeInTheDocument();
+      });
 
       // expect(getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
       // expect(getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
