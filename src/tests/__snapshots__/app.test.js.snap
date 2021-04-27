@@ -254,7 +254,9 @@ exports[`Whole App Tests renders whole page 1`] = `
           <div
             class="css-h1dnw9"
           />
-          <small>
+          <small
+            role="presentation"
+          >
             Fetching data...
           </small>
         </div>
@@ -265,7 +267,9 @@ exports[`Whole App Tests renders whole page 1`] = `
         <ul
           class="libraries"
         />
-        <small>
+        <small
+          role="presentation"
+        >
           *Powered by Github API
         </small>
       </div>
@@ -284,9 +288,10 @@ exports[`Whole App Tests renders whole page 1`] = `
         </h2>
         <div
           class="app"
+          role="group"
         >
           <img
-            alt="marketo logo"
+            alt="personal website"
             src="some Image"
           />
           <div
@@ -305,6 +310,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         </div>
         <div
           class="app"
+          role="group"
         >
           <img
             alt="marketo logo"
@@ -327,6 +333,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         </div>
         <div
           class="app"
+          role="group"
         >
           <a
             href="https://itunes.apple.com/us/app/ugyde/id1450573145?mt=8"
@@ -361,6 +368,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         </div>
         <div
           class="app"
+          role="group"
         >
           <img
             alt="Park Place screenshot"
@@ -403,6 +411,7 @@ exports[`Whole App Tests renders whole page 1`] = `
         </div>
         <div
           class="app"
+          role="group"
         >
           <img
             alt="Pokeflip screenshot"

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, within } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
-import { BIO, SKILLS } from '../components/app-context/actions';
+import { BIO, SKILLS, GITHUB, PROJECTS } from '../components/app-context/actions';
 
 jest.mock('../services/githubApi/useGithubApi', () => ({
   useGithubApi: () => ({ loading: true }),
@@ -72,8 +72,46 @@ describe('Whole App Tests', () => {
       skillImgs.forEach((skill, i) => {
         expect(skill).toHaveAttribute('alt', expect.stringContaining(skills[i]));
       });
-      // expect(getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
-      // expect(getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
+
+      // GITHUB
+      const githubSection = within(getByRole('region', { name: GITHUB }));
+
+      expect(githubSection.getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
+      const smalls = [
+        'Fetching data...',
+        '*Powered by Github API',
+      ]
+      const smallTexts = githubSection.getAllByRole('presentation');
+      expect(smallTexts).toHaveLength(2);
+      smallTexts.forEach((small, i) => {
+        expect(small).toHaveTextContent(smalls[i]);
+      });
+
+      // PROJECTS
+      const projectSection = within(getByRole('region', { name: PROJECTS }));
+
+      expect(projectSection.getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
+      const projectNames = [
+        'Personal Website',
+        'Adobe',
+        'U-Gyde',
+        'ParkPlace',
+        'PokeFlip',
+      ];
+      const projectImgs = [
+        'personal website',
+        'marketo logo',
+        'U-Rate logo',
+        'Park Place screenshot',
+        'Pokeflip screenshot',
+      ]
+      const projects = projectSection.getAllByRole('group');
+      expect(projects).toHaveLength(5);
+      projects.forEach((project, i) => {
+        expect(within(project).getByRole('img')).toHaveAttribute('alt', projectImgs[i]);
+        expect(within(project).getByRole('heading', { level: 3 })).toHaveTextContent(projectNames[i]);
+      });
+
       // expect(getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
       // expect(getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
 
