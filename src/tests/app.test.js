@@ -2,7 +2,7 @@ import React from 'react';
 import { render, within } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
-import { BIO } from '../components/app-context/actions';
+import { BIO, SKILLS } from '../components/app-context/actions';
 
 jest.mock('../services/githubApi/useGithubApi', () => ({
   useGithubApi: () => ({ loading: true }),
@@ -51,7 +51,27 @@ describe('Whole App Tests', () => {
         expect(icon.parentElement.querySelector('p')).toBeInTheDocument();
       });
 
-      // expect(getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
+      // SKILLS
+      const skillsSection = within(getByRole('region', { name: SKILLS }));
+
+      expect(skillsSection.getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
+      const skills = [
+        'react',
+        'redux',
+        'jest',
+        'react testing library',
+        'typescript',
+        'selenium',
+        'webpack',
+        'node',
+        'firebase',
+      ];
+      const skillImgs = skillsSection.getAllByRole('img');
+
+      expect(skillImgs).toHaveLength(9);
+      skillImgs.forEach((skill, i) => {
+        expect(skill).toHaveAttribute('alt', expect.stringContaining(skills[i]));
+      });
       // expect(getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
       // expect(getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
       // expect(getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
