@@ -2,7 +2,7 @@ import React from 'react';
 import { render, within } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
-import { BIO, SKILLS, GITHUB, PROJECTS } from '../components/app-context/actions';
+import { BIO, SKILLS, GITHUB, PROJECTS, GALLERY } from '../components/app-context/actions';
 
 jest.mock('../services/githubApi/useGithubApi', () => ({
   useGithubApi: () => ({ loading: true }),
@@ -112,7 +112,27 @@ describe('Whole App Tests', () => {
         expect(within(project).getByRole('heading', { level: 3 })).toHaveTextContent(projectNames[i]);
       });
 
-      // expect(getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
+      // GALLERY
+      const gallerySection = within(getByRole('region', { name: GALLERY }));
+
+      expect(gallerySection.getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
+      expect(gallerySection.getByRole('heading', { name: 'Gallery' }).nextElementSibling).toHaveTextContent('Snaps from my life');
+      const lifeSnapsAlts = [
+        '7 Lakes Basin of Olympic National Forest',
+        'Some good city cat pets',
+        'Wet mushroom whilst hiking',
+        'Climbing at Smith Rock',
+        'Angels Rest after 2017 fire',
+        'Getting some good kitty pets',
+        'Snowshoeing Elk Lake, Mt. Hood'
+      ];
+      const snaps = gallerySection.getAllByRole('img');
+      expect(snaps).toHaveLength(7);
+      snaps.forEach((snap, i) => {
+        expect(snap).toHaveAttribute('alt', lifeSnapsAlts[i]);
+        expect(snap.nextElementSibling).toHaveTextContent(lifeSnapsAlts[i]);
+      });
+
       // expect(getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
 
 
