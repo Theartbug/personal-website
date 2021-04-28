@@ -2,7 +2,7 @@ import React from 'react';
 import { render, within } from '@testing-library/react';
 import './mocks/intersectionObserver';
 import App from '../components/app/App';
-import { BIO, SKILLS, GITHUB, PROJECTS, GALLERY } from '../components/app-context/actions';
+import { BIO, SKILLS, GITHUB, PROJECTS, GALLERY, CONTACT } from '../components/app-context/actions';
 
 jest.mock('../services/githubApi/useGithubApi', () => ({
   useGithubApi: () => ({ loading: true }),
@@ -133,8 +133,30 @@ describe('Whole App Tests', () => {
         expect(snap.nextElementSibling).toHaveTextContent(lifeSnapsAlts[i]);
       });
 
-      // expect(getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
+      // CONTACT
+      const contactSection = within(getByRole('region', { name: CONTACT }));
 
+      expect(contactSection.getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
+      expect(contactSection.getByRole('img')).toHaveAttribute('alt', 'bug logo');
+      const icons = [
+        'mail',
+        'github',
+        'linkedin',
+      ];
+      const hrefs = [
+        'mailto:ash.g.provost@gmail.com',
+        'https://github.com/Theartbug',
+        'https://www.linkedin.com/in/ashprovost',
+      ];
+      const links = contactSection.getAllByRole('link');
+      expect(links).toHaveLength(3);
+      links.forEach((link, i) => {
+        expect(link).toHaveAttribute('href', hrefs[i]);
+        expect(link).toHaveTextContent(icons[i]);
+      });
 
+      // BUTTONS
+      expect(getByRole('button', { name: 'up-button' })).toBeInTheDocument();
+      expect(getByRole('button', { name: 'down-button' })).toBeInTheDocument();
   });
 });

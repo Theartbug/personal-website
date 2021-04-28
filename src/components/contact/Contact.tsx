@@ -18,19 +18,19 @@ const Contact: React.FC = (): JSX.Element => {
       className={ CONTACT }
       id={ CONTACT }>
       <div>
-        <h2 className="lines">Contact</h2>
-        <div className="icons">
-          <a className="icon" href="mailto:ash.g.provost@gmail.com" target="_blank" rel="noopener noreferrer">
-            <MailIcon/>
+        <h2 className='lines'>Contact</h2>
+        <div className='icons'>
+          <a className='icon' href='mailto:ash.g.provost@gmail.com' target='_blank' rel='noopener noreferrer'>
+            <MailIcon role='graphics-document' title='mail-icon'/>
           </a>
-          <a className="icon" href="https://github.com/Theartbug" target="_blank" rel="noopener noreferrer">
-            <GithubIcon/>
+          <a className='icon' href='https://github.com/Theartbug' target='_blank' rel='noopener noreferrer'>
+            <GithubIcon role='graphics-document' title='github-icon'/>
           </a>
-          <a className="icon" href="https://www.linkedin.com/in/ashprovost/" target="_blank" rel="noopener noreferrer">
-            <LinkedInIcon/>
+          <a className='icon' href='https://www.linkedin.com/in/ashprovost' target='_blank' rel='noopener noreferrer'>
+            <LinkedInIcon role='graphics-document' title='linkedin-icon'/>
           </a>
         </div>
-        <img src={buglogo} alt="bug logo"/>
+        <img src={ buglogo } alt='bug logo'/>
       </div>
     </section>
   );
