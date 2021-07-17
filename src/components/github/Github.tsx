@@ -11,6 +11,8 @@ const Github: React.FC = (): JSX.Element => {
 
   return (
     <section
+      role='region'
+      aria-label={ GITHUB }
       ref={ ref }
       className={ GITHUB }
       id={ GITHUB }>
@@ -20,12 +22,12 @@ const Github: React.FC = (): JSX.Element => {
         {loading &&
           <div className='loader'>
             <ClipLoader loading={loading} color={'#d40b0b'} />
-            <small>Fetching data...</small>
+            <small role='presentation'>Fetching data...</small>
           </div>
         }
         {error &&
           <div className='loader'>
-            <small>Something went wrong...</small>
+            <small role='presentation'>Something went wrong...</small>
           </div>
         }
         <ul className="languages">
@@ -35,7 +37,7 @@ const Github: React.FC = (): JSX.Element => {
         <ul className="libraries">
           {libraries && Object.keys(libraries).map((l, i) => <li key={i}><h3>{l}</h3><span>{libraries[l]}</span></li>)}
         </ul>
-        <small>*Powered by Github API</small>
+        <small role='presentation'>*Powered by Github API</small>
       </div>
     </section>
   );

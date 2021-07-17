@@ -10,6 +10,8 @@ const Gallery: React.FC = (): JSX.Element => {
 
   return (
     <section
+    role='region'
+    aria-label={ GALLERY }
     ref={ ref }
     className={ GALLERY }
     id={ GALLERY }>

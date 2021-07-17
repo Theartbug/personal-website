@@ -34,14 +34,16 @@ const ScrollButtons: React.FC = (): JSX.Element => {
   }
 
   return (
-    <div className="scroll-buttons">
+    <div className='scroll-buttons'>
       <button
-        className="up reset-button"
+        aria-label='up-button'
+        className='up reset-button'
         onClick={ handleUpClick }>
         <UpAngleIcon/>
       </button>
       <button
-        className="down reset-button"
+        aria-label='down-button'
+        className='down reset-button'
         onClick={ handleDownClick }>
         <DownAngleIcon/>
       </button>

@@ -9,6 +9,8 @@ const Skills: React.FC = (): JSX.Element => {
 
   return (
     <section
+      role='region'
+      aria-label={ SKILLS }
       ref={ ref }
       className={ SKILLS }
       id={ SKILLS }>
@@ -26,7 +28,7 @@ const Skills: React.FC = (): JSX.Element => {
             })
           }
         </div>
-        
+
       </div>
     </section>
   );
