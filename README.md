@@ -9,13 +9,13 @@ Use:
   - React
   - Redux
   - Webpack
+  - React Testing Library
   - Netlify for hosting
   - CSS with pre / post processors
   - Intersection observer API
   - Github API
   - Responsive image loading
   - Mobile first / responsive design
-  - Jest to test
 
 Steps Taken
 ===
