@@ -12,7 +12,6 @@ export const GALLERY = 'gallery';
 export type appAreaIds = typeof HERO
   | typeof BIO
   | typeof SKILLS
-  | typeof GITHUB
   | typeof PROJECTS
   | typeof GALLERY
   | typeof CONTACT;
@@ -21,13 +20,12 @@ type orderedList = [
   typeof HERO,
   typeof BIO,
   typeof SKILLS,
-  typeof GITHUB,
   typeof PROJECTS,
   typeof GALLERY,
   typeof CONTACT,
 ];
 
-const list: orderedList = [HERO, BIO, SKILLS, GITHUB, PROJECTS, GALLERY, CONTACT];
+const list: orderedList = [HERO, BIO, SKILLS, PROJECTS, GALLERY, CONTACT];
 
 const scrollTo = (id: appAreaIds): void => {
   if(!id) return;

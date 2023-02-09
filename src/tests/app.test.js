@@ -22,14 +22,13 @@ describe('Whole App Tests', () => {
     const sectionHeadings = [
       'About',
       'Skills',
-      'Stats',
       'Projects',
       'Gallery',
       'Contact',
-      '© Ash Provost 2021',
+      '© Ash Provost 2023',
     ];
     const sections = getAllByRole('region');
-    expect(sections).toHaveLength(7);
+    expect(sections).toHaveLength(6);
     sections.forEach((section, i) => {
       expect(section).toHaveTextContent(sectionHeadings[i]);
     });
@@ -42,11 +41,12 @@ describe('Whole App Tests', () => {
       'bike-icon',
       'book-icon',
       'plant-icon',
+      'cat-icon',
       'code-icon',
     ];
     const bioIcons = bioSection.getAllByRole('graphics-document');
 
-    expect(bioIcons).toHaveLength(4);
+    expect(bioIcons).toHaveLength(5);
     bioIcons.forEach((icon, i) => {
       expect(icon).toHaveTextContent(iconTitles[i]);
       expect(icon.parentElement.querySelector('p')).toBeInTheDocument();
@@ -62,52 +62,47 @@ describe('Whole App Tests', () => {
       'jest',
       'react testing library',
       'typescript',
-      'selenium',
-      'webpack',
-      'node',
-      'firebase',
+      'docker'
     ];
     const skillImgs = skillsSection.getAllByRole('img');
 
-    expect(skillImgs).toHaveLength(9);
+    expect(skillImgs).toHaveLength(skills.length);
     skillImgs.forEach((skill, i) => {
       expect(skill).toHaveAttribute('alt', expect.stringContaining(skills[i]));
     });
 
     // GITHUB
-    const githubSection = within(getByRole('region', { name: GITHUB }));
+    // const githubSection = within(getByRole('region', { name: GITHUB }));
 
-    expect(githubSection.getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
-    const smalls = [
-      'Fetching data...',
-      '*Powered by Github API',
-    ]
-    const smallTexts = githubSection.getAllByRole('presentation');
-    expect(smallTexts).toHaveLength(2);
-    smallTexts.forEach((small, i) => {
-      expect(small).toHaveTextContent(smalls[i]);
-    });
+    // expect(githubSection.getByRole('heading', { name: 'App Stats' })).toBeInTheDocument();
+    // const smalls = [
+    //   'Fetching data...',
+    //   '*Powered by Github API',
+    // ]
+    // const smallTexts = githubSection.getAllByRole('presentation');
+    // expect(smallTexts).toHaveLength(2);
+    // smallTexts.forEach((small, i) => {
+    //   expect(small).toHaveTextContent(smalls[i]);
+    // });
 
     // PROJECTS
     const projectSection = within(getByRole('region', { name: PROJECTS }));
 
     expect(projectSection.getByRole('heading', { name: 'Projects' })).toBeInTheDocument();
     const projectNames = [
+      'Zoom',
       'Personal Website',
       'Adobe',
       'U-Gyde',
-      'ParkPlace',
-      'PokeFlip',
     ];
     const projectImgs = [
+      'Zoom logo',
       'personal website',
-      'marketo logo',
+      'Adobe logo',
       'U-Rate logo',
-      'Park Place screenshot',
-      'Pokeflip screenshot',
     ]
     const projects = projectSection.getAllByRole('group');
-    expect(projects).toHaveLength(5);
+    expect(projects).toHaveLength(projectNames.length);
     projects.forEach((project, i) => {
       expect(within(project).getByRole('img')).toHaveAttribute('alt', projectImgs[i]);
       expect(within(project).getByRole('heading', { level: 3 })).toHaveTextContent(projectNames[i]);
@@ -162,7 +157,7 @@ describe('Whole App Tests', () => {
   });
 });
 
-describe('Github data tests', () => {
+describe.skip('Github data tests', () => {
   test('renders github with error', () => {
     useGithubApi.mockImplementation(() => ({ error: true }));
     const { getByRole } = render(<App/>);
