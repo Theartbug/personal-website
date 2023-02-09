@@ -1,5 +1,4 @@
 import React from 'react';
-import Github from '../github/Github';
 import Hero from '../hero/Hero';
 import Bio from '../bio/Bio';
 import Skills from '../skills/Skills';
@@ -15,7 +14,6 @@ const App: React.FC = (): JSX.Element => (
     <Hero/>
     <Bio/>
     <Skills/>
-    <Github/>
     <Projects/>
     <Gallery/>
     <Contact/>

@@ -1,12 +1,10 @@
-import firebase from './firebase.png';
-import node from './node.png';
+
 import react from './react.png';
 import redux from './redux.png';
-import webpack from './webpack.png';
 import jest from './jest.png';
 import rtl from './RTL.png';
 import ts from './TS.png';
-import selenium from './selenium.png';
+import docker from './docker.png';
 
 type Skill = {
   src: string,
@@ -35,19 +33,7 @@ export const skills: Skill[] = [
     alt: 'typescript logo',
   },
   {
-    src: selenium,
-    alt: 'selenium logo',
-  },
-  {
-    src: webpack,
-    alt: 'webpack logo',
-  },
-  {
-    src: node,
-    alt: 'node logo',
-  },
-  {
-    src: firebase,
-    alt: 'firebase logo',
+    src: docker,
+    alt: 'docker logo',
   },
 ];
