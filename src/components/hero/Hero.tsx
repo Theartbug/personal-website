@@ -15,7 +15,7 @@ const Hero: React.FC = (): JSX.Element => {
       id={ HERO }>
       <h1><span>This is</span> Ash Provost</h1>
       <picture>
-        <source srcSet={laptopImage} media="(min-width: 1000px)"/>
+        <source srcSet={laptopImage} media="(min-width: 800px)"/>
         <img srcSet={mobileImage} alt="photo of Ash"/>
       </picture>
     </figure>

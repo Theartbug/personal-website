@@ -13,6 +13,10 @@ type Skill = {
 
 export const skills: Skill[] = [
   {
+    src: ts,
+    alt: 'typescript logo',
+  },
+  {
     src: react,
     alt: 'react logo',
   },
@@ -27,10 +31,6 @@ export const skills: Skill[] = [
   {
     src: rtl,
     alt: 'react testing library logo',
-  },
-  {
-    src: ts,
-    alt: 'typescript logo',
   },
   {
     src: docker,

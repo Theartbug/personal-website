@@ -4,7 +4,6 @@ import { CONTACT } from '../app-context/actions';
 import { FaEnvelope as MailIcon } from 'react-icons/fa';
 import { FaLinkedin as LinkedInIcon } from 'react-icons/fa';
 import { FaGithubSquare as GithubIcon } from 'react-icons/fa';
-import buglogo from '../../assets/buglogo.svg';
 import './contact.css';
 
 const Contact: React.FC = (): JSX.Element => {
@@ -30,7 +29,6 @@ const Contact: React.FC = (): JSX.Element => {
             <LinkedInIcon role='graphics-document' title='linkedin-icon'/>
           </a>
         </div>
-        <img src={ buglogo } alt='bug logo'/>
       </div>
     </section>
   );
