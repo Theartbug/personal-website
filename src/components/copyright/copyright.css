@@ -7,5 +7,11 @@
   small {
     text-align: center;
     display: block;
+
+    img {
+      width: 15px;
+      display: inline-block;
+      margin-left: 5px;
+    }
   }
 }

@@ -23,23 +23,23 @@ const Bio: React.FC = (): JSX.Element => {
         <div className="grid">
           <div>
             <BikeIcon role='graphics-document' title='bike-icon'/>
-            <p>They are <span>Active</span> and enjoy biking around town, rock climbing, dancing, hiking, camping, and urban walks around Portland, OR.</p>
+            <p>They are <span>Active</span> and enjoy biking, rock climbing, dancing, hiking, camping, and urban walks around Portland, OR.</p>
           </div>
           <div>
             <BookIcon role='graphics-document' title='book-icon' />
-            <p>They are <span>Curious</span> and perpetually reading, diving inward in self-discovery and self-improvement, and never failing to ask questions.</p>
+            <p>They are <span>Curious</span> and perpetually reading - diving inward in self-discovery and self-improvement - and never failing to ask questions.</p>
           </div>
           <div>
             <PlantIcon role='graphics-document' title='plant-icon' />
-            <p>They are <span>Creative</span> and enjoy crafting, journaling, meditation, and cultivating many houseplants.</p>
+            <p>They are <span>Creative</span> and enjoy crafting, journaling, reflection, meditation, and cultivating their home.</p>
           </div>
           <div>
             <CatIcon role='graphics-document' title='cat-icon' />
-            <p>They have an adorable <span>cat named Churro</span> who brings them lots of joy and play as they work remotely.</p>
+            <p>They have an adorable feline companion named  <span>Churro</span> who brings them joy and play as they work remotely.</p>
           </div>
           <div>
             <CodeIcon role='graphics-document' title='code-icon' />
-            <p>They are currently a <span>software engineer</span> at Zoom. They enjoy their work and have deep satisfaction in platform development and rapidly building apps.</p>
+            <p>They are currently a <span>software engineer</span> at Zoom. They enjoy their work in platform development and rapidly building utility apps.</p>
           </div>
         </div>
       </div>
