@@ -1,10 +1,9 @@
-import basinHike from './lakes_basin.jpg';
-import catStretch from './city_cat_pets_stretches.jpg';
-import catPets from './city_cat_pets.jpg';
-import mushroom from './mushroom_hike.jpg';
-import angelsRest from './rainy_hike.jpg';
-import smithRock from './smith_rock_climbing.jpg';
-import snowshoeing from './snowshoeing.jpg';
+import climbing from './climbing.jpg';
+import ecstaticDance from './ecstatic_dance.jpg';
+import journalingCat from './journaling_cat.jpg';
+import ladderHike from './ladder_hike.jpg';
+import sedonaHike from './sedona_hike.jpg';
+import treeThrone from './tree_throne.jpg';
 
 type Image = {
   original: string;
@@ -14,41 +13,36 @@ type Image = {
 
 export const images: Image[] = [
   {
-    original: basinHike,
-    originalAlt: '7 Lakes Basin of Olympic National Forest',
-    description: '7 Lakes Basin of Olympic National Forest',
-  },
-  {
-    original: catStretch,
-    originalAlt: 'Some good city cat pets',
-    description: 'Some good city cat pets',
+    original: climbing,
+    originalAlt: 'climbing around Mt.Hood, OR',
+    description: 'climbing around Mt.Hood, OR',
 
   },
   {
-    original: mushroom,
-    originalAlt: 'Wet mushroom whilst hiking',
-    description: 'Wet mushroom whilst hiking',
+    original: ecstaticDance,
+    originalAlt: 'Ecstaticly dancing in a park',
+    description: 'Ecstaticly dancing in a park',
 
   },
   {
-    original: smithRock,
-    originalAlt: 'Climbing at Smith Rock',
-    description: 'Climbing at Smith Rock',
+    original: journalingCat,
+    originalAlt: 'Journaling with a feline friend',
+    description: 'Journaling with a feline friend',
 
   },
   {
-    original: angelsRest,
-    originalAlt: 'Angels Rest after 2017 fire',
-    description: 'Angels Rest after 2017 fire',
+    original: ladderHike,
+    originalAlt: 'Hiking Lava Canyon Mt. St. Helens',
+    description: 'Hiking Lava Canyon Mt. St. Helens',
   },
   {
-    original: catPets,
-    originalAlt: 'Getting some good kitty pets',
-    description: 'Getting some good kitty pets',
+    original: sedonaHike,
+    originalAlt: 'Hiking the Cathedral Rock in Sedona, AZ',
+    description: 'Hiking the Cathedral Rock in Sedona, AZ',
   },
   {
-    original: snowshoeing,
-    originalAlt: 'Snowshoeing Elk Lake, Mt. Hood',
-    description: 'Snowshoeing Elk Lake, Mt. Hood',
+    original: treeThrone,
+    originalAlt: 'Relaxing on a throne of the forest',
+    description: 'Relaxing on a throne of the forest',
   },
 ];

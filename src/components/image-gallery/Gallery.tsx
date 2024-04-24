@@ -21,6 +21,7 @@ const Gallery: React.FC = (): JSX.Element => {
         <ImageGallery
           showThumbnails={ false }
           showPlayButton={ false }
+          showBullets
           autoPlay={ true }
           slideDuration={ 1000 }
           slideInterval={ 5000 }

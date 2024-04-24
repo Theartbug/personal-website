@@ -24,7 +24,7 @@ const Projects: React.FC = (): JSX.Element => {
           <img src={zoomLogo} alt='Zoom logo'/>
           <div className='text'>
             <h3>Zoom</h3>
-            <h4>Typescript, React, Redux Tool Kit, React hooks, React Context, Docker, platform SDK development</h4>
+            <h4>Typescript, React, React query, Redux Tool Kit, Express, Docker, platform SDK development</h4>
             <p>Zoom Apps team: develop multiple Built-By-Zoom apps and manage the Zoom Apps SDK platform.</p>
           </div>
         </div>
@@ -33,7 +33,7 @@ const Projects: React.FC = (): JSX.Element => {
           <img src={websiteImage} alt='personal website'/>
           <div className='text'>
             <h3>Personal Website</h3>
-            <h4>Typescript, React, React-hooks, React Context, Jest, Enzyme, CSS, Webpack</h4>
+            <h4>Typescript, React, React Context, CSS, Webpack</h4>
             <p>This website! Hand-rolled by me; a playground for testing new tech.</p>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Projects: React.FC = (): JSX.Element => {
           <div className='text'>
             <h3>Adobe</h3>
             <h4>React, Redux, Jest, React Testing Library, CSS, Webpack, Docker, Selenium Web Driver, Node.js, Websockets</h4>
-            <p>A marketing automation platform. Worked on a project to re-skin the UI in Portland, OR.</p>
+            <p>A marketing automation platform (Marketo). Updated the UI and project tech in Portland, OR.</p>
           </div>
         </div>
 
